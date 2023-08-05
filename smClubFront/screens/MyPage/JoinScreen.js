@@ -1,11 +1,14 @@
 // 회원가입
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
+
+// ------------styles
+import styles from '../../components/Style';
 
 const JoinScreen = () => {
     return (
-        <View>
-
+        <View style={styles.container}>
+            <Text>dddddd</Text>
         </View>
     );
 };
