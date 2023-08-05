@@ -61,16 +61,13 @@ const MyPageStackNavigator = ({ navigation, route }) => {
         if (routeName === 'MyPageScreen') {
             navigation.setOptions({ tabBarStyle: { display: undefined } });
         } else {
-            navigation.setOptions({ tabBarStyle: { display: 'none' } });
+            navigation.setOptions({ tabBarStyle: { display: 'none' } }, { screenOptions: { headerShown: false } });
         }
     }, [navigation, route]);
     return (
-        <Stack.Navigator
-            initialRouteName='LoginScreen'
-            screenOptions={{ headerShown: false }}
-        >
+        <Stack.Navigator initialRouteName='LoginScreen'>
             <Stack.Screen name="JoinScreen" component={JoinScreen} />
-            <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ tabBarStyle: { display: 'none' } }} />
+            <Stack.Screen name="LoginScreen" component={LoginScreen} />
             <Stack.Screen name="MyPageScreen" component={MyPageScreen} />
         </Stack.Navigator>
     );
