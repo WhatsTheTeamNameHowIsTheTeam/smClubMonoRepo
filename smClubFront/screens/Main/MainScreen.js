@@ -13,19 +13,35 @@ import styles from '../../components/Style';
 
 const reqestData = async() => {
     console.log("요청을 보냅니다")
-    const text1 = "DTO"
+    const object ={
+        studentId :"2017225002",
+        userName:"신정환",
+        userId:"loginshin",
+        userPw:"4865",
+        img:"https://loginshin.tistory.com/manage/setting/blog",
+        major:"computer",
+        phoneNumber:"01040510673",
+        email:"shinwjdghks@gmail.com",
+        userAuthor:"srv001",
+        notification:true,
+        userAgree:true,
+        userAgreeDate:"2023-08-06",
+        createDate:"2023-07-07",
+        updateDate:"2023-08-03"
+    }
+
     
         await axios({
-            method: "get",
-            // url: "http://localhost:8080/test",
+            method: "post",
             url: "http://192.168.0.49:8080/test",
             header: {
-                "content-type":"multipart/form-data",
+                "content-type":"application/json",
             },
-            data:text1
+            data:object
         })
+        // 받오는 데이터
         .then((res)=>{
-            url = res.data;
+            console.log("res data를 받았습니다",res.data);
         })
         .catch((err)=>{
             console.log("데이터를 보내는데 실패했습니다")

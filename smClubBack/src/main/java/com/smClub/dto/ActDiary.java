@@ -10,7 +10,6 @@ import lombok.Setter;
 @Data
 public class ActDiary {
     private String actDiaryId;
-    private Club club;
     private UserInfo writer;
     private String subject;
     private String content;

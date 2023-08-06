@@ -13,7 +13,7 @@ public class SmClubApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SmClubApplication.class, args);
-        System.out.print("프로젝트 백엔드 실행");
+        System.out.print("프로젝트 백엔드 실행, init SpringApplication");
     }
     
 }

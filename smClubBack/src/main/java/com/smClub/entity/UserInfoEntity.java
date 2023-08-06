@@ -2,18 +2,20 @@
 package com.smClub.entity;
 
 
+import com.smClub.dto.UserInfo;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @Table(name = "MBER_INFO")
 @Getter
-@Setter
+@Builder
+@AllArgsConstructor
 public class UserInfoEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="STDNT_INNB", length = 100)
     private String studentId;
 
@@ -39,7 +41,7 @@ public class UserInfoEntity {
     private String email;
 
     @Column(name = "SRVMNGH")
-    private int userAuthor;
+    private String userAuthor;
 
     @Column(name = "NTCN_ESTBS")
     private boolean notification;
@@ -55,5 +57,29 @@ public class UserInfoEntity {
 
     @Column(name = "UPDT_DT")
     private String updateDate;
+
+    public UserInfoEntity() {
+
+    }
+
+    //dto로 감싸진 data를 Entity로 빌드
+    public static UserInfoEntity toEntity(UserInfo studentObj){
+        return UserInfoEntity.builder()
+                .studentId(studentObj.getStudentId())
+                .userName(studentObj.getUserName())
+                .userId(studentObj.getUserId())
+                .userPw(studentObj.getUserPw())
+                .img(studentObj.getImg())
+                .major(studentObj.getMajor())
+                .phoneNumber(studentObj.getPhoneNumber())
+                .email(studentObj.getEmail())
+                .userAuthor(studentObj.getUserAuthor())
+                .notification(studentObj.isNotification())
+                .userAgree(studentObj.isUserAgree())
+                .userAgreeDate(studentObj.getUserAgreeDate())
+                .createDate(studentObj.getCreateDate())
+                .updateDate(studentObj.getUpdateDate())
+                .build();
+    }
 
 }
