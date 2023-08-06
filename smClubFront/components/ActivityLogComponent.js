@@ -1,13 +1,23 @@
 // 하나의 활동 일지 컴포넌트
 import React from 'react';
-import {View}from 'react-native';
+import {
+    View, Text, TouchableOpacity,
+    Image,
+}
+from 'react-native';
+import styles from './Style';
 
-const ActivityLogComponent = () => {
+const ActivityLogMainComponent = () => {
     return (
-        <View>
+        <TouchableOpacity
+            style={styles.activityLogComponentView} 
+            onPress={() => {
+                console.log('동아리 활동 일지 컴포넌트') // 메인페이지에서 보이는 활동일지 컴포넌트
+            }}
+        >
             
-        </View>
+        </TouchableOpacity>
     );
 };
 
-export default ActivityLogComponent;
+export default ActivityLogMainComponent;
