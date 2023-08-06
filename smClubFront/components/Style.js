@@ -117,14 +117,17 @@ const styles = StyleSheet.create({
         alignItems:'center',
     },
 
+
+
+
     //----------ActivitiLogComponent
     // 활동 일지 컴포넌트
     activityLogComponentView:{
         width:'100%',
         height:height*0.13,
         backgroundColor:'skyblue',
-        borderWidth:2,
         flexDirection:'row',
+        marginBottom:10,
     },
     activityLogImageView:{
         width:'20%',
@@ -132,6 +135,12 @@ const styles = StyleSheet.create({
         backgroundColor:'orange',
         justifyContent:'center',
     },
+    activitylogNoImage:{
+        width:'95%',
+        height:'100%',
+        backgroundColor:'orange',
+        paddingLeft:10,
+    }, 
     activityLogTextView:{
         width:'75%',
         height:'100%',
@@ -155,5 +164,12 @@ const styles = StyleSheet.create({
         width:'5%',
         backgroundColor:'yellow',
     },
+
+
+
+    // -----------------AnnouncementListScreenComponent
+    // 모집 공고 리스트
+
+
 });
 export default styles;

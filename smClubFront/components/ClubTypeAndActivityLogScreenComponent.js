@@ -11,20 +11,15 @@ import ActivityLogMainComponent from './ActivityLogMainComponent'
 import styles from './Style'
 
 
-const ClubTypeAndActivityLogScreenComponent = () => {
-    const [clubType, setClubType] = useState([]); // 동아리 분과 리스트
+const ClubTypeAndActivityLogScreenComponent = (props) => {
+    const [clubType, setClubType] = useState(); // 동아리 분과 리스트
 
 
     useEffect(() => {
         console.log('ClubTypeAndActivityLogScreenComponent');
-        getDataFromServer();
+        
     }, []);
 
-    // 서버에서 동아리 분과 리스트 가져오기
-    const getDataFromServer = () => {
-        
-        
-    }
 
 
     return (
@@ -57,6 +52,8 @@ const ClubTypeAndActivityLogScreenComponent = () => {
                             // 동아리 활동 일지 리스트 (최대로 3개?)
                             
                         }
+                        <ActivityLogMainComponent/>
+                        <ActivityLogMainComponent/>
                         <ActivityLogMainComponent/>
                     </View>
                     <TouchableOpacity 
