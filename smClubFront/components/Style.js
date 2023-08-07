@@ -169,7 +169,82 @@ const styles = StyleSheet.create({
 
     // -----------------AnnouncementListScreenComponent
     // 모집 공고 리스트
+    announcementListContainer:{
+        width:'85%',
+        height:'100%',
+        alignItems:'center',
+    },
+    searchView:{
+        width:'70%',
+        height:'8%',
+        marginTop:20,
+        marginBottom:25,
+        flexDirection:'row',
+        backgroundColor:'white',
+        justifyContent:'center',
+        alignItems:'center',
+    },
+    searchText:{
+        width:'80%',
+        height:'100%',
+        borderRadius:15,
+        padding:20,
+        marginRight:15,
+        fontSize:15,
+        backgroundColor:'#D9D9D9',
+    },
+    searchIcon:{
+        width:'20%',
+        height:'90%',
+        borderRadius: 15, 
+        justifyContent:'center',
+        alignItems:'center',        
+        backgroundColor:'#D9D9D9',
+    },
 
+
+    // -----------------NotificationComponent
+    // 공고 컴포넌트
+    notificationComponentView:{
+        width:'100%',
+        height:height*0.18,
+        marginBottom:5,
+        paddingLeft:20,
+    },
+    notificationClubNameView:{
+        width:'100%', 
+        height:'15%', 
+        flexDirection:'row', 
+        alignItems:'center',
+        marginBottom:5,
+    },
+    notificationTitleView:{
+        width:'100%', 
+        height:'20%', 
+        flexDirection:'row',
+        alignItems:'center', 
+        marginBottom:5, 
+    },
+    notificationContentsView:{
+        width:'100%', 
+        height:'30%', 
+        marginBottom:5,
+    },
+    notificationInfoView:{
+        width:'100%', 
+        height:'20%', 
+        flexDirection:'row', 
+        marginBottom:10,
+        justifyContent:'space-between',
+        alignItems:'center',
+        paddingHorizontal:20,        
+    }, 
+    notificationLine:{
+        width:'100%', 
+        borderWidth:1, 
+        borderColor:'#ECECEC', 
+        marginBottom:15,
+    }
 
 });
 export default styles;
