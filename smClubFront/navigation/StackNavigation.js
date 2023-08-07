@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 //----------page import----------
 import MainScreen from '../screens/Main/MainScreen';
+import ClubListMainScreen from '../screens/Main/ClubListMainScreen';
 
 import ClubActivityLogScreen from '../screens/Club/ClubActivityLogScreen';
 import ClubApplicantListScreen from '../screens/Club/ClubApplicantListScreen';
@@ -12,6 +13,7 @@ import ClubMemberListScreen from '../screens/Club/ClubMemberListScreen';
 import ClubNotificationScreen from '../screens/Club/ClubNotificationScreen';
 import ClubRecruitmentAnnouncementScreen from '../screens/Club/ClubRecruitmentAnnouncementScreen';
 import ClubRecruitmentDocumentsScreen from '../screens/Club/ClubRecruitmentDocumentsScreen';
+import MyClubListScreen from '../screens/Club/MyClubListScreen';
 
 import AlarmScreen from '../screens/Alarm/AlarmScreen';
 
@@ -25,15 +27,23 @@ const Stack = createStackNavigator();
 
 const HomeStackNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName='MainScreen'>
-            <Stack.Screen name="MainScreen" component={MainScreen} />            
+        <Stack.Navigator 
+            initialRouteName='MainScreen'
+            
+        >
+            <Stack.Screen name="MainScreen" component={MainScreen} />
+            <Stack.Screen name="ClubListMainScreen" component={ClubListMainScreen} />
         </Stack.Navigator>
     );
 };
 
 const ClubStackNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName='ClubInfomationScreen'>
+        <Stack.Navigator 
+            initialRouteName='ClubInfomationScreen'
+            screenOptions={{
+            }}
+        >
             <Stack.Screen name="ClubActivityLogScreen" component={ClubActivityLogScreen} />
             <Stack.Screen name="ClubApplicantListScreen" component={ClubApplicantListScreen} />
             <Stack.Screen name="ClubInfomationScreen" component={ClubInfomationScreen} />
@@ -41,6 +51,7 @@ const ClubStackNavigator = () => {
             <Stack.Screen name="ClubNotificationScreen" component={ClubNotificationScreen} />
             <Stack.Screen name="ClubRecruitmentAnnouncementScreen" component={ClubRecruitmentAnnouncementScreen} />
             <Stack.Screen name="ClubRecruitmentDocumentsScreen" component={ClubRecruitmentDocumentsScreen} />
+            <Stack.Screen name="MyClubListScreen" component={MyClubListScreen} />
         </Stack.Navigator>
     );
 };
