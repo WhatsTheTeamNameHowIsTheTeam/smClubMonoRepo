@@ -5,15 +5,22 @@ import {
     ScrollView,
 } from 'react-native';
 
+import {useNavigation} from '@react-navigation/native';
+
+
 // ----------------Components
 import ClubTypeComponent from './ClubTypeComponent'
 import ActivityLogMainComponent from './ActivityLogMainComponent'
+
+// ----------------styles
 import styles from './Style'
 
 
 const ClubTypeAndActivityLogScreenComponent = (props) => {
     const [clubType, setClubType] = useState(); // 동아리 분과 리스트
 
+
+    const navigation = useNavigation();
 
     useEffect(() => {
         console.log('ClubTypeAndActivityLogScreenComponent');
@@ -60,6 +67,9 @@ const ClubTypeAndActivityLogScreenComponent = (props) => {
                         style={styles.myActivityLogmoreView}
                         onPress={() => {
                             console.log("사용자의 동아리 개수가 하나 이상이라면 목록, 아니면 동아리의 활동일지 목록 페이지로 전환")
+                            navigation.navigate('MyClub', {
+                                screen:'MyClubListScreen',
+                            })
                         }}
                     >
                         <Text style={{fontSize:15, fontWeight:'bold'}}>더보기 </Text>
