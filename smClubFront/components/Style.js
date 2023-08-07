@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
         height : width * 0.23,
         alignItems:'center',
         justifyContent:'center',
-        backgroundColor:'skyblue',
     },
     clubTypeView :{ 
         justifyContent:'center',
@@ -69,12 +68,11 @@ const styles = StyleSheet.create({
     },
     clubsView:{
         width:'85%',
-        backgroundColor:'orange',
         flexWrap:'wrap',
         flexDirection:'row',
     },
     line:{
-        backgroundColor:'black', 
+        backgroundColor:'#D9D9D9', 
         height:2, 
         width:'85%',
         marginTop:20,
@@ -82,7 +80,6 @@ const styles = StyleSheet.create({
     },
     myActivityLogTextView:{
         width:'85%',
-        backgroundColor:'yellow',
         marginBotttom:20,
         padding:10,
     },
@@ -94,7 +91,6 @@ const styles = StyleSheet.create({
     myActivityLogView:{ // 활동일지 
         width:'85%',
         height:height*0.5,
-        backgroundColor:'skyblue',
         borderRadius:15,
         borderWidth:2,
         justifyContent:'center',
@@ -103,14 +99,12 @@ const styles = StyleSheet.create({
     ActivityComponentView:{
         width:'85%',
         height:'90%',
-        backgroundColor:'orange',
         justifyContent:'center',
         alignItems:'center',
         paddingTop:10,
     },
     myActivityLogmoreView:{
         flexDirection:'row', 
-        backgroundColor:'yellow',
         width:'95%',
         height:'10%',
         justifyContent:'flex-end',
@@ -125,22 +119,14 @@ const styles = StyleSheet.create({
     activityLogComponentView:{
         width:'100%',
         height:height*0.13,
-        backgroundColor:'skyblue',
         flexDirection:'row',
         marginBottom:10,
     },
     activityLogImageView:{
         width:'20%',
         height:'100%',
-        backgroundColor:'orange',
         justifyContent:'center',
     },
-    activitylogNoImage:{
-        width:'95%',
-        height:'100%',
-        backgroundColor:'orange',
-        paddingLeft:10,
-    }, 
     activityLogTextView:{
         width:'75%',
         height:'100%',
@@ -162,7 +148,6 @@ const styles = StyleSheet.create({
     },
     activityLogMoreImage:{
         width:'5%',
-        backgroundColor:'yellow',
     },
 
 
@@ -174,8 +159,8 @@ const styles = StyleSheet.create({
         height:'100%',
         alignItems:'center',
     },
-    searchView:{
-        width:'70%',
+    searchView:{ // 검색창
+        width:'85%',
         height:'8%',
         marginTop:20,
         marginBottom:25,
@@ -195,7 +180,7 @@ const styles = StyleSheet.create({
     },
     searchIcon:{
         width:'20%',
-        height:'90%',
+        height:'100%',
         borderRadius: 15, 
         justifyContent:'center',
         alignItems:'center',        
@@ -244,7 +229,86 @@ const styles = StyleSheet.create({
         borderWidth:1, 
         borderColor:'#ECECEC', 
         marginBottom:15,
-    }
+    },
 
+
+
+
+    // -----------------ClubListScreenComponent
+    // 동아리 목록 screen 컴포넌트
+    clubListContainer:{
+        width : width,
+        height : height,
+        alignItems:'center',
+    },
+    clubListOption:{
+        width:'85%',
+        height:'5%', 
+        flexDirection:'row',
+        alignItems:'center',
+        marginTop:20,
+    },
+    clubListPicker:{
+        width:100,
+        height:'90%',
+        marginRight:20,
+        backgroundColor:'#D9D9D9',
+        borderRadius:15,
+        justifyContent:'center',
+        alignItems:'center',
+    },
+    recruitmentButton:{
+        width:100,
+        height:'90%',
+        backgroundColor:'#D9D9D9',
+        borderRadius:15,
+        justifyContent:'center',
+        alignItems:'center',
+    },
+
+
+    // ---------------clubComponent
+    // 동아리 컴포넌트
+    ClubComponentView:{
+        width:'85%',
+        height:height*0.2,
+        marginBottom:10,
+        flexDirection:'row',
+        alignItems:'center',
+    },
+    clubmark:{
+        width:'30%',
+        height:'80%',
+        justifyContent:'center',
+        alignItems:'center',
+    },
+    clubcontent:{
+        width:'55%',
+        height:'80%',
+    },  
+    clubTypeText:{
+        fontSize:15,
+        marginTop:8,
+        color:'#138CDB'
+    },
+    clubName:{
+        fontSize:25,
+        marginTop:8,
+        fontWeight:'bold',
+    },
+    clubisrecruit:{
+        width:'15%',
+        height:'30%',
+        backgroundColor:'pink',
+        borderRadius:15,
+        justifyContent:'center',
+    },
+    isrecruitText:{
+        fontSize:20,
+        fontWeight:'bold',
+        color:'white',
+        textAlign:'center',
+        textAlignVertical:'center',
+    }
 });
 export default styles;
