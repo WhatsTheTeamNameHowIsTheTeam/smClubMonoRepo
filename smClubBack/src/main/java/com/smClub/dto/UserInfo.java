@@ -47,6 +47,9 @@ public class UserInfo {
     @JsonProperty("major")
     private String major;
 
+    @JsonProperty("grade")
+    private String grade;
+
     @JsonProperty("phoneNumber")
     private String phoneNumber;
 

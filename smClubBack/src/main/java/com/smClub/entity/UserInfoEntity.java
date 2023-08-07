@@ -34,6 +34,9 @@ public class UserInfoEntity {
     @Column(name = "MAJOR")
     private String major;
 
+    @Column(name = "GRADE")
+    private String grade;
+
     @Column(name = "CTTPC")
     private String phoneNumber;
 

@@ -33,7 +33,7 @@ const reqestData = async() => {
     
         await axios({
             method: "post",
-            url: "http://192.168.0.49:8080/test",
+            url: "http://192.168.0.33:8080/test",
             header: {
                 "content-type":"application/json",
             },

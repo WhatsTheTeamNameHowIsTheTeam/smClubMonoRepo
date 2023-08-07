@@ -9,44 +9,36 @@ import lombok.Setter;
 @Getter
 @Setter
 @Data
-public class ActDiary {
-    @JsonProperty("actDiaryId")
-    private String actDiaryId;
-
+public class Recruitment {
+    @JsonProperty("notificationNumber")
+    private String notificationNumber;
     @JsonProperty("club")
-    private String club;
-
+    private Club club;
     @JsonProperty("writer")
     private UserInfo writer;
-
     @JsonProperty("subject")
     private String subject;
-
-    @JsonProperty("content")
-    private String content;
-
+    @JsonProperty("Content")
+    private String Content;
     @JsonProperty("img")
     private String img;
-
     @JsonProperty("memberCnt")
     private int memberCnt;
-
-    @JsonProperty("Disclosure")
-    private boolean Disclosure;
-
-    @JsonProperty("actBeginDate")
-    private String actBeginDate;
-
-    @JsonProperty("actEndDate")
-    private String actEndDate;
-
+    @JsonProperty("views")
+    private int views;
+    @JsonProperty("Recruitment")
+    private boolean Recruitment;
+    @JsonProperty("RecruitmentDate")
+    private String RecruitmentDate;
+    @JsonProperty("RecruitmentEndDate")
+    private String RecruitmentEndDate;
+    @JsonProperty("pullupDate")
+    private String pullupDate;
     @JsonProperty("createDate")
     private String createDate;
-
     @JsonProperty("updateDate")
     private String updateDate;
 
-    public ActDiary() {
+    public Recruitment() {
     }
-
 }
