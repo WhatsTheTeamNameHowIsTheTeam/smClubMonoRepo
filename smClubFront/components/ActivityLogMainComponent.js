@@ -53,6 +53,7 @@ const ActivityLogMainComponent = (props) => {
                         </View>
                     </>
                     :
+                    // 이미지가 없으면
                     <>
                         <View style={styles.activitylogNoImage}>
                             <Text style={styles.activityLogClubName}>동아리명</Text>
@@ -64,7 +65,7 @@ const ActivityLogMainComponent = (props) => {
                         </View>
                     </>
                     
-                    // 이미지가 없으면
+                    
                     
             }
 
