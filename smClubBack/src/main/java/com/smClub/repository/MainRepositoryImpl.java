@@ -1,7 +1,11 @@
 
 package com.smClub.repository;
 
-public class MainRepositoryImpl implements MainRepository {
-    public MainRepositoryImpl() {
-    }
+import com.smClub.entity.UserInfoEntity;
+
+import java.util.List;
+
+
+public class MainRepositoryImpl {
+
 }
