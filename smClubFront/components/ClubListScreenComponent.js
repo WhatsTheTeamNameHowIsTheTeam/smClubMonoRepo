@@ -1,10 +1,11 @@
 // 동아리 목록 컴포넌트
 import React, { useState, useEffect } from 'react';
 import {
-    View, Picker, Text, TouchableOpacity,
+    View, Text, TouchableOpacity,
     ScrollView, TextInput, Image,
 
 } from 'react-native';
+import {Picker} from '@react-native-picker/picker';
 
 //----------------Components
 import ClubComponent from './ClubComponent';

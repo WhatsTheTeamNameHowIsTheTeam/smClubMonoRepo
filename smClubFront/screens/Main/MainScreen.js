@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import {
     View, Text, Button,
+    Dimensions
 } from 'react-native';
 
 // npm install react-native-tab-view 
