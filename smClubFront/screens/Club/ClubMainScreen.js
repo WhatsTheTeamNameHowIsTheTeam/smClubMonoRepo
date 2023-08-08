@@ -16,8 +16,6 @@ import ClubApplicantListScreenComponent from '../../components/ClubComponent/Clu
 import ClubInfomationScreenComponent from '../../components/ClubComponent/ClubInfomationScreenComponent';
 import ClubMemberListScreenComponent from '../../components/ClubComponent/ClubMemberListScreenComponent';
 import ClubNotificationScreenComponent from '../../components/ClubComponent/ClubNotificationScreenComponent';
-import ClubRecruitmentAnnouncementScreenComponent from '../../components/ClubComponent/ClubRecruitmentAnnouncementScreenComponent';
-import ClubRecruitmentDocumentsScreenComponent from '../../components/ClubComponent/ClubRecruitmentDocumentsScreenComponent';
 
 // ------------styles
 import styles from '../../components/Style';
@@ -39,16 +37,14 @@ const CMLComponent = () => (
 const CNComponent = () => (
     <ClubNotificationScreenComponent />
 )
-const CRAComponent = () => (
-    <ClubRecruitmentAnnouncementScreenComponent />
-)
-const CRDComponent = () => (
-    <ClubRecruitmentDocumentsScreenComponent />
-)
+
 // 어떤 컴포넌트를 렌더링 할지
 const renderScene = SceneMap({
     first: CALComponent,
     second: CAListComponent,
+    third: CIComponent,
+    fourth: CMLComponent,
+    fifth:CNComponent,
 });
 
 // tab bar style
@@ -73,8 +69,11 @@ const ClubMainScreen = (props) => {
 
     const [index, setIndex] = useState(0);
     const [routes] = useState([
-        { key: 'first', title: '동아리' },
-        { key: 'second', title: '모집공고' },
+        { key: 'first', title: '정보' },
+        { key: 'second', title: '공지' },
+        { key: 'third', title: '활동' },
+        { key: 'fourth', title: '회원 목록' },
+        { key: 'fifth', title: '모집 공고' },
     ]);
 
     return (
