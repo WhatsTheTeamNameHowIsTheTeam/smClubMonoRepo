@@ -23,7 +23,7 @@ const JoinScreen = () => {
     const [studentIdTextInput, setStudentIdTextInput] = useState(""); //  학번
     const [majorTextInput, setmajorTextInput] = useState(""); //  전공
     const [contactTextInput, setContactTextInput] = useState(""); //  연락처
-    const [termsAgreed, setTermsAgreed] = useState(false);
+    const [termsAgreed, setTermsAgreed] = useState(false); // 동의서
 
     const majors = [
         '전공을 선택해주세요',
@@ -57,6 +57,7 @@ const JoinScreen = () => {
             Alert.alert('오류', '이용약관에 동의해주세요.');
             return;
         }
+
     };
 
     return (
@@ -99,10 +100,10 @@ const JoinScreen = () => {
                     />
 
                     <ModalDropdown
+                        style={styles.input}
                         options={majors}
                         defaultValue={majors[0]}
                         onSelect={toggleMajorSelection}
-                        style={styles.input}
                         textStyle={styles.inputText}
                         dropdownTextStyle={styles.inputText}
                     />
