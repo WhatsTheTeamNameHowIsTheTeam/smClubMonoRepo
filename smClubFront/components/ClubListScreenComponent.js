@@ -5,7 +5,9 @@ import {
     ScrollView, TextInput, Image,
 
 } from 'react-native';
-import {Picker} from '@react-native-picker/picker';
+// npm i react-native-modal-dropdown
+import ModalDropdown from 'react-native-modal-dropdown';
+
 
 //----------------Components
 import ClubComponent from './ClubComponent';
@@ -21,7 +23,18 @@ const ClubListScreenComponent = (props) => {
     const [isRecruitement, setIsRecruitement] = useState(false); // 모집중인 것만 보기
     const [searchText, setSearchText] = useState(''); // 검색어
 
+    const clubTypeList = [
+        '전체',
+        '봉사',
+        '공연',
+        '교양',
+        '체육',
+        '전공',
+    ];
 
+    const toggleMajorSelection = (index, value) => {
+        setClubType(value);
+    };
 
     useEffect(() => {
         console.log('ClubListScreenComponent');
@@ -97,21 +110,15 @@ const ClubListScreenComponent = (props) => {
 
                 {/* ----------동아리 분과 선택 & 모집중 여부---------- */}
                 <View style={styles.clubListOption}>
-                    <Picker
+                    <ModalDropdown
+                        initialScrollIndex={0}
                         style={styles.clubListPicker}
-                        selectedValue={clubType}
-                        onValueChange={(itemValue, itemIndex) => {
-                            setClubType(itemValue)
-                            clubhandler(itemValue, isRecruitement, searchText) // filter 적용 -> 동아리 분과 선택한 것만 보이기
-                        }}
-                    >
-                        <Picker.Item label="전체" value="전체" />
-                        <Picker.Item label="봉사" value="봉사" />
-                        <Picker.Item label="체육" value="체육" />
-                        <Picker.Item label="공연" value="공연" />
-                        <Picker.Item label="교양" value="교양" />
-                        <Picker.Item label="전공" value="전공" />
-                    </Picker>
+                        options={clubTypeList}
+                        defaultValue={clubTypeList[0]}
+                        onSelect={toggleMajorSelection}
+                        textStyle={styles.inputModalText}
+                        dropdownTextStyle={styles.inputModalText}
+                    />
 
                     <TouchableOpacity
                         style={isRecruitement ? [styles.recruitmentButton, { backgroundColor: 'orange' }] : styles.recruitmentButton}

@@ -265,6 +265,18 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
     },
+    inputModal: {
+        height: 55,
+        borderRadius: 10,
+        backgroundColor: 'orange',
+        marginHorizontal: 30,
+        marginTop: 30,
+        paddingHorizontal: 20,
+        justifyContent: 'center',
+    },
+    inputModalText: {
+        fontSize: 14,
+    },
 
 
     // ---------------clubComponent
