@@ -111,6 +111,7 @@ const MainScreen = (props) => {
     return (
         <View style={styles.container}>
             <TabView
+                scrollEnabled={true}
                 renderTabBar={renderTabBar}
                 navigationState={{ index, routes }}
                 renderScene={renderScene}

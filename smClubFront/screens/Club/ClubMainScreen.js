@@ -72,8 +72,8 @@ const ClubMainScreen = (props) => {
         { key: 'first', title: '정보' },
         { key: 'second', title: '공지' },
         { key: 'third', title: '활동' },
-        { key: 'fourth', title: '회원 목록' },
-        { key: 'fifth', title: '모집 공고' },
+        { key: 'fourth', title: '회원' },
+        { key: 'fifth', title: '공고' },
     ]);
 
     return (

@@ -30,7 +30,7 @@ const HomeStackNavigator = () => {
 
 const ClubStackNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName='ClubMainScreen'>
+        <Stack.Navigator initialRouteName='ClubMainScreen' screenOptions={{ headerShown: false }}> 
             <Stack.Screen name="ClubMainScreen" component={ClubMainScreen} />
             <Stack.Screen name="MyClubListScreen" component={MyClubListScreen} />
         </Stack.Navigator>
@@ -47,7 +47,7 @@ const AlarmStackNavigator = () => {
 
 const MyPageStackNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName='MyPageScreen'>
+        <Stack.Navigator initialRouteName='MyPageScreen' >
             <Stack.Screen name="JoinScreen" component={JoinScreen} />
             <Stack.Screen name="LoginScreen" component={LoginScreen} />
             <Stack.Screen name="MyPageScreen" component={MyPageScreen} />
