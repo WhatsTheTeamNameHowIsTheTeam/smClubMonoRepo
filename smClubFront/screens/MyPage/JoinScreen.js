@@ -106,6 +106,7 @@ const JoinScreen = () => {
                         onSelect={toggleMajorSelection}
                         textStyle={styles.inputText}
                         dropdownTextStyle={styles.inputText}
+                        initialScrollIndex={0}
                     />
 
                     <TextInput
