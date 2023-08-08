@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 import ModalDropdown from 'react-native-modal-dropdown';
 
-const JoinScreen = () => {
+const JoinScreen = ({ navigation }) => {
 
     const [idTextInput, setIdTextInput] = useState(""); //  ID
     const [pwTextInput, setPwTextInput] = useState(""); //  PW
@@ -41,6 +41,7 @@ const JoinScreen = () => {
         setmajorTextInput(value);
     };
 
+    // 회원가입 버튼 함수
     const handleSubmit = () => {
         if (!idTextInput || !pwTextInput || !pwConfirmTextInput ||
             !nameTextInput || !studentIdTextInput || !majorTextInput || !contactTextInput) {
@@ -58,6 +59,8 @@ const JoinScreen = () => {
             return;
         }
 
+        Alert.alert('회원가입 성공', '회원가입이 성공적으로 완료되었습니다.');
+        navigation.navigate('LoginScreen');
     };
 
     return (
@@ -100,13 +103,13 @@ const JoinScreen = () => {
                     />
 
                     <ModalDropdown
+                        initialScrollIndex={0}
                         style={styles.input}
                         options={majors}
                         defaultValue={majors[0]}
                         onSelect={toggleMajorSelection}
                         textStyle={styles.inputText}
                         dropdownTextStyle={styles.inputText}
-                        initialScrollIndex={0}
                     />
 
                     <TextInput
