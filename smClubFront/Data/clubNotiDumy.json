@@ -1,0 +1,24 @@
+{
+    "clubId":"CLUB20230808001",
+    "noticeBoardId":"NOT20230808001",
+    "notice":[
+        {
+            "writer":"2017225002",
+            "content":"오늘 동아리 활동은 키보드 위에서 고기구워먹기입니다. 유튜브 업로드 예정이니 옷과 화장 잘 준비해서오세요.",
+            "img":"",
+            "createDate":"202308091220"
+        },{
+            "writer":"2017225002",
+            "content":"",
+            "img":"https://s.pstatic.net/static/www/mobile/edit/20230807_1095/upload_1691375937356PzBL4.png",
+            "createDate":"202308091830"
+        },
+        {
+            "writer":"2017225002",
+            "content":"오늘 고기 정말 맛있었습니다. 다음에는 마우스로 콘치즈 만들어먹기 어떠십니까",
+            "img":"",
+            "createDate":"2023080912100"
+        }
+    ]
+
+}
