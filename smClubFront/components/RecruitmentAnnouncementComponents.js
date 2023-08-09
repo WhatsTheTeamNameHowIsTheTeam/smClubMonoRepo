@@ -35,9 +35,9 @@ const RecruitmentAnnouncementComponents = (props) => {
 
 
         if (text && text.length > maxLength) {
-            return <Text style={{ fontSize: size, fontWeight: wb, padding: 5, }}>{text.slice(0, maxLength)}...</Text>;
+            return <Text style={{ fontSize: size, fontWeight: wb,  }}>{text.slice(0, maxLength)}...</Text>;
         }
-        return <Text style={{ fontSize: size, fontWeight: wb, padding: 5, }}>{text}</Text>;
+        return <Text style={{ fontSize: size, fontWeight: wb,  }}>{text}</Text>;
     };
 
 
@@ -50,27 +50,27 @@ const RecruitmentAnnouncementComponents = (props) => {
         >
             <View style={styles.notificationClubNameView}>
                 <Text style={{ fontSize: 20, color: '#138CDB', fontWeight: 'bold' }}>동아리명</Text>
-                <Text style={{ fontSize: 16, marginLeft: 20 }}>분과</Text>
+                <Text style={{ fontSize: 14, marginLeft: 20 }}>분과</Text>
             </View>
 
             <View style={styles.notificationTitleView}>
-                <TruncatedText text={'모집 공고 제목'} maxLength={20} size={22} weightBool={true} />
+                <TruncatedText text={'모집 공고 제목dfd'} maxLength={18} size={22} weightBool={true} />
                 <Text style={{ fontSize: 14, color: 'gray', marginLeft: 20 }}>08.09</Text>
             </View>
 
             <View style={styles.notificationContentsView}>
-                <TruncatedText text={'모집 공고 내용모집 공고 내용모집 공고 내용모집 공고 내용모집 공고 내용모집 공고 내용'} maxLength={20} size={18} weightBool={false} />
+                <TruncatedText text={'모집 공고 내용모집 공고 내용모집 공고'} maxLength={40} size={16} weightBool={false} />
             </View>
 
             <View style={styles.notificationInfoView}>
                 <View style={{ flexDirection: 'row' }}>
-                    <Image style={{ width: 20, height: 20, marginRight: 10 }} source={require('../assets/favicon.png')} />
-                    <Text style={{ fontSize: 18 }}>25</Text>
+                    <Image style={{ width: 20, height: 20, marginRight: 10 }} source={require('../assets/favicon.png')} resizeMode='contain'/>
+                    <Text style={{ fontSize: 15 }}>25</Text>
                 </View>
 
                 <View style={{ flexDirection: 'row' }}>
-                    <Text style={{ fontSize: 18 }}>신청자 수 : </Text>
-                    <Text style={{ fontSize: 18 }}>25</Text>
+                    <Text style={{ fontSize: 15 }}>신청자 수 : </Text>
+                    <Text style={{ fontSize: 15 }}>25</Text>
                 </View>
             </View>
 

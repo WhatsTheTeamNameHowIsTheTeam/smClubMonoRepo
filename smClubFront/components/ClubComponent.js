@@ -51,7 +51,7 @@ const ClubComponent = (props) => {
             }}
         >
             <View style={styles.clubmark}>
-                <Image style={{ width: '80%', height: '80%', borderRadius:15 }} source={require('../assets/favicon.png')} resize='contain' />
+                <Image style={{ width: '50%', height: '50%', borderRadius:15 }} source={require('../assets/favicon.png')} resizeMode='contain' />
             </View>
             
             <View style={isrecruit ? styles.clubcontent : [styles.clubcontent, { width: '70%' }]}>

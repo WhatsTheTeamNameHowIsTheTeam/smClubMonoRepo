@@ -24,36 +24,34 @@ const AnnouncementListScreenComponent = (props) => {
     return (
         <ScrollView>
             <View style={styles.clubsAndTypeContainer}>
-                <View style={styles.announcementListContainer}>
 
-                    {/* ----------검색---------- */}
-                    <View style={styles.searchView}>
-                        <TextInput 
-                            style={styles.searchText}
-                            placeholder='검색어를 입력하세요.'
-                            placeholderTextColor='gray'
-                            value={searchText}
-                            onChangeText={setSearchText}
-                        />
+                {/* ----------검색---------- */}
+                <View style={styles.searchView}>
+                    <TextInput
+                        style={styles.searchText}
+                        placeholder='검색어를 입력하세요.'
+                        placeholderTextColor='gray'
+                        value={searchText}
+                        onChangeText={setSearchText}
+                    />
 
-                        <TouchableOpacity
-                            style={styles.searchIcon}
-                            onPress={() => {
-                                console.log('검색 내용', searchText)
-                                console.log('검색 버튼 클릭');
-                            }}
-                        >
-                            <Image style={{ width: '50%', height: '50%', }} source={require('../../assets/icon.png')} resizeMethod='contain' />
-                        </TouchableOpacity>
-                        
-                    </View>
+                    <TouchableOpacity
+                        style={styles.searchIcon}
+                        onPress={() => {
+                            console.log('검색 내용', searchText)
+                            console.log('검색 버튼 클릭');
+                        }}
+                    >
+                        <Image style={{ width: '50%', height: '50%', }} source={require('../../assets/icon.png')} resizeMode='contain' />
+                    </TouchableOpacity>
 
-                    {/* ----------공고 리스트---------- */}
-                    <RecruitmentAnnouncementComponents />
-                    <View style={styles.notificationLine}/>
-                    <RecruitmentAnnouncementComponents />
-                    <View style={styles.notificationLine}/>
                 </View>
+
+                {/* ----------공고 리스트---------- */}
+                <RecruitmentAnnouncementComponents />
+                <View style={styles.Line} />
+                <RecruitmentAnnouncementComponents />
+                <View style={styles.Line} />
             </View>
         </ScrollView>
     );

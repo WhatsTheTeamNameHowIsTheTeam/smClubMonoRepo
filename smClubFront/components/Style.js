@@ -24,29 +24,29 @@ const styles = StyleSheet.create({
 
     // ----------------ClubTypeComponent 동아리 분과 컴포넌트
     clubTypeTouchable:{
-        width: width * 0.2,
-        height : width * 0.23,
+        width: width * 0.28,
+        height : width * 0.31,
         alignItems:'center',
         justifyContent:'center',
     },
     clubTypeView :{ 
+        width: '80%',
+        height: '100%',
         justifyContent:'center',
         alignItems:'center',
-        width: '80%',
-        height: '90%',
-        padding:10
+        padding:5,
     },
     clubTypeImageView:{ // 정사각형으로 만들기 위해
         justifyContent:'space-around',
         alignItems:'center',
         width : '100%',
-        height: '80%',
+        height: '70%',
         backgroundColor:'#D9D9D9',
         borderRadius:15,
     },
     clubtypecomponentText:{
         textAlign:'center',
-        fontSize:18,
+        fontSize:15,
         fontWeight:'bold',
     },
     clubtextView:{
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
         backgroundColor:'#D9D9D9', 
         height:2, 
         width:'85%',
-        marginTop:20,
+        marginTop:30,
         marginBottom:20,
     },
     myActivityLogTextView:{
@@ -161,8 +161,8 @@ const styles = StyleSheet.create({
     },
     searchView:{ // 검색창
         width:'85%',
-        height:'8%',
-        marginTop:20,
+        height:'5%',
+        marginTop:15,
         marginBottom:25,
         flexDirection:'row',
         backgroundColor:'white',
@@ -173,7 +173,8 @@ const styles = StyleSheet.create({
         width:'80%',
         height:'100%',
         borderRadius:15,
-        padding:20,
+        padding:5,
+        paddingLeft:10,
         marginRight:15,
         fontSize:15,
         backgroundColor:'#D9D9D9',
@@ -191,10 +192,9 @@ const styles = StyleSheet.create({
     // -----------------NotificationComponent
     // 공고 컴포넌트
     notificationComponentView:{
-        width:'100%',
+        width:'85%',
         height:height*0.18,
         marginBottom:5,
-        paddingLeft:20,
     },
     notificationClubNameView:{
         width:'100%', 
@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
         height:'20%', 
         flexDirection:'row',
         alignItems:'center', 
-        marginBottom:5, 
+        marginBottom:5,
     },
     notificationContentsView:{
         width:'100%', 
@@ -222,12 +222,13 @@ const styles = StyleSheet.create({
         marginBottom:10,
         justifyContent:'space-between',
         alignItems:'center',
-        paddingHorizontal:20,        
+        paddingHorizontal:10,        
     }, 
-    notificationLine:{
-        width:'100%', 
+    Line:{
+        width:'85%', 
         borderWidth:1, 
         borderColor:'#ECECEC', 
+        marginTop:15,
         marginBottom:15,
     },
 
@@ -283,14 +284,14 @@ const styles = StyleSheet.create({
     // 동아리 컴포넌트
     ClubComponentView:{
         width:'85%',
-        height:height*0.2,
+        height:height*0.15,
         marginBottom:10,
         flexDirection:'row',
         alignItems:'center',
     },
     clubmark:{
         width:'30%',
-        height:'80%',
+        height:'100%',
         justifyContent:'center',
         alignItems:'center',
     },
@@ -316,7 +317,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
     },
     isrecruitText:{
-        fontSize:20,
+        fontSize:13,
         fontWeight:'bold',
         color:'white',
         textAlign:'center',
