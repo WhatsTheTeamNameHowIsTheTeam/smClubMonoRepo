@@ -680,5 +680,55 @@ const styles = StyleSheet.create({
     content: {
         lineHeight: 24,
     },
+
+    // -----------------ClubNotificationScreenComponent
+    // 동아리 메인-모집 페이지 컴포넌트
+    pageHeader: {
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        padding: 16,
+    },
+    button: {
+        marginLeft: 16,
+        paddingVertical: 8,
+        paddingHorizontal: 16,
+        backgroundColor: 'lightgray',
+        borderRadius: 8,
+    },
+    notificationContainer: {
+        flexDirection: 'row',
+        paddingHorizontal: 16,
+        marginVertical: 16,
+    },
+    notificationImage: {
+        width: 75,
+        height: 75,
+        marginRight: 8,
+    },
+    notificationInfo: {
+        flex: 1,
+    },
+    title: {
+        fontWeight: 'bold',
+        fontSize: 18,
+        marginBottom: 8,
+    },
+    contentContainer: {
+        paddingHorizontal: 16,
+        marginBottom: 16,
+    },
+    applyButton: {
+        width: '90%',
+        padding: 16,
+        backgroundColor: 'dodgerblue',
+        alignItems: 'center',
+        alignSelf: 'center',
+        borderRadius: 8,
+        marginVertical: 16,
+    },
+    applyButtonText: {
+        color: 'white',
+        fontWeight: 'bold',
+    },
 });
 export default styles;

@@ -10,7 +10,9 @@ import {
 import styles from '../Style';
 import ActiviatyLogComponent from '../ActivityLogComponent';
 
+
 const ClubInfomationScreenComponent = ({ navigation }) => {
+    // 더미 데이터
     const dummyActivityLog = [
         {
             ACT_ID: 1, // 활동일지번호
@@ -40,10 +42,8 @@ const ClubInfomationScreenComponent = ({ navigation }) => {
         },
     ];
 
-    const [activityLog, setActivityLog] = useState(dummyActivityLog); // 모집공고 리스트
-    const [searchText, setSearchText] = useState(''); // 검색어
-    const [inputText, setInputText] = useState(''); // 공고입력
-    const [selectedActivity, setSelectedActivity] = useState(null);
+    const [activityLog, setActivityLog] = useState(dummyActivityLog); // 활동일지 리스트
+    const [selectedActivity, setSelectedActivity] = useState(null); // 상세페이지 이동 여부
 
     useEffect(() => {
 
@@ -53,6 +53,7 @@ const ClubInfomationScreenComponent = ({ navigation }) => {
         return `${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${("0" + date.getDate()).slice(-2)}`;
     };
 
+    // 활동 일지
     const renderActivityLog = (activityLog) => {
         return activityLog.map((log, index) => (
             <TouchableOpacity
@@ -84,7 +85,8 @@ const ClubInfomationScreenComponent = ({ navigation }) => {
         ));
     };
 
-    if (selectedActivity) {
+
+    if (selectedActivity) { // 활동일지 상세 페이지
         return (
             <View style={{ margin:10}}>
                 {selectedActivity && (
@@ -95,7 +97,7 @@ const ClubInfomationScreenComponent = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
         );
-    } else {
+    } else { // 활동일지 목록 페이지
         return (
             <>
                 <ScrollView style={{ marginTop: 10, marginBottom: 70 }}>
