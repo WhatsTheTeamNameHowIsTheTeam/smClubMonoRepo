@@ -28,16 +28,34 @@ const ClubTypeAndActivityLogScreenComponent = (props) => {
     }, []);
 
     const clubtypeList = [
-        '전체',
-        '봉사',
-        '체육',
-        '공연',
-        '교양',
-        '전공',
+        {
+            id: '1',
+            clubtype: '전체',
+        },
+        {
+            id: '2',
+            clubtype: '봉사',
+        },
+        {
+            id: '3',
+            clubtype: '체육',
+        },
+        {
+            id: '4',
+            clubtype: '공연',
+        },
+        {
+            id: '5',
+            clubtype: '교양',
+        },
+        {
+            id: '6',
+            clubtype: '전공',
+        },
     ]
 
     const renderItem = ({ item }) => (
-        <ClubTypeComponent clubtype={item} />
+        <ClubTypeComponent clubtype={item.clubtype} />
     );
 
 
