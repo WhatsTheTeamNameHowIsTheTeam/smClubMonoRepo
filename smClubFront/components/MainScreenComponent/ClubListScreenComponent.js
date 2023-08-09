@@ -10,10 +10,10 @@ import ModalDropdown from 'react-native-modal-dropdown';
 
 
 //----------------Components
-import ClubComponent from './ClubComponent';
+import ClubComponent from '../ClubComponent';
 
 // --------------styles
-import styles from './Style';
+import styles from '../Style';
 
 
 
@@ -151,7 +151,7 @@ const ClubListScreenComponent = (props) => {
                             clubhandler(clubType, isRecruitement, searchText) // filter 적용 -> 검색 한 내용의 동아리만 보이기
                         }}
                     >
-                        <Image style={{ width: '50%', height: '50%', }} source={require('../assets/icon.png')} resizeMethod='contain' />
+                        <Image style={{ width: '50%', height: '50%', }} source={require('../../assets/icon.png')} resizeMode='contain'/>
                     </TouchableOpacity>
 
                 </View>
@@ -161,9 +161,9 @@ const ClubListScreenComponent = (props) => {
                 {/* ----------동아리 목록---------- */}
 
                 <ClubComponent />
-                <View style={styles.notificationLine}/>
+                <View style={styles.Line}/>
                 <ClubComponent />
-                <View style={styles.notificationLine}/>
+                <View style={styles.Line}/>
                 {
                     // clubData?.map((item, index) => {
                     //     return (
