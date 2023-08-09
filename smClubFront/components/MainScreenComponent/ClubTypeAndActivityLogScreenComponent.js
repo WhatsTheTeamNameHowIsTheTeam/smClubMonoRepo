@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import {
     View, Text, Image, TouchableOpacity,
-    ScrollView,
+    ScrollView, FlatList
 } from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
@@ -27,6 +27,18 @@ const ClubTypeAndActivityLogScreenComponent = (props) => {
         
     }, []);
 
+    const clubtypeList = [
+        '전체',
+        '봉사',
+        '체육',
+        '공연',
+        '교양',
+        '전공',
+    ]
+
+    const renderItem = ({ item }) => (
+        <ClubTypeComponent clubtype={item} />
+    );
 
 
     return (
@@ -34,16 +46,12 @@ const ClubTypeAndActivityLogScreenComponent = (props) => {
               
             <View style={styles.clubsAndTypeContainer}>
                 {/* ----------동아리 분과---------- */}
-                <View style={styles.clubsView}>
-                    <ClubTypeComponent clubtype='전체' />
-                    <ClubTypeComponent clubtype='봉사' />
-                    <ClubTypeComponent clubtype='체육' />
-                    <ClubTypeComponent clubtype='공연' />
-                    <ClubTypeComponent clubtype='교양' />
-                    <ClubTypeComponent clubtype='전공' />
-                </View>
-
-
+                <FlatList
+                    data={clubtypeList}
+                    renderItem={renderItem}
+                    keyExtractor={(item) => item.id}
+                    numColumns={3}
+                />
             
                 {/* ----------선---------- */}
                 <View style={styles.line}/>

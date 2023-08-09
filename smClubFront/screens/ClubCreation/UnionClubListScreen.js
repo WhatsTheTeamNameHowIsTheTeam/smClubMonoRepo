@@ -6,11 +6,12 @@ import {
 
 // npm install react-native-tab-view 
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
-
+// npm install @react-native-async-storage/async-storage
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // ------------Components
 import UnionClubListScreenComponent from '../../components/ClubComponent/UnionClubListScreenComponent';
-
+import Storage from '../../components/Storage';
 
 // ------------styles
 import styles from '../../components/Style';
@@ -20,6 +21,7 @@ import styles from '../../components/Style';
 
 const UnionClubListScreen = () => {
     const [index, setIndex] = useState(0);
+    const [isadmin, setIsAdmin] = useState(false); // 연합회 관리자인지 아닌지
     const [clubData, setClubData] = useState(["ㅎㅎ"]); // 동아리 전체 데이터
     const [routes] = useState([
         { key: 'first', title: '봉사' },
@@ -31,25 +33,35 @@ const UnionClubListScreen = () => {
 
     useEffect(() => {
         console.log('UnionClubListScreen');
+        // 관리자인지 아닌지 확인
+        // Storage.storeData("id", "admin").then((value) => {
+        //     console.log("isUnionAdmin", value);
+        // })
+        Storage.getData("id").then((value) => {
+            if (value==="admin") {
+                setIsAdmin(true);
+            } 
+        })
     }, [])
+
 
 
 
     // 컴포넌트
     const UnionCLFirst = () => (
-        <UnionClubListScreenComponent clubType={"봉사"} clubData={clubData}/>
+        <UnionClubListScreenComponent clubType={"봉사"} clubData={clubData} isadmin={isadmin}/>
     )
     const UnionCLSec = () => (
-        <UnionClubListScreenComponent clubType={"체육"} clubData={clubData}/>
+        <UnionClubListScreenComponent clubType={"체육"} clubData={clubData} isadmin={isadmin}/>
     )
     const UnionCLThird = () => (
-        <UnionClubListScreenComponent clubType={"공연"} clubData={clubData}/>
+        <UnionClubListScreenComponent clubType={"공연"} clubData={clubData} isadmin={isadmin}/>
     )
     const UnionCLFourth = () => (
-        <UnionClubListScreenComponent clubType={"교양"} clubData={clubData}/>
+        <UnionClubListScreenComponent clubType={"교양"} clubData={clubData} isadmin={isadmin}/>
     )
     const UnionCLFifth = () => (
-        <UnionClubListScreenComponent clubType={"전공"} clubData={clubData}/>
+        <UnionClubListScreenComponent clubType={"전공"} clubData={clubData} isadmin={isadmin}/>
     )
 
 
@@ -95,7 +107,7 @@ const UnionClubListScreen = () => {
                 navigationState={{ index, routes }}
                 renderScene={renderScene}
                 onIndexChange={setIndex}
-                initialLayout={{ width: Dimensions.get('window').width, }}
+                initialLayout={{ width: Dimensions.get('window').width,  }}
             />
         </View>
     );

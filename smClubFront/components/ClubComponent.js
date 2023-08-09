@@ -16,6 +16,7 @@ import styles from './Style';
 
 const ClubComponent = (props) => {
     const [isrecruit, setIsRecruitement] = useState(true); // 이미지가 있는지 없는지
+    const [isUnionAdmin, setIsUnionAdmin] = useState(props.isUnionAdmin); // 연합회 관리자인지 아닌지
     // const [clubData, setClubData] = useState(props.clubData); // 동아리 전체 데이터
     // navigation 사용
     const navigation = useNavigation();
@@ -62,13 +63,28 @@ const ClubComponent = (props) => {
 
 
             {
-                // 모집중인 동아리일 경우
+                // 연합회 관리자일 경우
                 isrecruit?
-                    <View style={styles.clubisrecruit}>
-                        <Text style={styles.isrecruitText}>모집 중</Text>
-                    </View> 
+                    <TouchableOpacity 
+                        style={styles.clublistisadmin}
+                        onPress={()=>{
+                            console.log('더보기')
+                        }}
+                    >
+                        <Image style={{width:'50%', height:'50%'}} source={require('../assets/ThreeDotsVertical.png')} resizeMode='contain'/>
+                    </TouchableOpacity> 
                     :
-                    null
+                    <>
+                        {
+                            // 모집중인 동아리일 경우
+                            isrecruit ?
+                                <View style={styles.clubisrecruit}>
+                                    <Text style={styles.isrecruitText}>모집 중</Text>
+                                </View>
+                                :
+                                null
+                        }
+                    </>
             }
             
 
