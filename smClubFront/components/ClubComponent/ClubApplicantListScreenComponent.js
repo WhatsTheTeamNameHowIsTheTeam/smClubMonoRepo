@@ -4,7 +4,6 @@ import {
     View, Text, ScrollView,
     TouchableOpacity, Image,
     TextInput,
-    Platform,
 } from 'react-native';
 
 // --------------Components

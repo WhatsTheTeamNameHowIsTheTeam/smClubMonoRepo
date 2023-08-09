@@ -30,7 +30,7 @@ const HomeStackNavigator = () => {
 
 const ClubStackNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName='ClubMainScreen' screenOptions={{ headerShown: false }}> 
+        <Stack.Navigator initialRouteName='ClubMainScreen' > 
             <Stack.Screen name="ClubMainScreen" component={ClubMainScreen} />
             <Stack.Screen name="MyClubListScreen" component={MyClubListScreen} />
         </Stack.Navigator>

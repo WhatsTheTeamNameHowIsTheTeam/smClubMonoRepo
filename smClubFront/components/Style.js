@@ -452,7 +452,7 @@ const styles = StyleSheet.create({
         padding: 10,
         marginRight: 5,
         backgroundColor: 'white',
-        flexDirection:'row',
+        flexDirection: 'row',
     },
     textInPut: {
         fontSize: 15,
@@ -470,5 +470,154 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
 
+    // -----------------ClubMemberListScreenComponent
+    // 동아리 메인-회원 페이지 컴포넌트
+    clubMemberContainer: {
+        height:height*0.66,
+        marginTop:160,
+        alignItems:'center'
+    },
+    clubMemberItem: {
+        width: 150,
+        backgroundColor: '#f0f0f0',
+        borderRadius: 15,
+        padding: 15,
+        marginVertical: 10,
+        margin: 5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginRight:10,
+    },
+    roleText: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        marginBottom: 5,
+    },
+    profileImage: {
+        width: 50,
+        height: 50,
+        borderRadius: 25,
+        marginBottom: 5,
+    },
+    nameText: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        marginBottom: 5,
+    },
+    majorText: {
+        fontSize: 14,
+        color: 'gray',
+    },
+
+    clubContainer: {
+        position: 'absolute',
+        top: 0,
+        width: '80%',
+        height: 90,
+        marginVertical: 10,
+        marginHorizontal: '10%',
+        padding: 10,
+        flexDirection: 'row',
+        backgroundColor: '#D9D9D9',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderRadius: 10,
+    },
+    numberOfMemberText: {
+        marginTop: 50,
+    },
+
+    clubMemberSearchView: { // 검색창
+        position: 'absolute',
+        top: 90,
+        width: '85%',
+        height: 40,
+        marginVertical: 20,
+        marginHorizontal: 30,
+        flexDirection: 'row',
+        backgroundColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    clubMembersearchText: {
+        width: '60%',
+        height: '100%',
+        borderRadius: 10,
+        padding: 5,
+        marginRight: 15,
+        fontSize: 15,
+        backgroundColor: '#D9D9D9',
+    },
+    clubMembersearchIcon: {
+        width: '13%',
+        height: '100%',
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#D9D9D9',
+    },
+
+    excelContainer: {
+        position: 'absolute',
+        bottom: 20,
+        right: 20,
+        width: 70,
+        height: 70,
+        backgroundColor: '#4b6bff',
+        padding: 10,
+        borderRadius: 100,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    modalView: {
+        width: "80%",
+        backgroundColor: "white",
+        borderRadius: 6,
+        padding: 20,
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+    modalText: {
+        fontSize: 18,
+        fontWeight: "bold",
+        marginBottom: 15,
+    },
+    modalItem: {
+        width: "100%",
+        padding: 8,
+        marginBottom: 10,
+        borderRadius: 4,
+        backgroundColor: "#568ed9",
+    },
+    modalItemText: {
+        fontSize: 16,
+        color: "#fff",
+        textAlign: "center",
+    },
+    closeModalButton: {
+        width: "100%",
+        padding: 8,
+        borderRadius: 4,
+        backgroundColor: "gray",
+    },
+    modalCloseText: {
+        fontSize: 16,
+        color: "#fff",
+        textAlign: "center",
+    },
 });
 export default styles;
