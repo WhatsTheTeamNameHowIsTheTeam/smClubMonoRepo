@@ -8,8 +8,8 @@ import {
 
 
 // --------------Components
-import NotificationComponent from './NotificationComponent';
-import styles from './Style';
+import RecruitmentAnnouncementComponents from '../RecruitmentAnnouncementComponents';
+import styles from '../Style';
 
 const AnnouncementListScreenComponent = (props) => {
     const [announcementList, setAnnouncementList] = useState([]); // 모집공고 리스트
@@ -43,15 +43,15 @@ const AnnouncementListScreenComponent = (props) => {
                                 console.log('검색 버튼 클릭');
                             }}
                         >
-                            <Image style={{ width: '50%', height: '50%', }} source={require('../assets/icon.png')} resizeMethod='contain' />
+                            <Image style={{ width: '50%', height: '50%', }} source={require('../../assets/icon.png')} resizeMethod='contain' />
                         </TouchableOpacity>
                         
                     </View>
 
                     {/* ----------공고 리스트---------- */}
-                    <NotificationComponent />
+                    <RecruitmentAnnouncementComponents />
                     <View style={styles.notificationLine}/>
-                    <NotificationComponent />
+                    <RecruitmentAnnouncementComponents />
                     <View style={styles.notificationLine}/>
                 </View>
             </View>

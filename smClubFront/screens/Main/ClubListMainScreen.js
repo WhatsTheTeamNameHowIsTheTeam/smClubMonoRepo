@@ -8,7 +8,7 @@ import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 
 // ------------Components
 import ClubListScreenComponent from '../../components/ClubListScreenComponent';
-import AnnouncementListScreenComponent from '../../components/AnnouncementListScreenComponent';
+import AnnouncementListScreenComponent from '../../components/MainScreenComponent/AnnouncementListScreenComponent';
 
 
 // ------------styles

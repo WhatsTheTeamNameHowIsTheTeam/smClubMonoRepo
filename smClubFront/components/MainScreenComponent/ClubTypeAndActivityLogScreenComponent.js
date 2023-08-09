@@ -9,11 +9,11 @@ import {useNavigation} from '@react-navigation/native';
 
 
 // ----------------Components
-import ClubTypeComponent from './ClubTypeComponent'
-import ActivityLogMainComponent from './ActivityLogMainComponent'
+import ClubTypeComponent from '../ClubTypeComponent'
+import ActivityLogMainComponent from '../ActivityLogMainComponent'
 
 // ----------------styles
-import styles from './Style'
+import styles from '../Style'
 
 
 const ClubTypeAndActivityLogScreenComponent = (props) => {
@@ -73,7 +73,7 @@ const ClubTypeAndActivityLogScreenComponent = (props) => {
                         }}
                     >
                         <Text style={{fontSize:15, fontWeight:'bold'}}>더보기 </Text>
-                        <Image style={{width:25, height:25}} source={require('../assets/ArrowRightShort.png')} />
+                        <Image style={{width:25, height:25}} source={require('../../assets/ArrowRightShort.png')} />
                     </TouchableOpacity>
                 </View>
             </View>
