@@ -315,7 +315,7 @@ const styles = StyleSheet.create({
     // 동아리 메인-정보 페이지 컴포넌트
     clubActivityLogContainer: {
         width: '100%',
-        height: '50%',
+        height: height,
     },
     clubNameContainer: {
         width: '100%',
@@ -366,7 +366,7 @@ const styles = StyleSheet.create({
         height: 70,
         marginTop: 20,
         marginBottom: 25,
-        marginHorizontal:30,
+        marginHorizontal: 30,
         flexDirection: 'row',
         backgroundColor: 'white',
         justifyContent: 'center',
@@ -375,8 +375,7 @@ const styles = StyleSheet.create({
     dateSeparatorContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: 100,
-        width:'80%',
+        width: '100%',
     },
     dateSeparatorLine: {
         flex: 1,
@@ -391,8 +390,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingHorizontal: 10,
         paddingVertical: 20,
-        borderBottomColor: 'lightgray',
-        borderBottomWidth: 1,
     },
     profileImage: {
         width: 50,
@@ -423,6 +420,54 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: 'gray',
         alignSelf: 'flex-end',
+    },
+    editTextContainer: {
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
+        height: 80,
+        backgroundColor: '#EAEAEA',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        paddingHorizontal: 10,
+    },
+    editText: {
+        backgroundColor: '#4b6bff',
+        padding: 10,
+        borderRadius: 25,
+    },
+    ImageIcon: {
+        width: 50,
+        height: 50,
+        borderRadius: 15,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginRight: 5,
+    },
+    textInPutContainer: {
+        width: '60%',
+        height: '60%',
+        borderRadius: 10,
+        padding: 10,
+        marginRight: 5,
+        backgroundColor: 'white',
+        flexDirection:'row',
+    },
+    textInPut: {
+        fontSize: 15,
+    },
+    inputButton: {
+        backgroundColor: '#4b6bff',
+        borderRadius: 10,
+        width: '15%',
+        height: '60%',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    inputButtonText: {
+        color: '#fff',
+        fontSize: 16,
     },
 
 });

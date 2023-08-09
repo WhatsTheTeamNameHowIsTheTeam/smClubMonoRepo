@@ -44,10 +44,19 @@ const ClubApplicantListScreenComponent = () => {
             imageUrl: 'https://via.placeholder.com/300',
             postedAt: new Date('2023-08-12T12:55:00'),
         },
+        {
+            id: 5,
+            profileImg: 'https://via.placeholder.com/50',
+            author: 'John Smith',
+            content: '오늘 오후에 같이 만나실 분 있나요?',
+            imageUrl: 'https://via.placeholder.com/300',
+            postedAt: new Date('2023-08-15T12:55:00'),
+        },
     ];
 
     const [announcementList, setAnnouncementList] = useState(dummyAnnouncements); // 모집공고 리스트
     const [searchText, setSearchText] = useState(''); // 검색어
+    const [inputText, setInputText] = useState(''); // 공고입력
 
     useEffect(() => {
 
@@ -111,12 +120,8 @@ const ClubApplicantListScreenComponent = () => {
 
     return (
         <View>
-            <ScrollView>
-                <View style={styles.clubsAndTypeContainer}>
-                    <View style={styles.clubActivityLogContainer}>
-                    {renderAnnouncements(announcementList)}
-                    </View>
-                </View>
+            <ScrollView style={{ marginTop: 100, marginBottom: 70 }}>
+                {renderAnnouncements(announcementList)}
             </ScrollView>
             {/* ----------검색---------- */}
             <View style={styles.clubSearchView}>
@@ -142,6 +147,40 @@ const ClubApplicantListScreenComponent = () => {
                     />
                 </TouchableOpacity>
 
+            </View>
+
+            <View style={styles.editTextContainer}>
+                <TouchableOpacity
+                    style={styles.ImageIcon}
+                    onPress={() => {
+                        console.log('이미지 첨부')
+                    }}
+                >
+                    <Image
+                        style={{ width: '100%', height: '100%' }}
+                        source={require('../../assets/icon.png')}
+                        resizeMode="contain"
+                    />
+                </TouchableOpacity>
+
+                <View style={styles.textInPutContainer}>
+                <TextInput
+                    style={styles.textInPut}
+                    placeholder='공지를 입력하세요.'
+                    placeholderTextColor='gray'
+                    value={inputText}
+                    onChangeText={setInputText}
+                />
+                </View>
+
+                <TouchableOpacity
+                    style={styles.inputButton}
+                    onPress={()=>{
+                        console.log('공지 전송')
+                    }}
+                >
+                    <Text style={styles.inputButtonText}>전송</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );

@@ -12,7 +12,7 @@ const ClubActivityLogScreenComponent = () => {
             <ScrollView>
                 <View style={styles.clubsAndTypeContainer}>
                     <View style={styles.clubActivityLogContainer}>
-                        <Image style={{ width: '100%', height: '40%', }} source={require('../../assets/icon.png')} resizeMode='contain' />
+                        <Image style={{ width: '100%', height: '20%', }} source={require('../../assets/icon.png')} resizeMode='contain' />
 
                         <View style={styles.clubNameContainer}>
                             <Image style={{ width: 70, height: 70, borderRadius: 100, marginRight: 10 }} source={require('../../assets/icon.png')} resizeMode='contain' />
