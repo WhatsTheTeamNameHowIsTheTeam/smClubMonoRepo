@@ -322,6 +322,41 @@ const styles = StyleSheet.create({
         color:'white',
         textAlign:'center',
         textAlignVertical:'center',
-    }
+    },
+
+
+
+    // -----------UnionClubListScreenComponent
+    // 동아리 리스트 컴포넌트
+    unionClubListContainer: {
+        width: width,
+        height: height,
+        alignItems: 'center',
+        position: 'relative',
+    },
+    unionClubListView: {
+        width: '100%',
+        height: '100%',
+    },
+    clublistisadmin:{
+        width:'15%',
+        height:'30%',
+        borderRadius:15,
+        alignItems:'center',
+        justifyContent:'center',
+    },
+    clubCreateButtonView:{
+        position:'absolute',
+        bottom: 10,
+        right: 10,
+        width:50, 
+        height:50, 
+        backgroundColor:'#D9D9D9',
+        borderRadius:40, 
+        justifyContent:'center', 
+        alignItems:'center',
+    },
 });
+
+
 export default styles;
