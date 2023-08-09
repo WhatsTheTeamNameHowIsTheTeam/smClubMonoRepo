@@ -16,7 +16,7 @@ import styles from './Style';
 
 const ClubComponent = (props) => {
     const [isrecruit, setIsRecruitement] = useState(true); // 이미지가 있는지 없는지
-    // const [clubData, setClubData] = useState(props); // 동아리 전체 데이터
+    // const [clubData, setClubData] = useState(props.clubData); // 동아리 전체 데이터
     // navigation 사용
     const navigation = useNavigation();
 
