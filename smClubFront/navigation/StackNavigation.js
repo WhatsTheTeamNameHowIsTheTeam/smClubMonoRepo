@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 //----------page import----------
 import MainScreen from '../screens/Main/MainScreen';
 import ClubListMainScreen from '../screens/Main/ClubListMainScreen';
-
+import UnionClubListScreen from '../screens/ClubCreation/UnionClubListScreen';
 
 import ClubMainScreen from '../screens/Club/ClubMainScreen';
 import MyClubListScreen from '../screens/Club/MyClubListScreen';
@@ -32,9 +32,10 @@ const HomeStackNavigator = () => {
 const ClubStackNavigator = () => {
     return (
 
-        <Stack.Navigator initialRouteName='ClubMainScreen' screenOptions={{ headerShown: false }}> 
+        <Stack.Navigator initialRouteName='UnionClubListScreen' screenOptions={{ headerShown: false }}> 
             <Stack.Screen name="ClubMainScreen" component={ClubMainScreen} />
             <Stack.Screen name="MyClubListScreen" component={MyClubListScreen} />
+            <Stack.Screen name="UnionClubListScreen" component={UnionClubListScreen} />
         </Stack.Navigator>
     );
 };
