@@ -9,6 +9,7 @@ import UnionClubListScreen from '../screens/ClubCreation/UnionClubListScreen';
 
 import ClubMainScreen from '../screens/Club/ClubMainScreen';
 import MyClubListScreen from '../screens/Club/MyClubListScreen';
+import ClubCreationScreen from '../screens/ClubCreation/ClubCreationScreen';
 
 import AlarmScreen from '../screens/Alarm/AlarmScreen';
 
@@ -32,10 +33,11 @@ const HomeStackNavigator = () => {
 const ClubStackNavigator = () => {
     return (
 
-        <Stack.Navigator initialRouteName='UnionClubListScreen' screenOptions={{ headerShown: false }}> 
+        <Stack.Navigator initialRouteName='UnionClubListScreen'> 
             <Stack.Screen name="ClubMainScreen" component={ClubMainScreen} />
             <Stack.Screen name="MyClubListScreen" component={MyClubListScreen} />
             <Stack.Screen name="UnionClubListScreen" component={UnionClubListScreen} />
+            <Stack.Screen name="ClubCreationScreen" component={ClubCreationScreen} />
         </Stack.Navigator>
     );
 };
