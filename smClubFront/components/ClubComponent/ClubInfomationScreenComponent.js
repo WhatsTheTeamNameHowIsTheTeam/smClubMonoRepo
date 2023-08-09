@@ -8,44 +8,115 @@ import {
 
 // --------------Components
 import styles from '../Style';
+import ActiviatyLogComponent from '../ActivityLogComponent';
 
-const ClubInfomationScreenComponent = () => {
-    const dummyAnnouncements = [
+const ClubInfomationScreenComponent = ({ navigation }) => {
+    const dummyActivityLog = [
         {
-            id: 1,
-            profileImg: 'https://via.placeholder.com/50',
-            author: '홍길동',
-            content: '모임에 참여하고 싶어요!',
-            imageUrl: 'https://via.placeholder.com/300',
-            postedAt: new Date('2023-08-12T10:00:00'),
+            ACT_ID: 1, // 활동일지번호
+            CLBU_ID: 1, //동아리 ID
+            SJ: '활동일지 0810', // 제목
+            CN: '활동일지에용~활동일지에용~활동일지에용~', // 내용
+            ATCH_PHOTO: 'https://via.placeholder.com/300', //첨부 사진
+            NMPR: 12, //인원수
+            OTHBC_AT: 'true', //공개여부
+            ACT_BEGIN_DT: new Date('2023-08-08T10:00:00'), //활동시작일시
+            ACT_END_DT: new Date('2023-08-10T10:00:00'), //활동종료일시 
+            CREATE_DT: new Date('2023-08-12T10:00:00'), //생성일시
+            UPDT_DT: '', //수정일시
+        },
+        {
+            ACT_ID: 1, // 활동일지번호
+            CLBU_ID: 1, //동아리 ID
+            SJ: '활동일지 0810', // 제목
+            CN: '활동일지에용~활동일지에용~활동일지에용~', // 내용
+            ATCH_PHOTO: 'https://via.placeholder.com/300', //첨부 사진
+            NMPR: 12, //인원수
+            OTHBC_AT: 'true', //공개여부
+            ACT_BEGIN_DT: new Date('2023-08-08T10:00:00'), //활동시작일시
+            ACT_END_DT: new Date('2023-08-10T10:00:00'), //활동종료일시 
+            CREATE_DT: new Date('2023-08-12T10:00:00'), //생성일시
+            UPDT_DT: '', //수정일시
         },
     ];
 
-    const [announcementList, setAnnouncementList] = useState(dummyAnnouncements); // 모집공고 리스트
+    const [activityLog, setActivityLog] = useState(dummyActivityLog); // 모집공고 리스트
     const [searchText, setSearchText] = useState(''); // 검색어
     const [inputText, setInputText] = useState(''); // 공고입력
+    const [selectedActivity, setSelectedActivity] = useState(null);
 
     useEffect(() => {
 
     }, []);
 
-    const renderAnnouncements = (announcementList) => {
-        return (
-            <View>
-
-            </View>
-        );
+    const formatDate = (date) => {
+        return `${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${("0" + date.getDate()).slice(-2)}`;
     };
 
+    const renderActivityLog = (activityLog) => {
+        return activityLog.map((log, index) => (
+            <TouchableOpacity
+                key={index}
+                onPress={() => setSelectedActivity(log)}
+            >
+                <View style={styles.activityLogContainer}>
+                    <Image
+                        style={styles.activityLogImage}
+                        source={{ uri: log.ATCH_PHOTO }}
+                        resizeMode="contain"
+                    />
+                    <View style={styles.activityLogContent}>
+                        <Text style={styles.activityLogTitle}>{log.SJ}</Text>
+                        <Text style={styles.activityLogDescription}>
+                            {log.CN}
+                        </Text>
+                        <Text style={styles.activityLogDetails}>
+                            인원수: {log.NMPR}
+                        </Text>
+                        <Text style={styles.activityLogDetails}>
+                            활동 기간: {formatDate(log.ACT_BEGIN_DT)} ~{' '}
+                            {formatDate(log.ACT_END_DT)}
+                        </Text>
+                    </View>
+                </View>
 
-    return (
-        <View>
-            <ScrollView style={{ marginTop: 100, marginBottom: 70 }}>
-                {renderAnnouncements(announcementList)}
-            </ScrollView>
+            </TouchableOpacity>
+        ));
+    };
 
-        </View>
-    );
+    if (selectedActivity) {
+        return (
+            <View style={{ margin:10}}>
+                {selectedActivity && (
+                    <ActiviatyLogComponent activity={selectedActivity} />
+                )}
+                <TouchableOpacity onPress={() => setSelectedActivity(null)}>
+                    <Text>뒤로 가기</Text>
+                </TouchableOpacity>
+            </View>
+        );
+    } else {
+        return (
+            <>
+                <ScrollView style={{ marginTop: 10, marginBottom: 70 }}>
+                    {renderActivityLog(activityLog)}
+                </ScrollView>
+
+                {/* 활동일지 추가 버튼 */}
+                <View>
+                    <TouchableOpacity
+                        style={styles.excelContainer}
+                        onPress={() => { console.log('활동일지 추가하기') }}>
+                        <Image
+                            style={{ width: '70%', height: '70%' }}
+                            source={require('../../assets/icon.png')}
+                            resizeMode="contain"
+                        />
+                    </TouchableOpacity>
+                </View>
+            </>
+        );
+    }
 };
 
 export default ClubInfomationScreenComponent;

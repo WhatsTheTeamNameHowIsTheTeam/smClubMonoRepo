@@ -86,7 +86,7 @@ const ClubMainScreen = (props) => {
         { key: 'second', title: '공지' },
         { key: 'third', title: '활동' },
         { key: 'fourth', title: '회원' },
-        { key: 'fifth', title: '공고' },
+        { key: 'fifth', title: '모집' },
     ]);
 
     // 가져온 동아리명으로 상태 업데이트

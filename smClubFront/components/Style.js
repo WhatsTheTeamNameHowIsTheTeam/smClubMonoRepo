@@ -473,9 +473,9 @@ const styles = StyleSheet.create({
     // -----------------ClubMemberListScreenComponent
     // 동아리 메인-회원 페이지 컴포넌트
     clubMemberContainer: {
-        height:height*0.66,
-        marginTop:160,
-        alignItems:'center'
+        height: height * 0.66,
+        marginTop: 160,
+        alignItems: 'center'
     },
     clubMemberItem: {
         width: 150,
@@ -486,7 +486,7 @@ const styles = StyleSheet.create({
         margin: 5,
         justifyContent: 'center',
         alignItems: 'center',
-        marginRight:10,
+        marginRight: 10,
     },
     roleText: {
         fontSize: 14,
@@ -618,6 +618,67 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: "#fff",
         textAlign: "center",
+    },
+
+    // -----------------ClubMemberListScreenComponent
+    // 동아리 메인-회원 페이지 컴포넌트
+    activityLogContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingBottom: 15,
+        borderBottomWidth: 1, // 원하는 선의 두께 지정
+        borderColor: '#ccc', // 원하는 선의 색상 지정
+    },
+    activityLogImage: {
+        width: 100,
+        height: 100,
+        marginRight: 10,
+    },
+    activityLogContent: {
+        flexGrow: 1,
+    },
+    activityLogTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
+    },
+    activityLogDescription: {
+        fontSize: 14,
+    },
+    activityLogDetails: {
+        fontSize: 12,
+        color: '#999',
+    },
+
+    // -----------------ActivityLogComponent
+    // 하나의 활동 일지 컴포넌트
+    ALcontainer: {
+        padding: 16,
+        marginBottom: 16,
+        backgroundColor: '#FFFFFF',
+        borderRadius: 8,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
+        elevation: 2,
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 16,
+    },
+    image: {
+        width: '100%',
+        height: 200,
+        marginBottom: 16,
+    },
+    infoRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: 8,
+    },
+    content: {
+        lineHeight: 24,
     },
 });
 export default styles;
