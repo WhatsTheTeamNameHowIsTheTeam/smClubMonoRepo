@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @Table
 @Entity
-public class ReqstDtlsEntity {
+public class CallengerEntity {
 
     @Id
     @Column(name="STDNT_INNB")

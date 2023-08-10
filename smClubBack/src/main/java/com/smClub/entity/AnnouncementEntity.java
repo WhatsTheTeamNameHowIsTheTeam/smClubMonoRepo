@@ -5,7 +5,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Cleanup;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,7 +12,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "RCRIT_PBLANC")
-public class RcritPblancEntity {
+public class AnnouncementEntity {
     @Id
     @Column(name = "RCRIT_PBLANC_ID")
     private String notificationNumber;
@@ -45,7 +44,7 @@ public class RcritPblancEntity {
     private String updateDate;
 
 
-    public RcritPblancEntity() {
+    public AnnouncementEntity() {
     }
 
 }

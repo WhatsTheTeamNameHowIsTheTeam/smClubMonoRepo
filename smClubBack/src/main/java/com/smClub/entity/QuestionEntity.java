@@ -11,8 +11,8 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table
-public class ReqstdocEntity {
+@Table(name = "REQSTDOC_QESTN")
+public class QuestionEntity {
     @Id
     @Column(name="QESTN_ID")
     private int qestionNumber;
@@ -23,7 +23,7 @@ public class ReqstdocEntity {
     @Column(name="QESTN")
     private String qestion;
 
-    public ReqstdocEntity() {
+    public QuestionEntity() {
     }
 
 }
