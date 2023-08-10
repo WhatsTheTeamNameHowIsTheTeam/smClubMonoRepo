@@ -1,7 +1,6 @@
 //stack Navigation
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
 //----------page import----------
 import MainScreen from '../screens/Main/MainScreen';
@@ -14,12 +13,14 @@ import ClubMemberListScreen from '../screens/Club/ClubMemberListScreen';
 import ClubNotificationScreen from '../screens/Club/ClubNotificationScreen';
 import ClubRecruitmentAnnouncementScreen from '../screens/Club/ClubRecruitmentAnnouncementScreen';
 import ClubRecruitmentDocumentsScreen from '../screens/Club/ClubRecruitmentDocumentsScreen';
+import MyClubListScreen from '../screens/Club/MyClubListScreen';
 
 import AlarmScreen from '../screens/Alarm/AlarmScreen';
 
 import JoinScreen from '../screens/MyPage/JoinScreen';
 import LoginScreen from '../screens/MyPage/LoginScreen';
 import MyPageScreen from '../screens/MyPage/MyPageScreen';
+
 
 
 // 모듈 변수 선언
@@ -45,6 +46,7 @@ const ClubStackNavigator = () => {
             <Stack.Screen name="ClubNotificationScreen" component={ClubNotificationScreen} />
             <Stack.Screen name="ClubRecruitmentAnnouncementScreen" component={ClubRecruitmentAnnouncementScreen} />
             <Stack.Screen name="ClubRecruitmentDocumentsScreen" component={ClubRecruitmentDocumentsScreen} />
+            <Stack.Screen name="MyClubListScreen" component={MyClubListScreen} />
         </Stack.Navigator>
     );
 };
