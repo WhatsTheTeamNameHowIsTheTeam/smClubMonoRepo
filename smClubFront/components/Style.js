@@ -391,7 +391,9 @@ const styles = StyleSheet.create({
         borderWidth:1,
         borderColor:'#D9D9D9',
         borderRadius:15,
-    }
+        padding:10,
+        paddingHorizontal:20,
+    },
 });
 
 
