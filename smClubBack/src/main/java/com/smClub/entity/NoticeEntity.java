@@ -1,27 +1,31 @@
 
 package com.smClub.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import com.smClub.entity.Id.NoticeEntityId;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Getter
 @Entity
-@Setter
 @Table(name = "NOTICE")
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@IdClass(NoticeEntityId.class)
 public class NoticeEntity {
+
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "CLUB_ID")
+    private ClubEntity clubEntity;
+
     @Id
     @Column(name = "NOTICE_ID")
-    private String notice;
+    private String noticeId;
 
-    @Column(name = "CLUB_ID")
-    private String clubId;
-
-    @Column(name = "STDNT_INNB")
-    private String studentId;
+    @ManyToOne
+    @JoinColumn(name = "STDNT_INNB")
+    private UserInfoEntity userInfoEntity;
 
     @Column(name = "CN")
     private String content;
@@ -29,14 +33,7 @@ public class NoticeEntity {
     @Column(name = "ATCH_PHOTO")
     private String img;
 
-    @Column(name = "OTHBC_AT")
-    private String open;
-
-    @Column(name = "CREATE_DT")
+    @Column(name = "CREATE_DT", nullable = false)
     private String createDate;
-
-
-    public NoticeEntity() {
-    }
 
 }

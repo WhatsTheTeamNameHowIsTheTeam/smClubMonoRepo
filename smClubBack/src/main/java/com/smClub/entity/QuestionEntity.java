@@ -1,29 +1,37 @@
 
 package com.smClub.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
+import com.smClub.entity.Id.QuestionEntityId;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Getter
-@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Table(name = "REQSTDOC_QESTN")
+@IdClass(QuestionEntityId.class)
 public class QuestionEntity {
+
+    @Id
+    @OneToOne
+    @JoinColumns({
+            @JoinColumn(name = "CLUB_ID"),
+            @JoinColumn(name = "RCRIT_PBLANC_ID")
+    })
+    private RecruitmentBoardEntity recruitmentBoardEntity;
+
     @Id
     @Column(name="QESTN_ID")
-    private int qestionNumber;
-    @Column(name="RCRIT_PBLANC_ID")
-    private String reqstdocNumber;
-    @Column(name="CLUB_ID")
-    private String clubId;
+    private int qestionId;
+
     @Column(name="QESTN")
     private String qestion;
 
-    public QuestionEntity() {
-    }
+    @OneToMany(mappedBy = "questionEntity")
+    private List<ApplicationEntity> applicationList;
 
 }
