@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/clubs")
-public class ClubsController {
+public class ClubController {
 
     // [연합회] 동아리 생성
     @PostMapping

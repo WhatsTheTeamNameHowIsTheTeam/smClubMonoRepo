@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/clubs/{clubId}/members")
-public class ClubsMembersController {
+public class ClubMemberController {
 
     // 클럽 회원목록
     @GetMapping

@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
-public class UsersController {
+public class UserController {
 
     // 동아리 생성할 때 모든 유저 정보 가져오기
     @GetMapping

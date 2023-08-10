@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/clubs/{clubsId}/act-diaries")
-public class ClubsActDiariesController {
+public class ClubActDiaryController {
 
     // 동아리 활동일지 목록 보기
     @GetMapping

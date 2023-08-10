@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/users/{userId}")
-public class UsersNotificationController {
+public class UserNotificationController {
 
     //알림 목록 페이지
     @GetMapping("/notifications")

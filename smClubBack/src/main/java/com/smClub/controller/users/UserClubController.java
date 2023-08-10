@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/users/{userId}/clubs")
-public class UsersClubsController {
+public class UserClubController {
 
     //내 동아리 목록 페이지
     @GetMapping("/{clubId}")
