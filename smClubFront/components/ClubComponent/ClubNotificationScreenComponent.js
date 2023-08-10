@@ -1,4 +1,4 @@
-// 동아리 메인-모집 페이지 컴포넌트
+// 동아리 메인-공지 페이지 컴포넌트
 import { useEffect, useState } from 'react';
 import {
     View, Text, ScrollView,
@@ -9,73 +9,179 @@ import {
 // --------------Components
 import styles from '../Style';
 
-
 const ClubNotificationScreenComponent = () => {
-
     const dummyNotification = [
         {
-            CLUB_ID: 1, //모집공고 번호
-            RCRIT_PBLANC_ID: 1, // 동아리 ID
-            STDNT_INNB: 2019727029, // 학번
-            SJ: '제목이에용~', // 제목
-            CN: '내용이에용~내용이에용~내용이에용~', // 내용
-            ATCH_PHOTO: 'https://via.placeholder.com/300', // 첨부사진
-            NMPR: 5, // 인원수
-            RDCNT: 55, // 조회수
-            RCRIT_AT: 'true', // 모집여부
-            RCRIT_BEGIN_DT: new Date('2023-08-07T10:00:00'), // 모집시작일시
-            RCRIT_END_DT: new Date('2023-08-15T10:00:00'), // 모집종료일시
-            PULLUP_DT: '', // 끌어올리기 일시
-            CREATE_DT: new Date('2023-08-08T10:00:00'), // 생성일시
-            UPDT_DT: '', // 수정일시
+            id: 1,
+            profileImg: 'https://via.placeholder.com/50',
+            author: '홍길동',
+            content: '모임에 참여하고 싶어요!',
+            imageUrl: 'https://via.placeholder.com/300',
+            postedAt: new Date('2023-08-12T10:00:00'),
+        },
+        {
+            id: 2,
+            profileImg: 'https://via.placeholder.com/50',
+            author: 'Jane Doe',
+            content: '안녕하세요! 같이 스터디하실 분 구합니다.',
+            imageUrl: '',
+            postedAt: new Date('2023-08-12T11:30:00'),
+        },
+        {
+            id: 3,
+            profileImg: 'https://via.placeholder.com/50',
+            author: 'John Smith',
+            content: '오늘 오후에 같이 만나실 분 있나요?',
+            imageUrl: '',
+            postedAt: new Date('2023-08-12T12:45:00'),
+        },
+        {
+            id: 4,
+            profileImg: 'https://via.placeholder.com/50',
+            author: 'John Smith',
+            content: '오늘 오후에 같이 만나실 분 있나요?',
+            imageUrl: 'https://via.placeholder.com/300',
+            postedAt: new Date('2023-08-12T12:55:00'),
+        },
+        {
+            id: 5,
+            profileImg: 'https://via.placeholder.com/50',
+            author: 'John Smith',
+            content: '오늘 오후에 같이 만나실 분 있나요?',
+            imageUrl: 'https://via.placeholder.com/300',
+            postedAt: new Date('2023-08-15T12:55:00'),
         },
     ];
 
-    const [notification, setNotification] = useState(dummyNotification); // 모집공고 리스트
+    const [notificationList, setNotificationList] = useState(dummyNotification); // 모집공고 리스트
+    const [searchText, setSearchText] = useState(''); // 검색어
+    const [inputText, setInputText] = useState(''); // 공고입력
 
     useEffect(() => {
 
     }, []);
 
-    return (
-        <>
-            <ScrollView>
-                {notification.map((notif, index) => (
-                    <View key={index}>
-                        <View style={styles.pageHeader}>
-                            <TouchableOpacity>
-                                <Text style={styles.button}>신청 양식</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity>
-                                <Text style={styles.button}>편집하기</Text>
-                            </TouchableOpacity>
-                        </View>
+    // 첨부이미지가 있는 경우와 없는 경우를 모두 대응하기 위한 함수
+    const renderImage = (imageUrl) => {
+        if (imageUrl) {
+            return (
+                <Image
+                    style={styles.attachmentImage}
+                    source={{ uri: imageUrl }}
+                    resizeMode="contain"
+                />
+            );
+        }
+        return null;
+    };
 
-                        <View style={styles.notificationContainer}>
-                            <Image
-                                source={{ uri: notif.ATCH_PHOTO }}
-                                style={styles.notificationImage}
-                            />
-                            <View style={styles.notificationInfo}>
-                                <Text style={styles.title}>{notif.SJ}</Text>
-                                <Text>작성자: {notif.STDNT_INNB}</Text>
-                                <Text>기간: {notif.RCRIT_BEGIN_DT.toLocaleDateString()} ~ {notif.RCRIT_END_DT.toLocaleDateString()}</Text>
-                                <Text>모집 인원: {notif.NMPR}명</Text>
-                            </View>
-                        </View>
+    const renderAnnouncements = (notificationList) => {
+        // 날짜 포맷 설정 함수
+        const formatDate = (date) => {
+            const d = new Date(date);
+            return `${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일`;
+        };
 
-                        <View style={styles.contentContainer}>
-                            <Text>{notif.CN}</Text>
+        let currentDate = '';
+        return notificationList.map((notification, index) => {
+            const postedAtFormatted = formatDate(notification.postedAt);
+            const isNewDate = postedAtFormatted !== currentDate;
+            currentDate = postedAtFormatted;
+
+            return (
+                <View key={notification.id}>
+                    {isNewDate && (
+                        <View style={styles.dateSeparatorContainer}>
+                            <View style={styles.dateSeparatorLine} />
+                            <Text style={styles.dateSeparatorText}>{currentDate}</Text>
+                            <View style={styles.dateSeparatorLine} />
+                        </View>
+                    )}
+                    <View style={styles.announcementContainer}>
+                        <Image
+                            style={styles.profileImage}
+                            source={{ uri: notification.profileImg }}
+                            resizeMode="contain"
+                        />
+                        <View style={styles.announcementContentContainer}>
+                            <Text style={styles.authorText}>{notification.author}</Text>
+                            <Text style={styles.contentText}>{notification.content}</Text>
+                            {renderImage(notification.imageUrl)}
+                            <Text style={styles.timeText}>
+                                {new Date(notification.postedAt).toLocaleTimeString()}
+                            </Text>
                         </View>
                     </View>
-                ))}
+                </View>
+            );
+        });
+    };
+
+    return (
+        <View>
+            <ScrollView style={{ marginTop: 100, marginBottom: 70 }}>
+                {renderAnnouncements(notificationList)}
             </ScrollView>
-            <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-                <TouchableOpacity style={styles.applyButton}>
-                    <Text style={styles.applyButtonText}>신청 인원보기</Text>
+            {/* ----------검색---------- */}
+            <View style={styles.clubSearchView}>
+                <TextInput
+                    style={styles.searchText}
+                    placeholder='검색어를 입력하세요.'
+                    placeholderTextColor='gray'
+                    value={searchText}
+                    onChangeText={setSearchText}
+                />
+
+                <TouchableOpacity
+                    style={styles.searchIcon}
+                    onPress={() => {
+                        console.log('검색 내용', searchText)
+                        console.log('검색 버튼 클릭');
+                    }}
+                >
+                    <Image
+                        style={{ width: '50%', height: '50%' }}
+                        source={require('../../assets/icon.png')}
+                        resizeMode="contain"
+                    />
+                </TouchableOpacity>
+
+            </View>
+
+            <View style={styles.editTextContainer}>
+                <TouchableOpacity
+                    style={styles.ImageIcon}
+                    onPress={() => {
+                        console.log('이미지 첨부')
+                    }}
+                >
+                    <Image
+                        style={{ width: '100%', height: '100%' }}
+                        source={require('../../assets/icon.png')}
+                        resizeMode="contain"
+                    />
+                </TouchableOpacity>
+
+                <View style={styles.textInPutContainer}>
+                <TextInput
+                    style={styles.textInPut}
+                    placeholder='공지를 입력하세요.'
+                    placeholderTextColor='gray'
+                    value={inputText}
+                    onChangeText={setInputText}
+                />
+                </View>
+
+                <TouchableOpacity
+                    style={styles.inputButton}
+                    onPress={()=>{
+                        console.log('공지 전송')
+                    }}
+                >
+                    <Text style={styles.inputButtonText}>전송</Text>
                 </TouchableOpacity>
             </View>
-        </>
+        </View>
     );
 };
 

@@ -13,39 +13,39 @@ import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 
 // ------------Components
 import ClubActivityLogScreenComponent from '../../components/ClubComponent/ClubActivityLogScreenComponent';
-import ClubApplicantListScreenComponent from '../../components/ClubComponent/ClubApplicantListScreenComponent';
+import ClubNotificationScreenComponent from '../../components/ClubComponent/ClubNotificationScreenComponent';
 import ClubInfomationScreenComponent from '../../components/ClubComponent/ClubInfomationScreenComponent';
 import ClubMemberListScreenComponent from '../../components/ClubComponent/ClubMemberListScreenComponent';
-import ClubNotificationScreenComponent from '../../components/ClubComponent/ClubNotificationScreenComponent';
+import ClubRecruitmentAnnouncementScreenComponent from '../../components/ClubComponent/ClubRecruitmentAnnouncementScreenComponent';
 
 // ------------styles
 import styles from '../../components/Style';
 
 
 // 컴포넌트
-const CALComponent = () => (
+const CIComponent = () => ( //정보
+<ClubInfomationScreenComponent />
+)
+const CNSComponent = () => ( // 공지
+    <ClubNotificationScreenComponent />
+)
+const CALComponent = () => ( // 활동
     <ClubActivityLogScreenComponent />
 )
-const CAListComponent = () => (
-    <ClubApplicantListScreenComponent />
-)
-const CIComponent = () => (
-    <ClubInfomationScreenComponent />
-)
-const CMLComponent = () => (
+const CMLComponent = () => ( //회원
     <ClubMemberListScreenComponent />
 )
-const CNComponent = () => (
-    <ClubNotificationScreenComponent />
+const CRASComponent = () => ( //모집
+    <ClubRecruitmentAnnouncementScreenComponent />
 )
 
 // 어떤 컴포넌트를 렌더링 할지
 const renderScene = SceneMap({
-    first: CALComponent,
-    second: CAListComponent,
-    third: CIComponent,
+    first: CIComponent,
+    second: CNSComponent,
+    third: CALComponent,
     fourth: CMLComponent,
-    fifth: CNComponent,
+    fifth: CRASComponent,
 });
 
 // tab bar style
@@ -102,10 +102,10 @@ const ClubMainScreen = (props) => {
 
         fetchClubName(); // 동아리명 가져오기
     }, []);
-    
-// 가져온 동아리명으로 헤더 설정
+
+    // 가져온 동아리명으로 헤더 설정
     useLayoutEffect(() => {
-        navigation.setOptions({ headerTitle: clubName }); 
+        navigation.setOptions({ headerTitle: clubName });
     }, [clubName, navigation]);
 
     return (
