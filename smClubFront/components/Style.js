@@ -620,8 +620,8 @@ const styles = StyleSheet.create({
         textAlign: "center",
     },
 
-    // -----------------ClubMemberListScreenComponent
-    // 동아리 메인-회원 페이지 컴포넌트
+    // -----------------ClubInfomationScreenComponent
+    // 동아리 메인-활동 페이지 컴포넌트
     activityLogContainer: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -647,6 +647,14 @@ const styles = StyleSheet.create({
     activityLogDetails: {
         fontSize: 12,
         color: '#999',
+    },
+    backbutton: {
+        width: '25%',
+        padding: 14,
+        backgroundColor: 'dodgerblue',
+        alignItems: 'center',
+        alignSelf: 'flex-end',
+        borderRadius: 8,
     },
 
     // -----------------ActivityLogComponent
@@ -730,5 +738,58 @@ const styles = StyleSheet.create({
         color: 'white',
         fontWeight: 'bold',
     },
+
+
+    // -----------------ClubApplicantListComponent
+    // 동아리 메인-활동/신청자목록 컴포넌트
+    Applicantcontainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: 10,
+        marginBottom: 10,
+        width:'90%',
+        marginHorizontal:'5%',
+        backgroundColor: "#EFEFEF",
+        borderRadius: 6,
+        alignItems: "center",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+    profileImage: {
+        width: 60,
+        height: 60,
+        borderRadius: 30
+    },
+    applicantInfo: {
+        flex: 1,
+        paddingHorizontal: 10
+    },
+    rejectButton: {
+        backgroundColor: 'red',
+        height:50,
+        width:50,
+        alignItems:'center',
+        justifyContent:"center",
+        borderRadius: 100,
+        marginRight: 15,
+    },
+    acceptButton: {
+        backgroundColor: 'blue',
+        height:50,
+        width:50,
+        alignItems:'center',
+        justifyContent:"center",
+        borderRadius: 100,
+    },
+    buttonText: {
+        color: 'white'
+    }
 });
 export default styles;
