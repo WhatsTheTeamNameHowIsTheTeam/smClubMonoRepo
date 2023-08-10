@@ -1,6 +1,7 @@
 //stack Navigation
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
 //----------page import----------
 import MainScreen from '../screens/Main/MainScreen';
@@ -29,6 +30,7 @@ const HomeStackNavigator = () => {
         <Stack.Navigator initialRouteName='MainScreen'>
             <Stack.Screen name="MainScreen" component={MainScreen} />
             <Stack.Screen name="ClubListMainScreen" component={ClubListMainScreen} />            
+
         </Stack.Navigator>
     );
 };
@@ -55,9 +57,18 @@ const AlarmStackNavigator = () => {
     )
 }
 
-const MyPageStackNavigator = () => {
+const MyPageStackNavigator = ({ navigation, route }) => {
+    // 하단 탭바 제거
+    React.useLayoutEffect(() => {
+        const routeName = getFocusedRouteNameFromRoute(route);
+        if (routeName === 'MyPageScreen') {
+            navigation.setOptions({ tabBarStyle: { display: undefined } });
+        } else {
+            navigation.setOptions({ tabBarStyle: { display: 'none' } }, { screenOptions: { headerShown: false } });
+        }
+    }, [navigation, route]);
     return (
-        <Stack.Navigator initialRouteName='MyPageScreen'>
+        <Stack.Navigator initialRouteName='JoinScreen'>
             <Stack.Screen name="JoinScreen" component={JoinScreen} />
             <Stack.Screen name="LoginScreen" component={LoginScreen} />
             <Stack.Screen name="MyPageScreen" component={MyPageScreen} />
