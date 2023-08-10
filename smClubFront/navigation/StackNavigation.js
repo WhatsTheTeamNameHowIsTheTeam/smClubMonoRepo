@@ -5,6 +5,7 @@ import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
 //----------page import----------
 import MainScreen from '../screens/Main/MainScreen';
+import ClubListMainScreen from '../screens/Main/ClubListMainScreen';
 
 import ClubActivityLogScreen from '../screens/Club/ClubActivityLogScreen';
 import ClubApplicantListScreen from '../screens/Club/ClubApplicantListScreen';
@@ -28,6 +29,8 @@ const HomeStackNavigator = () => {
     return (
         <Stack.Navigator initialRouteName='MainScreen'>
             <Stack.Screen name="MainScreen" component={MainScreen} />
+            <Stack.Screen name="ClubListMainScreen" component={ClubListMainScreen} />            
+
         </Stack.Navigator>
     );
 };
