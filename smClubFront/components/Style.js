@@ -770,7 +770,12 @@ const styles = StyleSheet.create({
     applicantInfo: {
         flex: 1,
         paddingHorizontal: 10
-    },
+    },  
+    buttonContainer: {
+        flexDirection: 'row',
+        marginTop: 20,
+        marginBottom: 10,
+      },
     rejectButton: {
         backgroundColor: 'red',
         height:50,
@@ -789,7 +794,22 @@ const styles = StyleSheet.create({
         borderRadius: 100,
     },
     buttonText: {
-        color: 'white'
-    }
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 14,
+    },
+    modalWrapper: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.4)',
+      },
+      modalContent: {
+        backgroundColor: 'white',
+        borderRadius: 10,
+        padding: 30,
+        alignItems: 'center',
+        width: '80%',
+      },
 });
 export default styles;
