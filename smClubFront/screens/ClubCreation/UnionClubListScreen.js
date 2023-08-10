@@ -40,7 +40,7 @@ const UnionClubListScreen = () => {
         Storage.getData("id").then((value) => {
             if (value==="admin") {
                 setIsAdmin(true);
-            } 
+            }
         })
     }, [])
 

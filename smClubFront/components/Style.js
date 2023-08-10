@@ -356,6 +356,42 @@ const styles = StyleSheet.create({
         justifyContent:'center', 
         alignItems:'center',
     },
+
+
+
+
+
+
+    // -----------------ClubCreationScreen
+    // 동아리 생성 페이지
+    clubcreateContainer:{
+        width : width,
+        height : height,
+        backgroundColor:'white',
+        alignItems:'center',
+    },
+    clubcreateView:{
+        width:'85%',
+        height:'100%',
+    },
+    createClubText:{
+        fontSize:20,
+        fontWeight:'bold',
+        marginTop:20,
+        marginBottom:10,
+    },
+    clubcreateTextInput:{
+        borderBottomWidth:1,
+        borderColor:'#D9D9D9',
+        padding:10,
+    },
+    createClubLeaderInfoView:{
+        width:330,
+        height:250,
+        borderWidth:1,
+        borderColor:'#D9D9D9',
+        borderRadius:15,
+    }
 });
 
 
