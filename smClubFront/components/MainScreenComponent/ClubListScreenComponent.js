@@ -38,6 +38,7 @@ const ClubListScreenComponent = (props) => {
 
     useEffect(() => {
         console.log('ClubListScreenComponent');
+        console.log('clubtype', clubType)
     }, []);
 
 
@@ -114,7 +115,7 @@ const ClubListScreenComponent = (props) => {
                         initialScrollIndex={0}
                         style={styles.clubListPicker}
                         options={clubTypeList}
-                        defaultValue={clubTypeList[0]}
+                        defaultValue={clubType}
                         onSelect={toggleMajorSelection}
                         textStyle={styles.inputModalText}
                         dropdownTextStyle={styles.inputModalText}
