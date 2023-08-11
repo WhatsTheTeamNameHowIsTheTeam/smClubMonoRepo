@@ -1,7 +1,8 @@
 // 내 동아리 목록 페이지
 import React, { useEffect, useState } from 'react';
-import { 
-    View, Button, Text
+import {
+    View, Button, Text,
+    Image,
 } from 'react-native';
 
 
@@ -16,13 +17,23 @@ import Myclublist from '../../Data/myClubListDumy.json'
 
 
 const MyClubListScreen = (props) => {
-    return (
-        <View>
-            <Text>MyClubListScreen</Text>
-            <Button title="Go to ClubInfomationScreen" onPress={() => {
-                props.navigation.navigate('ClubInfomationScreen')
-            }}/>
+    const [loading, setLoading] = useState(false); // 로딩
 
+
+
+    return (
+        <View style={styles.container}>
+            {
+                loading ?
+                    <View style={styles.loadingView}>
+                        <Image style={styles.loadingImage} source={require('../../assets/loading.gif')} resizeMode='contain' />
+                    </View>
+                    :
+                    <View >
+
+
+                    </View>
+            }
         </View>
     );
 };

@@ -748,8 +748,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         padding: 10,
         marginBottom: 10,
-        width:'90%',
-        marginHorizontal:'5%',
+        width: '90%',
+        marginHorizontal: '5%',
         backgroundColor: "#EFEFEF",
         borderRadius: 6,
         alignItems: "center",
@@ -770,27 +770,27 @@ const styles = StyleSheet.create({
     applicantInfo: {
         flex: 1,
         paddingHorizontal: 10
-    },  
+    },
     buttonContainer: {
         flexDirection: 'row',
         marginTop: 20,
         marginBottom: 10,
-      },
+    },
     rejectButton: {
         backgroundColor: 'red',
-        height:50,
-        width:50,
-        alignItems:'center',
-        justifyContent:"center",
+        height: 50,
+        width: 50,
+        alignItems: 'center',
+        justifyContent: "center",
         borderRadius: 100,
         marginRight: 15,
     },
     acceptButton: {
         backgroundColor: 'blue',
-        height:50,
-        width:50,
-        alignItems:'center',
-        justifyContent:"center",
+        height: 50,
+        width: 50,
+        alignItems: 'center',
+        justifyContent: "center",
         borderRadius: 100,
     },
     buttonText: {
@@ -803,13 +803,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'rgba(0, 0, 0, 0.4)',
-      },
-      modalContent: {
+    },
+    modalContent: {
         backgroundColor: 'white',
         borderRadius: 10,
         padding: 30,
         alignItems: 'center',
         width: '80%',
-      },
+    },
 });
 export default styles;
