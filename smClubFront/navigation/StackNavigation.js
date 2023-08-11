@@ -1,11 +1,13 @@
 //stack Navigation
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
 //----------page import----------
 import MainScreen from '../screens/Main/MainScreen';
 import ClubListMainScreen from '../screens/Main/ClubListMainScreen';
 import UnionClubListScreen from '../screens/ClubCreation/UnionClubListScreen';
+import MyClubListScreen from '../screens/Club/MyClubListScreen';
 
 import ClubMainScreen from '../screens/Club/ClubMainScreen';
 import ClubCreationScreen from '../screens/ClubCreation/ClubCreationScreen';
@@ -31,8 +33,9 @@ const HomeStackNavigator = () => {
 
 const ClubStackNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName='ClubInfomationScreen'>
+        <Stack.Navigator initialRouteName='UnionClubListScreen'>
             <Stack.Screen name="ClubMainScreen" component={ClubMainScreen} />
+            <Stack.Screen name="MyClubListScreen" component={MyClubListScreen} />
             <Stack.Screen name="UnionClubListScreen" component={UnionClubListScreen} />
             <Stack.Screen name="ClubCreationScreen" component={ClubCreationScreen} />
         </Stack.Navigator>
