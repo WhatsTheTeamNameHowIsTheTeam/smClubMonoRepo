@@ -448,7 +448,7 @@ const styles = StyleSheet.create({
         width: 230,
         height: 40,
         marginTop: 15,
-        marginBottom: 25,
+        marginBottom: 10,
         flexDirection: 'row',
         backgroundColor: 'white',
         justifyContent: 'center',
@@ -467,10 +467,17 @@ const styles = StyleSheet.create({
         borderBottomWidth:1,
         borderColor:'#D9D9D9',
         justifyContent:'center',
+        paddingHorizontal:5,
     },
-    userinfonameText:{
-
-    }
+    userinfoOkButton:{
+        width: 125,
+        height: 40,
+        borderRadius: 10,
+        backgroundColor: '#D9D9D9',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 20,
+    },
 });
 
 
