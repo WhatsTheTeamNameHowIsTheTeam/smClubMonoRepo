@@ -1,6 +1,6 @@
 // 동아리 목록 
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
 const ClubListScreenComponent = () => {
     return (
