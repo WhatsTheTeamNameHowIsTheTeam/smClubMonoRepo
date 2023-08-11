@@ -21,4 +21,7 @@ public class ApplicationRequestDto {
     public static class Answer{
         private List<String> answer;
     }
+
+    public class Create {
+    }
 }
