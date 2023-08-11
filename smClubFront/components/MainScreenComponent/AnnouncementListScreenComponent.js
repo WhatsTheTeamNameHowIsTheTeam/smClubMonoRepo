@@ -54,6 +54,7 @@ const AnnouncementListScreenComponent = (props) => {
                 <View style={styles.Line} />
             </View>
         </ScrollView>
+
     );
 };
 

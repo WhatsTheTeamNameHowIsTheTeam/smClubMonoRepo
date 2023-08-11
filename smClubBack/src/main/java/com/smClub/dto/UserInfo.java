@@ -1,4 +1,3 @@
-
 package com.smClub.dto;
 
 
@@ -8,6 +7,9 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+
+
+// 지워도 되는 겁니다. 테스트해본거때문에 남겨놨어요
 
 @Getter
 @Setter

@@ -173,6 +173,7 @@ const ClubListScreenComponent = (props) => {
                 }
             </View>
         </ScrollView>
+
     );
 };
 

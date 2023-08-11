@@ -18,8 +18,6 @@ import AnnouncementListScreenComponent from '../../components/MainScreenComponen
 // ------------styles
 import styles from '../../components/Style';
 
-
-
 const MainScreen = (props) => {
     const [] = useState([]); // 동아리 분과 리스트
     const [] = useState([]); // 동아리 활동 일지 리스트
@@ -80,8 +78,6 @@ const MainScreen = (props) => {
             labelStyle={{ color: 'gray' }} // 탭바 unfocus 글 색깔
         />
     );
-
-
 
 
 

@@ -6,6 +6,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface MainService {
-    public Object setNewUser(UserInfo studentObj);
-
+    Object setNewUser(UserInfo studentObj);
 }

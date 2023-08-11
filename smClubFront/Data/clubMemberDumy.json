@@ -1,0 +1,43 @@
+{   "ceoId":"2017225002",
+    "ceoNumber":"01040510673",
+    "ceomajor":"컴퓨터공학과",
+    "clubId":"CLUB20230808001",
+    "clubMember":[{
+    "studentId":"2017225002",
+    "Position":"RSP001",
+    "img":"https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F7i0tK%2FbtsnnNRD786%2FPi0EWKBKvnq4Rgh5G66seK%2Fimg.png",
+    "recruitAuthor":true,
+    "ActAuthor":true,
+    "noticeAuthor":true,
+    "phoneNumber":"01040510673",
+    "major":"컴퓨터공학과"
+},{
+    "studentId":"2017225122",
+    "Position":"RSP001",
+    "img":"https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F7i0tK%2FbtsnnNRD786%2FPi0EWKBKvnq4Rgh5G66seK%2Fimg.png",
+    "recruitAuthor":true,
+    "ActAuthor":true,
+    "noticeAuthor":true,
+    "phoneNumber":"01040510673",
+    "major":"오징어심리학과"
+},{
+    "studentId":"2017225302",
+    "Position":"RSP002",
+    "img":"https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F7i0tK%2FbtsnnNRD786%2FPi0EWKBKvnq4Rgh5G66seK%2Fimg.png",
+    "recruitAuthor":true,
+    "ActAuthor":true,
+    "noticeAuthor":true,
+    "phoneNumber":"01040510673",
+    "major":"스타벅스컵분석학과"
+},{
+    "clubId":"CLUB20230808001",
+    "studentId":"2020225002",
+    "Position":"RSP004",
+    "img":"https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F7i0tK%2FbtsnnNRD786%2FPi0EWKBKvnq4Rgh5G66seK%2Fimg.png",
+    "recruitAuthor":false,
+    "ActAuthor":false,
+    "noticeAuthor":false,
+    "phoneNumber":"01040510673",
+    "major":"바리스타연금술사"
+}]
+}
