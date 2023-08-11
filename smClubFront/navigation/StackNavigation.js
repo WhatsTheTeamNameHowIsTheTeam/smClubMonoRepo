@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 //----------page import----------
 import MainScreen from '../screens/Main/MainScreen';
+import ClubListMainScreen from '../screens/Main/ClubListMainScreen';
 
 import ClubActivityLogScreen from '../screens/Club/ClubActivityLogScreen';
 import ClubApplicantListScreen from '../screens/Club/ClubApplicantListScreen';
@@ -12,6 +13,7 @@ import ClubMemberListScreen from '../screens/Club/ClubMemberListScreen';
 import ClubNotificationScreen from '../screens/Club/ClubNotificationScreen';
 import ClubRecruitmentAnnouncementScreen from '../screens/Club/ClubRecruitmentAnnouncementScreen';
 import ClubRecruitmentDocumentsScreen from '../screens/Club/ClubRecruitmentDocumentsScreen';
+import MyClubListScreen from '../screens/Club/MyClubListScreen';
 
 import AlarmScreen from '../screens/Alarm/AlarmScreen';
 
@@ -20,13 +22,16 @@ import LoginScreen from '../screens/MyPage/LoginScreen';
 import MyPageScreen from '../screens/MyPage/MyPageScreen';
 
 
+
 // 모듈 변수 선언
 const Stack = createStackNavigator();
 
 const HomeStackNavigator = () => {
     return (
         <Stack.Navigator initialRouteName='MainScreen'>
-            <Stack.Screen name="MainScreen" component={MainScreen} />            
+            <Stack.Screen name="MainScreen" component={MainScreen} />
+            <Stack.Screen name="ClubListMainScreen" component={ClubListMainScreen} />            
+
         </Stack.Navigator>
     );
 };
@@ -41,6 +46,7 @@ const ClubStackNavigator = () => {
             <Stack.Screen name="ClubNotificationScreen" component={ClubNotificationScreen} />
             <Stack.Screen name="ClubRecruitmentAnnouncementScreen" component={ClubRecruitmentAnnouncementScreen} />
             <Stack.Screen name="ClubRecruitmentDocumentsScreen" component={ClubRecruitmentDocumentsScreen} />
+            <Stack.Screen name="MyClubListScreen" component={MyClubListScreen} />
         </Stack.Navigator>
     );
 };
@@ -53,9 +59,18 @@ const AlarmStackNavigator = () => {
     )
 }
 
-const MyPageStackNavigator = () => {
+const MyPageStackNavigator = ({ navigation, route }) => {
+    // 하단 탭바 제거
+    React.useLayoutEffect(() => {
+        const routeName = getFocusedRouteNameFromRoute(route);
+        if (routeName === 'MyPageScreen') {
+            navigation.setOptions({ tabBarStyle: { display: undefined } });
+        } else {
+            navigation.setOptions({ tabBarStyle: { display: 'none' } }, { screenOptions: { headerShown: false } });
+        }
+    }, [navigation, route]);
     return (
-        <Stack.Navigator initialRouteName='MyPageScreen'>
+        <Stack.Navigator initialRouteName='JoinScreen'>
             <Stack.Screen name="JoinScreen" component={JoinScreen} />
             <Stack.Screen name="LoginScreen" component={LoginScreen} />
             <Stack.Screen name="MyPageScreen" component={MyPageScreen} />

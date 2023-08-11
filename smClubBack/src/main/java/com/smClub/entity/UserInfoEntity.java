@@ -39,6 +39,9 @@ public class UserInfoEntity {
     @Column(name = "CTTPC", nullable = false)
     private String phoneNumber;
 
+    @Column(name = "GRADE")
+    private String grade;
+
     @Column(name = "EMAIL", nullable = false)
     private String email;
 
