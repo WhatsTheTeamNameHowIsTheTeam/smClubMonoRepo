@@ -393,6 +393,11 @@ const styles = StyleSheet.create({
         borderColor: '#D9D9D9',
         padding: 10,
     },
+    
+    clubErrorText: {
+        fontSize: 13,
+        color: 'red',
+    },
     centeredView: {
         flex: 1,
         justifyContent: 'center',
@@ -401,12 +406,26 @@ const styles = StyleSheet.create({
     },
     createClubLeaderInfoView:{
         width:330,
-        height:250,
         borderWidth:1,
         borderColor:'#D9D9D9',
         borderRadius:15,
         padding:10,
+        paddingBottom:20,
         paddingHorizontal:20,
+        marginTop:10,
+    },
+    leaderinfoText:{
+        fontSize: 15,
+        fontWeight: 'bold',
+        marginTop: 10,
+        marginBottom: 5,
+        color:'#393D46',
+    },
+    leaderinfoTextView:{
+        width:'100%', 
+        padding:10, 
+        borderBottomWidth:1, 
+        borderColor:'#D9D9D9'
     },
     modalView: {
         width: width*0.85,
@@ -478,6 +497,20 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 20,
     },
+    clubcreateButtonView:{
+        width:'100%', 
+        justifyContent:'cneter', 
+        alignItems:'center', 
+        marginTop:15
+    },
+    clubcreateButton:{
+        width: 125,
+        height: 40,
+        borderRadius: 10,
+        backgroundColor: '#D9D9D9',
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
 });
 
 
