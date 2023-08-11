@@ -4,7 +4,8 @@ import {
     View, Text, TouchableOpacity,
     TextInput, ScrollView,
     TouchableWithoutFeedback,
-    Keyboard, Modal, Image
+    Keyboard, Modal, Image,
+    Pressable, 
 } from 'react-native';
 // npm install react-native-dropdown-picker
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -16,7 +17,8 @@ import DropDownPicker from 'react-native-dropdown-picker';
 // ------------styles
 import styles from '../../components/Style';
 
-
+// ------------json
+import userInfoData from '../../Data/userInfoData.json';
 
 const ClubCreationScreen = (props) => {
     const [usertotalData, setUsertotalData] = useState([]); // 모든 사용자 정보
@@ -28,7 +30,7 @@ const ClubCreationScreen = (props) => {
     //error message
     const [clubNameError, setClubNameError] = useState(''); // 동아리명
     const [clubTypeError, setClubTypeError] = useState(''); // 동아리 종류
-
+    const [clubleaderError, setClubLeaderError] = useState(''); // 동아리장 정보 [이름, 학과, 학번]
     // select box
     const [open, setOpen] = useState(false);
     const [clubType, setClubType] = useState(''); // 동아리 종류
@@ -48,27 +50,43 @@ const ClubCreationScreen = (props) => {
         console.log('ClubCreationScreen');
         // 사용자 정보 모두 가져오기
 
-
-
-
     }, []);
 
 
 
-    const handlerClubName = (text) => {
-        const regex = /^[ㄱ-ㅎ|ㅏ-ㅣ|가-힣|a-z|A-Z|0-9|\*]+$/;
-        setClubName(text);
-
+    // 동아리명 error
+    const clubnameerror =(text) =>{
+        const regex = /^[a-zA-Z0-9가-힣]{2,10}$/;
         if (text === '') {
-            setClubNameError('동아리명을 입력하세요');
+            return '동아리명을 입력하세요'
         } else if (!regex.test(text)) {
-            setClubNameError('특수문자는 사용할 수 없습니다');
+            return '2~10글자 사이로 입력하세요(특수문자 사용 불가)'
         } else {
-            setClubNameError('');
+            return ""
         }
     }
 
+    const handlerClubName = (text) => {
+        setClubNameError(clubnameerror(text))
+        setClubName(text)
+    }
     
+    // 동아리 생성 버튼 클릭시 -> 입력값 확인
+    const checkinput = () => {
+        if (clubName === '') {
+            setClubNameError('동아리명을 입력하세요')
+        } if (clubType === '') {
+            setClubTypeError('동아리 분과를 선택하세요')
+        } else{
+            setClubTypeError('')
+        }
+        if (leaderInfo.length === 0) {
+            setClubLeaderError('동아리장 정보를 입력하세요')
+        } else {
+            // 서버에 전송
+
+        }
+    }
 
     return (
         <TouchableWithoutFeedback
@@ -84,7 +102,7 @@ const ClubCreationScreen = (props) => {
                         onRequestClose={() => {
                             setIsModalVisible(!isModalVisible);
                         }}>
-                        <View style={styles.centeredView}>
+                        <Pressable style={styles.centeredView} onPress={()=>{Keyboard.dismiss()}}>
                             <View style={styles.modalView}>
                                 {/* 닫기 */}
                                 <View style={styles.modalTopView}>
@@ -134,7 +152,12 @@ const ClubCreationScreen = (props) => {
                                                             style={leaderInfo==null ? styles.userinfoView : [styles.userinfoView, {backgroundColor:'#DEDEDE'} ] }
                                                             onPress={()=>{
                                                                 // 동아리장 정보 저장
-                                                                setLeaderInfo([item.name, item.major, item.studentNumber])
+                                                                var leaderinfoObject = {
+                                                                    name: item.name,
+                                                                    major: item.major,
+                                                                    studentNumber: item.studentNumber
+                                                                }
+                                                                setLeaderInfo([leaderinfoObject])
                                                             }}
                                                         >
                                                             <Text style={{ fontSize: 18, fontWeight: 'bold', color: "#717171", marginBottom: 5 }}>이름</Text>
@@ -147,7 +170,12 @@ const ClubCreationScreen = (props) => {
                                                 style={leaderInfo == null ? styles.userinfoView : [styles.userinfoView, { backgroundColor: '#DEDEDE' }]}
                                                 onPress={() => {
                                                     // 동아리장 정보 저장
-                                                    // setLeaderInfo([item.name, item.major, item.studentNumber])
+                                                    var ob = {
+                                                        name: '이름d',
+                                                        major: '전공d',
+                                                        studentNumber: '학번d'
+                                                    }
+                                                    setLeaderInfo([ob])
                                                 }}
                                             >
                                                 <Text style={{ fontSize: 18, fontWeight: 'bold', color: "#717171", marginBottom: 5 }}>이름</Text>
@@ -167,7 +195,7 @@ const ClubCreationScreen = (props) => {
 
                                 </View>
                             </View>
-                        </View>
+                        </Pressable>
                     </Modal>
                 </View>
 
@@ -182,8 +210,11 @@ const ClubCreationScreen = (props) => {
                         style={styles.clubcreateTextInput}
                         placeholder="동아리명을 입력하세요"
                         value={clubName}
-                        onChangeText={handlerClubName}
+                        onChangeText={(text) => handlerClubName(text)}
                     />
+                    <Text style={styles.clubErrorText}>{clubNameError}</Text>
+
+
                     <Text style={styles.createClubText}>동아리 분과</Text>
 
                     <DropDownPicker
@@ -194,16 +225,43 @@ const ClubCreationScreen = (props) => {
                         setValue={setClubType}
                         setItems={setItems}
                     />
+                    <Text style={styles.clubErrorText}>{clubTypeError}</Text>
+
 
                     <Text style={styles.createClubText}>동아리장 정보</Text>
+                    <Text style={styles.clubErrorText}>{clubleaderError}</Text>
                     <TouchableOpacity
                         style={styles.createClubLeaderInfoView}
                         onPress={() => {
                             setIsModalVisible(true)
                         }}
                     >
-
+                        <Text style={styles.leaderinfoText}>이름</Text>
+                        <View style={styles.leaderinfoTextView}>
+                            <Text style={{color:'#D9D9D9'}}>{leaderInfo.length!=0? leaderInfo[0].name : "이름"}</Text>
+                        </View>
+                        <Text style={styles.leaderinfoText}>전공</Text>
+                        <View style={styles.leaderinfoTextView}>
+                            <Text style={{color:'#D9D9D9'}}>{leaderInfo.length!=0? leaderInfo[0].major : "전공"}</Text>
+                        </View>
+                        <Text style={styles.leaderinfoText}>학번</Text>
+                        <View style={styles.leaderinfoTextView}>
+                            <Text style={{ color: '#D9D9D9' }}>{leaderInfo.length != 0 ? leaderInfo[0].studentNumber : "학번"}</Text>
+                        </View>
                     </TouchableOpacity>
+
+
+                    <View style={styles.clubcreateButtonView}>
+                        <TouchableOpacity
+                            style={styles.clubcreateButton}
+                            onPress={() => {
+                                console.log('동아리 생성 버튼 클릭');
+                                checkinput();
+                            }}
+                        >
+                            <Text style={{ fontSize: 18, fontWeight: 'bold', color: '#717171' }}>동아리 생성</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         </TouchableWithoutFeedback >
