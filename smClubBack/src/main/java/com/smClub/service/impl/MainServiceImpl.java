@@ -1,9 +1,10 @@
 
-package com.smClub.service;
+package com.smClub.service.impl;
 
 import com.smClub.dto.UserInfo;
 import com.smClub.entity.UserInfoEntity;
 import com.smClub.repository.MainRepository;
+import com.smClub.service.MainService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
