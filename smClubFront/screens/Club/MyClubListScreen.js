@@ -1,6 +1,19 @@
 // 내 동아리 목록 페이지
-import React from 'react';
-import { View, Button, Text } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { 
+    View, Button, Text
+} from 'react-native';
+
+
+// ------------styles
+import styles from '../../components/Style';
+
+// ------------components
+import Clubcomponent from '../../components/ClubComponent';
+
+// ------------Dumy Data
+import Myclublist from '../../Data/myClubListDumy.json'
+
 
 const MyClubListScreen = (props) => {
     return (
