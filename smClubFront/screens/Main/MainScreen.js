@@ -12,8 +12,8 @@ import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 
 
 // ------------Components
-import ClubTypeAndActivityLogScreenComponent from '../../components/ClubTypeAndActivityLogScreenComponent';
-import AnnouncementListScreenComponent from '../../components/AnnouncementListScreenComponent';
+import ClubTypeAndActivityLogScreenComponent from '../../components/MainScreenComponent/ClubTypeAndActivityLogScreenComponent';
+import AnnouncementListScreenComponent from '../../components/MainScreenComponent/AnnouncementListScreenComponent';
 
 
 // ------------styles
@@ -111,7 +111,6 @@ const MainScreen = (props) => {
     return (
         <View style={styles.container}>
             <TabView
-                scrollEnabled={true}
                 renderTabBar={renderTabBar}
                 navigationState={{ index, routes }}
                 renderScene={renderScene}
