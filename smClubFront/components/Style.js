@@ -9,6 +9,14 @@ const styles = StyleSheet.create({
         width:Dimensions.get('window').width,
         height:Dimensions.get('window').height,
     },
+    containerView:{
+        width:width,
+        height:height,
+        alignItems:'center',
+        backgroundColor:'#fff',
+    },
+
+
 
     // ----------------MainScreen
     tabbarstyle:{ // 탭바 스타일
@@ -75,7 +83,7 @@ const styles = StyleSheet.create({
         backgroundColor:'#D9D9D9', 
         height:2, 
         width:'85%',
-        marginTop:30,
+        marginTop:5,
         marginBottom:20,
     },
     myActivityLogTextView:{
@@ -138,12 +146,8 @@ const styles = StyleSheet.create({
         marginTop:8,
     },
     activityLogTitleText:{
-        fontSize:18,
+        fontSize:17,
         fontWeight:'bold',
-        marginTop:8,
-    },
-    activityLogContents:{
-        fontSize:15,
         marginTop:8,
     },
     activityLogMoreImage:{
@@ -288,6 +292,7 @@ const styles = StyleSheet.create({
         marginBottom:10,
         flexDirection:'row',
         alignItems:'center',
+        backgroundColor:'white',
     },
     clubmark:{
         width:'30%',
@@ -824,5 +829,17 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         width: '80%',
     },
+
+
+    // ------------------MyClubListScreen
+    // 내 동아리목록
+    loadingView:{
+        width:'100%',
+        height:'100%',
+        marginTop:100,
+        alignItems:'center',
+    },
+    
+
 });
 export default styles;
