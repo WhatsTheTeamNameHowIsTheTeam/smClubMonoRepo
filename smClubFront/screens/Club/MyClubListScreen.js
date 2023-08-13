@@ -44,7 +44,7 @@ const MyClubListScreen = (props) => {
                         <Image style={styles.loadingImage} source={require('../../assets/loading.gif')} resizeMode='contain' />
                     </View>
                     :
-                    <View style={styles.clubApplicantListContainer}>
+                    <View style={styles.announcementListContainer}>
                         {/* ----------검색---------- */}
                         <View style={styles.searchView}>
                             <TextInput
