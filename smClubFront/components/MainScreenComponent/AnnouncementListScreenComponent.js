@@ -1,6 +1,6 @@
 // 모집공고 슬라이드
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
 const AnnouncementListScreenComponent = () => {
     return (

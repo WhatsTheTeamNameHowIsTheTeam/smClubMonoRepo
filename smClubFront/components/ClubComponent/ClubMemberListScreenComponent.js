@@ -145,7 +145,7 @@ const ClubMemberListScreenComponent = () => {
                 },
                 {
                     text: "예",
-                    onPress: () => removeMember(member),
+                    onPress: () => showPasswordAlert(member),
                 },
             ],
             { cancelable: true }
@@ -153,7 +153,7 @@ const ClubMemberListScreenComponent = () => {
     };
 
     // 회원 탈퇴 처리
-    const removeMember = (member) => {
+    const showPasswordAlert = (member) => {
         const updatedClubMembers = clubMemberList.filter(
             (item) => item.id !== member.id
         );
@@ -164,12 +164,12 @@ const ClubMemberListScreenComponent = () => {
         <>
             {/* 동아리원 목록 */}
             <View style={styles.clubMemberContainer}>
-            <FlatList
-                data={clubMemberList}
-                renderItem={renderItem}
-                keyExtractor={(item) => item.id}
-                numColumns={2}
-            /></View>
+                <FlatList
+                    data={clubMemberList}
+                    renderItem={renderItem}
+                    keyExtractor={(item) => item.id}
+                    numColumns={2}
+                /></View>
 
             {/* 동아리 명, 인원 수 */}
             <View style={styles.clubContainer}>
