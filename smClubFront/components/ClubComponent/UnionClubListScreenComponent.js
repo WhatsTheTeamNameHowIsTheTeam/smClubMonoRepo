@@ -38,22 +38,16 @@ const UnionClubListScreenComponent = (props) => {
 
             <ScrollView >
                 <View style={styles.unionClubListContainer}>
-                    <Text>{props.clubType}</Text>
-                    <Text>{props.clubData}</Text>
-                    <ClubComponent clubData={props.clubData} isUnionAdmin={isUnionAdmin} />
-
                     {
-                        // clubData.map((item, index) => {
-                        //     return (
-                        //         <ClubComponent
-                        //             key={index}
-                        //             clubData={item.clubData}
-                        //         />
-                        //     )                    
-                        // })
+                        clubData?.map((item, index) => {
+                            return (
+                                <ClubComponent
+                                    key={index}
+                                    clubData={item}
+                                />
+                            )                    
+                        })
                     }
-
-
                 </View>
             </ScrollView>
 

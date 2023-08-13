@@ -16,13 +16,14 @@ import Storage from '../../components/Storage';
 // ------------styles
 import styles from '../../components/Style';
 
-
+// ------------DumyData
+import clubListDumy from '../../Data/clubListDumy.json'
 
 
 const UnionClubListScreen = () => {
     const [index, setIndex] = useState(0);
     const [isadmin, setIsAdmin] = useState(false); // 연합회 관리자인지 아닌지
-    const [clubData, setClubData] = useState(["ㅎㅎ"]); // 동아리 전체 데이터
+    const [clubData, setClubData] = useState(clubListDumy.clubList); // 동아리 전체 데이터
     const [routes] = useState([
         { key: 'first', title: '봉사' },
         { key: 'second', title: '체육' },
