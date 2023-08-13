@@ -29,7 +29,7 @@ const MyClubListScreen = (props) => {
         // 서버에서 값 받아오면 바뀌기
         setTimeout(() => {
             console.log('3초 뭐시기')
-            if (clublist!=null){
+            if (clublist != null) {
                 setLoading(false);
             }
         }, 3000);
@@ -74,13 +74,11 @@ const MyClubListScreen = (props) => {
                             {
                                 clublist.map((item, index) => {
                                     return (
-                                        <>
-                                            <Clubcomponent key={index} clubData={item} />
-                                            <View style={styles.line}></View>
-                                        </>
+                                        <Clubcomponent key={index} clubData={item} />
+
                                     );
-                                    })
-                                }
+                                })
+                            }
                         </View>
                     </View>
 
