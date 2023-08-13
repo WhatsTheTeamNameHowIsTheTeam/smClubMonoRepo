@@ -10,8 +10,8 @@ import styles from './Style';
 
 const RecruitmentAnnouncementComponents = (props) => {
     // 서버에서 받은 데이터 값
-    //const [data, setData] = useState(props.data); // 동아리 활동 일지 리스트
-    const [isImage, setIsImage] = useState(true); // 이미지 여부
+    const [announcementData, setAnnouncementData] = useState(props.announcementData); // 동아리 활동 일지 리스트
+    const [isImage, setIsImage] = useState(props.announcementData.img); // 이미지 여부
     //const image = props.data.image;// 이미지 데이터
 
 
@@ -35,46 +35,59 @@ const RecruitmentAnnouncementComponents = (props) => {
 
 
         if (text && text.length > maxLength) {
-            return <Text style={{ fontSize: size, fontWeight: wb,  }}>{text.slice(0, maxLength)}...</Text>;
+            return <Text style={{ fontSize: size, fontWeight: wb, }}>{text.slice(0, maxLength)}...</Text>;
         }
-        return <Text style={{ fontSize: size, fontWeight: wb,  }}>{text}</Text>;
+        return <Text style={{ fontSize: size, fontWeight: wb, }}>{text}</Text>;
     };
 
 
     return (
-        <TouchableOpacity
-            style={styles.notificationComponentView}
-            onPress={() => {
-                console.log('나의 동아리의 활동 일지 컴포넌트') // 메인페이지에서 보이는 활동일지 컴포넌트
-            }}
-        >
-            <View style={styles.notificationClubNameView}>
-                <Text style={{ fontSize: 20, color: '#138CDB', fontWeight: 'bold' }}>동아리명</Text>
-                <Text style={{ fontSize: 14, marginLeft: 20 }}>분과</Text>
-            </View>
-
-            <View style={styles.notificationTitleView}>
-                <TruncatedText text={'모집 공고 제목dfd'} maxLength={18} size={22} weightBool={true} />
-                <Text style={{ fontSize: 14, color: 'gray', marginLeft: 20 }}>08.09</Text>
-            </View>
-
-            <View style={styles.notificationContentsView}>
-                <TruncatedText text={'모집 공고 내용모집 공고 내용모집 공고'} maxLength={40} size={16} weightBool={false} />
-            </View>
-
-            <View style={styles.notificationInfoView}>
-                <View style={{ flexDirection: 'row' }}>
-                    <Image style={{ width: 20, height: 20, marginRight: 10 }} source={require('../assets/favicon.png')} resizeMode='contain'/>
-                    <Text style={{ fontSize: 15 }}>25</Text>
+        <>
+            <TouchableOpacity
+                style={styles.notificationComponentView}
+                onPress={() => {
+                    console.log('모집공고 컴포넌트') // 모집공고 컴포넌트
+                    // props를 통해서 값 보내주기 모든 데이터 전송
+                }}
+            >
+                <View style={styles.notificationClubNameView}>
+                    <Text style={{ fontSize: 18, color: '#138CDB', fontWeight: 'bold' }}>{announcementData.clubName}</Text>
+                    <Text style={{ fontSize: 14, marginLeft: 20 }}>{announcementData.category}</Text>
                 </View>
 
-                <View style={{ flexDirection: 'row' }}>
-                    <Text style={{ fontSize: 15 }}>신청자 수 : </Text>
-                    <Text style={{ fontSize: 15 }}>25</Text>
+                <View style={styles.notificationTitleView}>
+                    <TruncatedText text={announcementData.subject} maxLength={14} size={21} weightBool={true} />
+                    <Text style={{ fontSize: 10, color: 'gray', marginLeft: 20 }}>{announcementData.UPDT_DT}</Text>
                 </View>
-            </View>
 
-        </TouchableOpacity>
+                <View style={styles.notificationContentsView}>
+                    <TruncatedText text={announcementData.content} maxLength={40} size={16} weightBool={false} />
+                </View>
+
+                <View style={styles.notificationInfoView}>
+                    <View style={{ flexDirection: 'row', alignItems:'center'}}>
+                        <Image style={{ width: 20, height: 20, marginRight: 10 }} source={require('../assets/favicon.png')} resizeMode='contain' />
+                        <Text style={{ fontSize: 15 }}>{announcementData.views}</Text>
+                        {
+                            isImage ?
+                                <>
+                                    <Text>    | </Text>
+                                    <Image style={{ width: 15, height: 15, marginLeft: 10, }} source={require('../assets/CardImage.png')} resizeMode='contain' />
+                                </>
+                                :
+                                null
+                        }
+                    </View>
+
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={{ fontSize: 15 }}>신청자 수 : </Text>
+                        <Text style={{ fontSize: 15 }}>{announcementData.memberCnt}</Text>
+                    </View>
+                </View>
+
+            </TouchableOpacity>
+            <View style={styles.Line} />
+        </>
     );
 };
 
