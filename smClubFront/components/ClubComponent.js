@@ -1,22 +1,24 @@
 //동아리 목록에서 하나의 동아리 컴포넌트
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     View, Text, TouchableOpacity,
     Image,
 } from 'react-native';
 
-import {useNavigation} from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 
 // --------------styles
 import styles from './Style';
 
-
+// --------------json data
+import clubListDumy from '../Data/clubListDumy.json';
 
 
 const ClubComponent = (props) => {
-    const [isrecruit, setIsRecruitement] = useState(true); // 이미지가 있는지 없는지
-    // const [clubData, setClubData] = useState(props); // 동아리 전체 데이터
+    const [isrecruit, setIsRecruitement] = useState(props.clubData.excellence); // 이미지가 있는지 없는지
+    const [clubData, setClubData] = useState(props.clubData); // 동아리 전체 데이터
+
     // navigation 사용
     const navigation = useNavigation();
 
@@ -40,39 +42,42 @@ const ClubComponent = (props) => {
 
 
     return (
-        <TouchableOpacity
-            style={styles.ClubComponentView}
-            onPress={() => {
-                console.log('동아리 컴포넌트 클릭')
-                navigation.navigate('MyClub', {
-                    screen: 'ClubInfomationScreen',
-                    // clubData : clubData,
-                })
-            }}
-        >
-            <View style={styles.clubmark}>
-                <Image style={{ width: '50%', height: '50%', borderRadius:15 }} source={require('../assets/favicon.png')} resizeMode='contain' />
-            </View>
-            
-            <View style={isrecruit ? styles.clubcontent : [styles.clubcontent, { width: '70%' }]}>
-                <Text style={styles.clubTypeText}>분과</Text>
-                <Text style={styles.clubName}>동아리명</Text>
-                <TruncatedText text={'서버에서 받은 값'} maxLength={40} style={styles.activityLogContents}/>
-            </View>
+        <>
+            <TouchableOpacity
+                style={styles.ClubComponentView}
+                onPress={() => {
+                    console.log('동아리 컴포넌트 클릭')
+                    navigation.navigate('MyClub', {
+                        screen: 'ClubInfomationScreen',
+                        // clubData : clubData,
+                    })
+                }}
+            >
+                <View style={styles.clubmark}>
+                    {/* <Image style={{ width: '50%', height: '50%', borderRadius:15 }} source={require(clubData.img)} resizeMode='contain' /> */}
+                </View>
+
+                <View style={isrecruit ? styles.clubcontent : [styles.clubcontent, { width: '70%' }]}>
+                    <Text style={styles.clubTypeText}>{clubData.category}</Text>
+                    <Text style={styles.clubName}>{clubData.clubName}</Text>
+                    <TruncatedText text={clubData.introContent} maxLength={40} style={styles.activityLogContents} />
+                </View>
 
 
-            {
-                // 모집중인 동아리일 경우
-                isrecruit?
-                    <View style={styles.clubisrecruit}>
-                        <Text style={styles.isrecruitText}>모집 중</Text>
-                    </View> 
-                    :
-                    null
-            }
-            
+                {
+                    // 모집중인 동아리일 경우
+                    isrecruit ?
+                        <View style={styles.clubisrecruit}>
+                            <Text style={styles.isrecruitText}>모집 중</Text>
+                        </View>
+                        :
+                        null
+                }
 
-        </TouchableOpacity>
+
+            </TouchableOpacity>
+            <View style={styles.line}></View>
+        </>
     );
 };
 

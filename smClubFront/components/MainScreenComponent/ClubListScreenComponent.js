@@ -16,10 +16,9 @@ import ClubComponent from '../ClubComponent';
 import styles from '../Style';
 
 
-
 const ClubListScreenComponent = (props) => {
     const [clubType, setClubType] = useState(props.clubtype); // 동아리 분과 값
-    //const [clubData, setClubData] = useState(props); // 동아리 전체 데이터
+    const [clubData, setClubData] = useState(props.clubData); // 동아리 전체 데이터
     const [isRecruitement, setIsRecruitement] = useState(false); // 모집중인 것만 보기
     const [searchText, setSearchText] = useState(''); // 검색어
 
@@ -38,7 +37,7 @@ const ClubListScreenComponent = (props) => {
 
     useEffect(() => {
         console.log('ClubListScreenComponent');
-        console.log('clubtype', clubType)
+        
     }, []);
 
 
@@ -115,7 +114,7 @@ const ClubListScreenComponent = (props) => {
                         initialScrollIndex={0}
                         style={styles.clubListPicker}
                         options={clubTypeList}
-                        defaultValue={clubType}
+                        defaultValue={clubTypeList[0]}
                         onSelect={toggleMajorSelection}
                         textStyle={styles.inputModalText}
                         dropdownTextStyle={styles.inputModalText}
@@ -161,16 +160,18 @@ const ClubListScreenComponent = (props) => {
 
                 {/* ----------동아리 목록---------- */}
 
-                <ClubComponent />
-                <View style={styles.Line}/>
-                <ClubComponent />
-                <View style={styles.Line}/>
                 {
-                    // clubData?.map((item, index) => {
-                    //     return (
-                    //         <ClubComponent />
-                    //     )
-                    // })
+                    clubData?.map((item, index) => {
+                        console.log('item.category', item.category)
+                        if (item.category === clubType || clubType === '전체') {
+                            return (
+                                <ClubComponent clubData={clubData} />
+                            )
+                        }
+                        else{
+                            return null;
+                        }
+                    })
                 }
             </View>
         </ScrollView>
