@@ -204,14 +204,14 @@ const styles = StyleSheet.create({
         width:'100%', 
         height:'15%', 
         flexDirection:'row', 
-        alignItems:'center',
+        alignItems:'flex-end',
         marginBottom:5,
     },
     notificationTitleView:{
         width:'100%', 
         height:'20%', 
         flexDirection:'row',
-        alignItems:'center', 
+        alignItems:'flex-end', 
         marginBottom:5,
     },
     notificationContentsView:{
