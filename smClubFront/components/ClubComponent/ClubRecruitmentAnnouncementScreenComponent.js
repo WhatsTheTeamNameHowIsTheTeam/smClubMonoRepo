@@ -12,6 +12,7 @@ import {
 import styles from '../Style';
 import ClubRecruitmentDocumentsComponent from "../ClubRecruitmentDocumentsComponent";
 import ClubApplicantListComponent from '../ClubApplicantListComponent';
+import QuestionFormComponent from '../QuestionFormComponent';
 
 const ClubRecruitmentAnnouncementScreenComponent = () => {
 
@@ -35,8 +36,8 @@ const ClubRecruitmentAnnouncementScreenComponent = () => {
     ];
 
     const [recruitmentAnnouncement, setRecruitmentAnnouncement] = useState(dummyRecruitmentAnnouncement); // 모집공고 리스트
-    const [selectedForm, setSelectedForm] = useState(null); // 신청 양식 이동 여부
-    const [edit, setEdit] = useState(null); // 편집 이동 여부
+    const [selectedForm, setSelectedForm] = useState(null); // 질문 양식 이동 여부
+    const [edit, setEdit] = useState(null); // 신청서 편집 이동 여부
     const [applicants, setApplicants] = useState(null); // 지원자 이동 여부
     const [selectedAnnouncementIndex, setSelectedAnnouncementIndex] = useState(-1); // 선택된 모집 공고 인덱스
 
@@ -47,11 +48,11 @@ const ClubRecruitmentAnnouncementScreenComponent = () => {
         return (
             <View style={{ margin: 10 }}>
                 {selectedForm && (
-                    <ClubRecruitmentDocumentsComponent activity={selectedForm} />
+                    <QuestionFormComponent activity={selectedForm} />
                 )}
                 <TouchableOpacity
                     style={styles.backbutton}
-                    onPress={() => setSelectedActivity(null)}
+                    onPress={() => setSelectedForm(null)}
                 >
                     <Text>뒤로 가기</Text>
                 </TouchableOpacity>
@@ -85,7 +86,7 @@ const ClubRecruitmentAnnouncementScreenComponent = () => {
                 </TouchableOpacity>
             </View>
         );
-    } else {
+    } else { // 활동 페이지
         return (
             <>
                 <ScrollView>
@@ -93,13 +94,14 @@ const ClubRecruitmentAnnouncementScreenComponent = () => {
                         <View key={index}>
                             <View style={styles.pageHeader}>
                                 <TouchableOpacity
+                                    onPress={() => setSelectedForm(recrui)}
                                 >
-                                    <Text style={styles.button}>신청 양식</Text>
+                                    <Text style={styles.button}>질문 내용</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity
                                     onPress={() => setEdit(recrui)}
                                 >
-                                    <Text style={styles.button}>편집하기</Text>
+                                    <Text style={styles.button}>신청서 내용</Text>
                                 </TouchableOpacity>
                             </View>
 

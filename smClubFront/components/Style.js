@@ -748,8 +748,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         padding: 10,
         marginBottom: 10,
-        width:'90%',
-        marginHorizontal:'5%',
+        width: '90%',
+        marginHorizontal: '5%',
         backgroundColor: "#EFEFEF",
         borderRadius: 6,
         alignItems: "center",
@@ -770,27 +770,27 @@ const styles = StyleSheet.create({
     applicantInfo: {
         flex: 1,
         paddingHorizontal: 10
-    },  
+    },
     buttonContainer: {
         flexDirection: 'row',
         marginTop: 20,
         marginBottom: 10,
-      },
+    },
     rejectButton: {
         backgroundColor: 'red',
-        height:50,
-        width:50,
-        alignItems:'center',
-        justifyContent:"center",
+        height: 50,
+        width: 50,
+        alignItems: 'center',
+        justifyContent: "center",
         borderRadius: 100,
         marginRight: 15,
     },
     acceptButton: {
         backgroundColor: 'blue',
-        height:50,
-        width:50,
-        alignItems:'center',
-        justifyContent:"center",
+        height: 50,
+        width: 50,
+        alignItems: 'center',
+        justifyContent: "center",
         borderRadius: 100,
     },
     buttonText: {
@@ -803,13 +803,71 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'rgba(0, 0, 0, 0.4)',
-      },
-      modalContent: {
+    },
+    modalContent: {
         backgroundColor: 'white',
         borderRadius: 10,
         padding: 30,
         alignItems: 'center',
         width: '80%',
-      },
+    },
+
+
+    // -----------------QuestionFormComponent
+    // 동아리 메인-모집/질문 양식 컴포넌트
+    questionContainer: {
+        marginBottom: 15,
+    },
+    questionNumber: {
+        marginLeft: 8,
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#4a4a4a',
+    },
+    textInput: {
+        borderWidth: 1,
+        borderRadius: 8,
+        paddingLeft: 12,
+        paddingRight: 12,
+        borderColor: '#d3d3d3',
+        backgroundColor: '#f1f1f1',
+    },
+    addButton: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        borderColor: '#4a4a4a',
+        borderWidth: 1,
+        backgroundColor: '#b9d6f3',
+        marginTop: 20,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+    },
+    addButtonText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#4a4a4a',
+    },
+    removeButton: {
+        alignSelf: 'flex-end',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 30,
+        height: 30,
+        borderRadius: 15,
+        borderColor: '#4a4a4a',
+        borderWidth: 1,
+        backgroundColor: '#f18c8e',
+        position: 'absolute',
+        right: 10,
+        top: 4,
+    },
+    removeButtonText: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#4a4a4a',
+    },
 });
 export default styles;

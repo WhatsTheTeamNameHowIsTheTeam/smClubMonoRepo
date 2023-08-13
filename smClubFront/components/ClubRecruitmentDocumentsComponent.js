@@ -1,4 +1,4 @@
-// 동아리 메인-활동/신청서양식 컴포넌트
+// 동아리 메인-활동/신청서 양식 컴포넌트
 
 // 모듈
 import { useEffect, useState } from 'react';

@@ -9,6 +9,7 @@ import {
 // --------------Components
 import styles from '../Style';
 import ActiviatyLogComponent from '../ActivityLogComponent';
+import CreateActivityComponent from '../CreateActivityComponent';
 
 
 const ClubActivityLogScreenComponent = ({ navigation }) => {
@@ -44,6 +45,7 @@ const ClubActivityLogScreenComponent = ({ navigation }) => {
 
     const [activityLog, setActivityLog] = useState(dummyActivityLog); // 활동일지 리스트
     const [selectedActivity, setSelectedActivity] = useState(null); // 상세페이지 이동 여부
+    const [createActivity, setCreateActivity] = useState(null); // 활동일지 생성 이동 여부
 
     useEffect(() => {
 
@@ -100,6 +102,20 @@ const ClubActivityLogScreenComponent = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
         );
+    } else if (createActivity) { // 지원자 페이지
+        return (
+            <View style={{ marginVertical: 15, height: '98%', }}>
+                {createActivity && (
+                    <CreateActivityComponent />
+                )}
+                <TouchableOpacity
+                    style={styles.backbutton}
+                    onPress={() => setCreateActivity(null)}
+                >
+                    <Text>뒤로 가기</Text>
+                </TouchableOpacity>
+            </View>
+        );
     } else { // 활동일지 목록 페이지
         return (
             <>
@@ -111,14 +127,15 @@ const ClubActivityLogScreenComponent = ({ navigation }) => {
                 <View>
                     <TouchableOpacity
                         style={styles.excelContainer}
-                        onPress={() => { console.log('활동일지 추가하기') }}>
+                        onPress={() => setCreateActivity(true)}
+                    >
                         <Image
                             style={{ width: '70%', height: '70%' }}
                             source={require('../../assets/icon.png')}
                             resizeMode="contain"
                         />
                     </TouchableOpacity>
-                </View>
+                </View >
             </>
         );
     }
