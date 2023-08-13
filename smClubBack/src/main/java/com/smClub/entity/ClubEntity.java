@@ -1,53 +1,53 @@
 
 package com.smClub.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import com.smClub.dto.UserInfo;
+import jakarta.persistence.*;
+import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DialectOverride;
 
 @Getter
-@Setter
 @Entity
 @Table(name = "CLUB")
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class ClubEntity {
+
     @Id
+    @Column(name = "CLUB_ID")
     private String clubId;
 
-    @Column(name="STDBT_INNB")
-    private String studentId;
+    @OneToOne
+    @JoinColumn(name = "STDBT_INNB")
+    private UserInfoEntity userInfoEntity;
 
-    @Column(name="NM")
+    @Column(name="NM", nullable = false)
     private String clubName;
 
-    @Column(name="ATCH_PHOTO")
+    @Column(name="ATCH_PHOTO", nullable = false)
     private String img;
 
-    @Column(name="CTGRY")
+    @Column(name="CTGRY", nullable = false)
     private String category;
 
-    @Column(name="MXMM_NMPR")
-    private int maxMemberCnt;
+    @Column(name="MXMM_NMPR", nullable = false)
+    private int clubMemberCnt;
 
     @Column(name="INTRCN_CN")
     private String introContent;
 
-    @Column(name="EXCLNC_AT")
-    private boolean excellence;
+    @Column(name="EXCLNC_AT", nullable = false)
+    private boolean excellence = false;
 
-    @Column(name="EXCLNC_CO")
-    private int excellenceCnt;
+    @Column(name="EXCLNC_CO", nullable = false)
+    private int excellenceCnt = 0;
 
-    @Column(name="CREATE_DT")
+    @Column(name="CREATE_DT", nullable = false)
     private String createDate;
 
     @Column(name="UPDT_DT")
     private String updateDate;
-
-    public ClubEntity() {
-    }
 
 }

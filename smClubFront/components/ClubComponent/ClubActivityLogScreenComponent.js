@@ -12,6 +12,7 @@ import ActiviatyLogComponent from '../ActivityLogComponent';
 import CreateActivityComponent from '../CreateActivityComponent';
 
 
+
 const ClubActivityLogScreenComponent = ({ navigation }) => {
     // 더미 데이터
     const dummyActivityLog = [
@@ -46,6 +47,7 @@ const ClubActivityLogScreenComponent = ({ navigation }) => {
     const [activityLog, setActivityLog] = useState(dummyActivityLog); // 활동일지 리스트
     const [selectedActivity, setSelectedActivity] = useState(null); // 상세페이지 이동 여부
     const [createActivity, setCreateActivity] = useState(null); // 활동일지 생성 이동 여부
+
 
     useEffect(() => {
 
@@ -116,6 +118,7 @@ const ClubActivityLogScreenComponent = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
         );
+
     } else { // 활동일지 목록 페이지
         return (
             <>
@@ -129,13 +132,16 @@ const ClubActivityLogScreenComponent = ({ navigation }) => {
                         style={styles.excelContainer}
                         onPress={() => setCreateActivity(true)}
                     >
+
                         <Image
                             style={{ width: '70%', height: '70%' }}
                             source={require('../../assets/icon.png')}
                             resizeMode="contain"
                         />
                     </TouchableOpacity>
+
                 </View >
+
             </>
         );
     }

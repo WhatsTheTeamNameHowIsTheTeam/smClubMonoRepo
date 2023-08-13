@@ -4,7 +4,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 //----------page import----------
 import MainScreen from '../screens/Main/MainScreen';
-import ClubListMainScreen from '../screens/Main/ClubListMainScreen';
 
 import ClubMainScreen from '../screens/Club/ClubMainScreen';
 import MyClubListScreen from '../screens/Club/MyClubListScreen';

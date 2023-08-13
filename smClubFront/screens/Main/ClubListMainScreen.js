@@ -1,7 +1,8 @@
 import React from 'react';
 import {
-    View, 
+    View,
 } from 'react-native';
+
 
 const ClubListMainScreen = () => {
     return (
