@@ -10,7 +10,7 @@ import {
 import styles from '../../components/Style';
 
 // ------------components
-import Clubcomponent from '../../components/ClubComponent';
+import MyClubComponent from '../../components/MyClubComponent';
 
 // ------------Dumy Data
 import Myclublist from '../../Data/myClubListDumy.json'
@@ -20,6 +20,7 @@ const MyClubListScreen = (props) => {
     const [loading, setLoading] = useState(true); // 로딩
     const [searchText, setSearchText] = useState(''); // 검색어
     const [clublist, setClublist] = useState(Myclublist.myClubList); // 동아리 목록
+    const [modalVisible, setModalVisible] = useState(false); // 모달
 
     useEffect(() => {
         // console.log('myclublist', Myclublist.myClubList);
@@ -38,6 +39,12 @@ const MyClubListScreen = (props) => {
 
     return (
         <View style={styles.containerView}>
+
+            {/* ------------모달------------ */}
+            
+
+
+
             {
                 loading ?
                     <View style={styles.loadingView}>
@@ -74,8 +81,7 @@ const MyClubListScreen = (props) => {
                             {
                                 clublist.map((item, index) => {
                                     return (
-                                        <Clubcomponent key={index} clubData={item} />
-
+                                        <MyClubComponent key={index} clubData={item} ismodal={setModalVisible} />
                                     );
                                 })
                             }
