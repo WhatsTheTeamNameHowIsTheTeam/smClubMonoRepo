@@ -6,7 +6,6 @@ const ApplicateComponent = () => {
     return (
         <View>
             
-
         </View>
     );
 };

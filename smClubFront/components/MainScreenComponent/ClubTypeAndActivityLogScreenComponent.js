@@ -15,48 +15,18 @@ import ActivityLogMainComponent from '../ActivityLogMainComponent'
 // ----------------styles
 import styles from '../Style'
 
+// ----------------data
+import clubListDumy from '../../Data/clubListDumy.json'
+import clubActDumy from '../../Data/clubActDumy'
 
 const ClubTypeAndActivityLogScreenComponent = (props) => {
     const [clubType, setClubType] = useState(); // 동아리 분과 리스트
+    const [clubData, setClubData] = useState(clubListDumy.clubList); // 동아리 리스트
+    // const [clubAct, setClubAct] = useState(props.clubact); // 동아리 활동 일지 리스트
+    const [clubAct, setClubAct] = useState(clubActDumy.actDiary); // 동아리 활동 일지 리스트
 
 
     const navigation = useNavigation();
-
-    useEffect(() => {
-        console.log('ClubTypeAndActivityLogScreenComponent');
-        
-    }, []);
-
-    const clubtypeList = [
-        {
-            id: '1',
-            clubtype: '전체',
-        },
-        {
-            id: '2',
-            clubtype: '봉사',
-        },
-        {
-            id: '3',
-            clubtype: '체육',
-        },
-        {
-            id: '4',
-            clubtype: '공연',
-        },
-        {
-            id: '5',
-            clubtype: '교양',
-        },
-        {
-            id: '6',
-            clubtype: '전공',
-        },
-    ]
-
-    const renderItem = ({ item }) => (
-        <ClubTypeComponent clubtype={item.clubtype} />
-    );
 
 
     return (
@@ -64,12 +34,16 @@ const ClubTypeAndActivityLogScreenComponent = (props) => {
               
             <View style={styles.clubsAndTypeContainer}>
                 {/* ----------동아리 분과---------- */}
-                <FlatList
-                    data={clubtypeList}
-                    renderItem={renderItem}
-                    keyExtractor={(item) => item.id}
-                    numColumns={3}
-                />
+                <View style={styles.clubsView}>
+                    <ClubTypeComponent clubtype='전체' clubData={clubData} />
+                    <ClubTypeComponent clubtype='봉사' clubData={clubData} />
+                    <ClubTypeComponent clubtype='체육' clubData={clubData} />
+                    <ClubTypeComponent clubtype='공연' clubData={clubData} />
+                    <ClubTypeComponent clubtype='교양' clubData={clubData} />
+                    <ClubTypeComponent clubtype='전공' clubData={clubData} />
+                </View>
+
+
             
                 {/* ----------선---------- */}
                 <View style={styles.line}/>
@@ -83,11 +57,16 @@ const ClubTypeAndActivityLogScreenComponent = (props) => {
                     <View style={styles.ActivityComponentView}>
                         {
                             // 동아리 활동 일지 리스트 (최대로 3개?)
-                            
+                            clubAct.map((item, index) => {
+                                if (index>=3){
+                                    return null
+                                }else {
+                                    return (
+                                        <ActivityLogMainComponent key={index} clubAct={item}/>
+                                    )
+                                }
+                            })
                         }
-                        <ActivityLogMainComponent/>
-                        <ActivityLogMainComponent/>
-                        <ActivityLogMainComponent/>
                     </View>
                     <TouchableOpacity 
                         style={styles.myActivityLogmoreView}

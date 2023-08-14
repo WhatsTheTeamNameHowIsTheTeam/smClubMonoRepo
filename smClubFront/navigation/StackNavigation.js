@@ -7,16 +7,14 @@ import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import MainScreen from '../screens/Main/MainScreen';
 import ClubListMainScreen from '../screens/Main/ClubListMainScreen';
 import UnionClubListScreen from '../screens/ClubCreation/UnionClubListScreen';
+import ClubMainScreen from '../screens/Club/ClubMainScreen';
 import MyClubListScreen from '../screens/Club/MyClubListScreen';
-
 import ClubMainScreen from '../screens/Club/ClubMainScreen';
 import ClubCreationScreen from '../screens/ClubCreation/ClubCreationScreen';
 import AlarmScreen from '../screens/Alarm/AlarmScreen';
-
 import JoinScreen from '../screens/MyPage/JoinScreen';
 import LoginScreen from '../screens/MyPage/LoginScreen';
 import MyPageScreen from '../screens/MyPage/MyPageScreen';
-
 
 
 // 모듈 변수 선언
@@ -33,7 +31,7 @@ const HomeStackNavigator = () => {
 
 const ClubStackNavigator = () => {
     return (
-        <Stack.Navigator initialRouteName='UnionClubListScreen'>
+        <Stack.Navigator initialRouteName='MyClubListScreen' > 
             <Stack.Screen name="ClubMainScreen" component={ClubMainScreen} />
             <Stack.Screen name="MyClubListScreen" component={MyClubListScreen} />
             <Stack.Screen name="UnionClubListScreen" component={UnionClubListScreen} />
@@ -50,16 +48,7 @@ const AlarmStackNavigator = () => {
     )
 }
 
-const MyPageStackNavigator = ({ navigation, route }) => {
-    // 하단 탭바 제거
-    React.useLayoutEffect(() => {
-        const routeName = getFocusedRouteNameFromRoute(route);
-        if (routeName === 'MyPageScreen') {
-            navigation.setOptions({ tabBarStyle: { display: undefined } });
-        } else {
-            navigation.setOptions({ tabBarStyle: { display: 'none' } }, { screenOptions: { headerShown: false } });
-        }
-    }, [navigation, route]);
+const MyPageStackNavigator = () => {
     return (
         <Stack.Navigator initialRouteName='MyPageScreen'>
             <Stack.Screen name="JoinScreen" component={JoinScreen} />

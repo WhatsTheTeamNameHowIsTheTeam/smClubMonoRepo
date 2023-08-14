@@ -1,4 +1,3 @@
-
 // 분과를 선택했을 때 동아리 리스트를 보여주는 페이지
 import React, { useState, useEffect } from 'react';
 import {
@@ -15,9 +14,12 @@ import AnnouncementListScreenComponent from '../../components/MainScreenComponen
 // ------------styles
 import styles from '../../components/Style';
 
+// ------------Dumy Data
+import clubListDumy from '../../Data/clubListDumy.json'
+
 
 const ClubListMainScreen = (props) => {
-    const [] = useState([]); // 동아리 분과 값
+    const [clubData, setClubData] = useState(clubListDumy.clubList); // 동아리 분과 값
 
     const [index, setIndex] = useState(0);
     const [routes] = useState([
@@ -38,7 +40,7 @@ const ClubListMainScreen = (props) => {
 
     // 컴포넌트
     const CtAndAlComponent = () => (
-        <ClubListScreenComponent clubtype={props.route.params.clubtype}/>
+        <ClubListScreenComponent clubtype={props.route.params.clubtype} clubData={clubData}/>
     )
     const ALComponent = () => (
         <AnnouncementListScreenComponent />

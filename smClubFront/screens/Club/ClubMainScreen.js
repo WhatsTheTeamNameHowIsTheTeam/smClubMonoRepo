@@ -1,10 +1,11 @@
 // 동아리 메인 페이지 
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect } from 'react';
 import {
     View, Text, Button,
     Dimensions
 } from 'react-native';
+import { useNavigation } from "@react-navigation/native";
 
 // npm install react-native-tab-view 
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
@@ -12,39 +13,39 @@ import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 
 // ------------Components
 import ClubActivityLogScreenComponent from '../../components/ClubComponent/ClubActivityLogScreenComponent';
-import ClubApplicantListScreenComponent from '../../components/ClubComponent/ClubApplicantListScreenComponent';
+import ClubNotificationScreenComponent from '../../components/ClubComponent/ClubNotificationScreenComponent';
 import ClubInfomationScreenComponent from '../../components/ClubComponent/ClubInfomationScreenComponent';
 import ClubMemberListScreenComponent from '../../components/ClubComponent/ClubMemberListScreenComponent';
-import ClubNotificationScreenComponent from '../../components/ClubComponent/ClubNotificationScreenComponent';
+import ClubRecruitmentAnnouncementScreenComponent from '../../components/ClubComponent/ClubRecruitmentAnnouncementScreenComponent';
 
 // ------------styles
 import styles from '../../components/Style';
 
 
 // 컴포넌트
-const CALComponent = () => (
+const CIComponent = () => ( //정보
+<ClubInfomationScreenComponent />
+)
+const CNSComponent = () => ( // 공지
+    <ClubNotificationScreenComponent />
+)
+const CALComponent = () => ( // 활동
     <ClubActivityLogScreenComponent />
 )
-const CAListComponent = () => (
-    <ClubApplicantListScreenComponent />
-)
-const CIComponent = () => (
-    <ClubInfomationScreenComponent />
-)
-const CMLComponent = () => (
+const CMLComponent = () => ( //회원
     <ClubMemberListScreenComponent />
 )
-const CNComponent = () => (
-    <ClubNotificationScreenComponent />
+const CRASComponent = () => ( //모집
+    <ClubRecruitmentAnnouncementScreenComponent />
 )
 
 // 어떤 컴포넌트를 렌더링 할지
 const renderScene = SceneMap({
-    first: CALComponent,
-    second: CAListComponent,
-    third: CIComponent,
+    first: CIComponent,
+    second: CNSComponent,
+    third: CALComponent,
     fourth: CMLComponent,
-    fifth:CNComponent,
+    fifth: CRASComponent,
 });
 
 // tab bar style
@@ -63,9 +64,21 @@ const renderTabBar = props => (
     />
 );
 
+// 동아리명 더미 데이터
+const getClubNameFromDB = async () => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve("응애응애");
+        }, 100);
+    });
+};
+
 const ClubMainScreen = (props) => {
-    const [] = useState([]); // 동아리 분과 리스트
-    const [] = useState([]); // 동아리 활동 일지 리스트
+    const [clubName, setClubName] = useState("Loading..."); // 동아리명 상태 추가
+    const navigation = useNavigation();
+
+    const [sectionList, setSectionList] = useState([]); // 동아리 분과 리스트 상태 추가
+    const [activityLogList, setActivityLogList] = useState([]); // 동아리 활동 일지 리스트 상태 추가
 
     const [index, setIndex] = useState(0);
     const [routes] = useState([
@@ -73,8 +86,27 @@ const ClubMainScreen = (props) => {
         { key: 'second', title: '공지' },
         { key: 'third', title: '활동' },
         { key: 'fourth', title: '회원' },
-        { key: 'fifth', title: '공고' },
+        { key: 'fifth', title: '모집' },
     ]);
+
+    // 가져온 동아리명으로 상태 업데이트
+    useEffect(() => {
+        async function fetchClubName() {
+            try {
+                const name = await getClubNameFromDB();
+                setClubName(name);
+            } catch (error) {
+                console.error("Error fetching club name", error);
+            }
+        }
+
+        fetchClubName(); // 동아리명 가져오기
+    }, []);
+
+    // 가져온 동아리명으로 헤더 설정
+    useLayoutEffect(() => {
+        navigation.setOptions({ headerTitle: clubName });
+    }, [clubName, navigation]);
 
     return (
         <View style={styles.container}>

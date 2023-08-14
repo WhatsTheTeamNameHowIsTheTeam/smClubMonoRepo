@@ -18,7 +18,8 @@ const TabNavigation = () => {
     return (
         <>
             <NavigationContainer >
-                <Tab.Navigator>
+                <Tab.Navigator screenOptions={{ headerShown: false }}>
+
                     <Tab.Screen name="Home" component={HomeStackNavigator} />
                     <Tab.Screen name="MyClub" component={ClubStackNavigator} />
                     <Tab.Screen name="Alarm" component={AlarmStackNavigator} />

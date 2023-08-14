@@ -48,6 +48,23 @@ const MainScreen = (props) => {
             createDate: "2023-07-07",
             updateDate: "2023-08-03"
         }
+
+
+        await axios({
+            method: "post",
+            url: "http://192.168.0.49:8080/test",
+            header: {
+                "content-type": "application/json",
+            },
+            data: object
+        })
+            // 받오는 데이터
+            .then((res) => {
+                console.log("res data를 받았습니다", res.data);
+            })
+            .catch((err) => {
+                console.log("데이터를 보내는데 실패했습니다")
+            });
     }
 
     // 컴포넌트

@@ -15,10 +15,8 @@ import styles from './Style';
 import clubListDumy from '../Data/clubListDumy.json';
 
 
-const ClubComponent = (props) => {
-    const [isrecruit, setIsRecruitement] = useState(true); // 이미지가 있는지 없는지
-    const [isUnionAdmin, setIsUnionAdmin] = useState(props.isUnionAdmin); // 연합회 관리자인지 아닌지
-    // const [clubData, setClubData] = useState(props.clubData); // 동아리 전체 데이터
+const MyClubComponent = (props) => {
+    const [clubData, setClubData] = useState(props.clubData); // 동아리 전체 데이터
     // navigation 사용
     const navigation = useNavigation();
 
@@ -57,44 +55,25 @@ const ClubComponent = (props) => {
                     {/* <Image style={{ width: '50%', height: '50%', borderRadius:15 }} source={require(clubData.img)} resizeMode='contain' /> */}
                 </View>
 
-                <View style={isrecruit ? styles.clubcontent : [styles.clubcontent, { width: '70%' }]}>
+                <View style={[styles.clubcontent,{width:'60%',}]}>
                     <Text style={styles.clubTypeText}>{clubData.category}</Text>
                     <Text style={styles.clubName}>{clubData.clubName}</Text>
-                    <TruncatedText text={clubData.introContent} maxLength={40} style={styles.activityLogContents} />
+                    <TruncatedText text={clubData.introContent} maxLength={40} />
                 </View>
 
-
-            {
-                // 연합회 관리자일 경우
-                isrecruit?
-                    <TouchableOpacity 
-                        style={styles.clublistisadmin}
-                        onPress={()=>{
-                            console.log('더보기')
-                        }}
-                    >
-                        <Image style={{width:'50%', height:'50%'}} source={require('../assets/ThreeDotsVertical.png')} resizeMode='contain'/>
-                    </TouchableOpacity> 
-                    :
-                    <>
-                        {
-                            // 모집중인 동아리일 경우
-                            isrecruit ?
-                                <View style={styles.clubisrecruit}>
-                                    <Text style={styles.isrecruitText}>모집 중</Text>
-                                </View>
-                                :
-                                null
-                        }
-                    </>
-            }
-            
-
-
+                <TouchableOpacity 
+                    style={{width:'10%',justifyContent:'center'}}
+                    onPress={() => {
+                        console.log('더보기 버튼 클릭')
+                        props.ismodal(true)
+                    }}
+                >
+                    <Image style={{ width: 30, height: 30, }} source={require('../assets/ThreeDotsVertical.png')} resizeMode='contain' />
+                </TouchableOpacity>
             </TouchableOpacity>
             <View style={styles.line}></View>
         </>
     );
 };
 
-export default ClubComponent;
+export default MyClubComponent;

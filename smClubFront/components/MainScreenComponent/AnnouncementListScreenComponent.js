@@ -9,13 +9,29 @@ import {
 
 // --------------Components
 import RecruitmentAnnouncementComponents from '../RecruitmentAnnouncementComponents';
+
+// --------------styles
 import styles from '../Style';
 
+// --------------Dumy Data
+import AnnouncementList from '../../Data/announcementListDumy.json'
+
 const AnnouncementListScreenComponent = (props) => {
-    const [announcementList, setAnnouncementList] = useState([]); // 모집공고 리스트
+    // const [announcementList, setAnnouncementList] = useState(props.); // 모집공고 리스트
+    const [announcementList, setAnnouncementList] = useState(); // 모집공고 리스트
     const [searchText, setSearchText] = useState(''); // 검색어
+
+
     useEffect(() => {
         console.log('AnnouncementListScreenComponent');
+
+        // 날짜가 최신순으로 정렬
+        setAnnouncementList(AnnouncementList.Announcement.sort(function (a, b) {
+            var adate=a.pullupDate.replaceAll("-","")
+            var bdate=b.pullupDate.replaceAll("-","")            
+            return bdate - adate;
+        }))
+        
 
     }, []);
 
@@ -47,14 +63,18 @@ const AnnouncementListScreenComponent = (props) => {
 
                 </View>
 
-                {/* ----------공고 리스트---------- */}
-                <RecruitmentAnnouncementComponents />
-                <View style={styles.Line} />
-                <RecruitmentAnnouncementComponents />
-                <View style={styles.Line} />
+                {
+                    announcementList?.map((item, index) => {
+                        return (
+                            <RecruitmentAnnouncementComponents
+                                key={index}
+                                announcementData={item}
+                            />
+                        )
+                    })
+                }
             </View>
         </ScrollView>
-
     );
 };
 
