@@ -15,11 +15,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#fff',
     },
-    containerView:{
-        width:width,
-        height:height,
-        alignItems:'center',
-        backgroundColor:'#fff',
+    containerView: {
+        width: width,
+        height: height,
+        alignItems: 'center',
+        backgroundColor: '#fff',
     },
 
 
@@ -303,7 +303,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: 'white',
-
+    },
     clubmark: {
         width: '30%',
         height: '100%',
@@ -342,39 +342,39 @@ const styles = StyleSheet.create({
 
     // ------------------MyClubListScreen
     // 내 동아리목록
-    loadingView:{
-        width:'100%',
-        height:'100%',
-        marginTop:100,
-        alignItems:'center',
+    loadingView: {
+        width: '100%',
+        height: '100%',
+        marginTop: 100,
+        alignItems: 'center',
     },
-    clubcontent:{
-        width:'55%',
-        height:'80%',
-    },  
-    clubTypeText:{
-        fontSize:15,
-        marginTop:8,
-        color:'#138CDB'
+    clubcontent: {
+        width: '55%',
+        height: '80%',
     },
-    clubName:{
-        fontSize:25,
-        marginTop:8,
-        fontWeight:'bold',
+    clubTypeText: {
+        fontSize: 15,
+        marginTop: 8,
+        color: '#138CDB'
     },
-    clubisrecruit:{
-        width:'15%',
-        height:'30%',
-        backgroundColor:'pink',
-        borderRadius:15,
-        justifyContent:'center',
+    clubName: {
+        fontSize: 25,
+        marginTop: 8,
+        fontWeight: 'bold',
     },
-    isrecruitText:{
-        fontSize:13,
-        fontWeight:'bold',
-        color:'white',
-        textAlign:'center',
-        textAlignVertical:'center',
+    clubisrecruit: {
+        width: '15%',
+        height: '30%',
+        backgroundColor: 'pink',
+        borderRadius: 15,
+        justifyContent: 'center',
+    },
+    isrecruitText: {
+        fontSize: 13,
+        fontWeight: 'bold',
+        color: 'white',
+        textAlign: 'center',
+        textAlignVertical: 'center',
     },
 
     // -----------------ClubActivityLogScreenComponent
@@ -881,17 +881,17 @@ const styles = StyleSheet.create({
 
     // ------------------MyClubListScreen
     // 내 동아리목록
-    loadingView:{
-        width:'100%',
-        height:'100%',
-        marginTop:100,
-        alignItems:'center',
+    loadingView: {
+        width: '100%',
+        height: '100%',
+        marginTop: 100,
+        alignItems: 'center',
     },
-    
+
 
     // -----------------myclublist component 
     modalView: {
-        width: width*0.85,
+        width: width * 0.85,
         margin: 20,
         backgroundColor: 'white',
         borderRadius: 10,
@@ -904,7 +904,7 @@ const styles = StyleSheet.create({
         shadowRadius: 4,
         elevation: 5,
     },
-    modalTopView:{
+    modalTopView: {
         width: '100%',
         height: '10%',
         flexDirection: 'row',
@@ -912,13 +912,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 15,
     },
-    modalCloseView:{
+    modalCloseView: {
         width: '15%',
         height: '100%',
         justifyContent: 'center',
         alignItems: 'center',
     },
-    modalCloseButton:{
+    modalCloseButton: {
         width: 30,
         height: 30,
         borderRadius: 15,
@@ -926,7 +926,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    modalSearchView:{
+    modalSearchView: {
         width: 230,
         height: 40,
         marginTop: 15,
