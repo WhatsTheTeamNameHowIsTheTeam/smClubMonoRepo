@@ -419,27 +419,149 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
 
-    // -----------------ClubApplicantListScreenComponent
-    // 동아리 메인-공지 페이지 컴포넌트
-    clubApplicantListContainer: {
-        width: '85%',
+
+    // -----------UnionClubListScreenComponent
+    // 동아리 리스트 컴포넌트
+    unionClubListContainer: {
+        width: width,
+        height: height,
+        alignItems: 'center',
+        position: 'relative',
+    },
+    unionClubListView: {
+        width: '100%',
         height: '100%',
+    },
+    clublistisadmin: {
+        width: '15%',
+        height: '30%',
+        borderRadius: 15,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    clubCreateButtonView: {
+        position: 'absolute',
+        bottom: 10,
+        right: 10,
+        width: 50,
+        height: 50,
+        backgroundColor: '#D9D9D9',
+        borderRadius: 40,
+        justifyContent: 'center',
         alignItems: 'center',
     },
-    clubSearchView: { // 검색창
-        position: 'absolute',
+
+
+
+
+
+
+    // -----------------ClubCreationScreen
+    // 동아리 생성 페이지
+    clubcreateContainer: {
+        width: width,
+        height: height,
+        backgroundColor: 'white',
+        alignItems: 'center',
+    },
+    clubcreateView: {
         width: '85%',
-        height: 70,
+        height: '100%',
+    },
+    createClubText: {
+        fontSize: 20,
+        fontWeight: 'bold',
         marginTop: 20,
-        marginBottom: 25,
-        marginHorizontal: 30,
+        marginBottom: 10,
+    },
+    clubcreateTextInput: {
+        borderBottomWidth: 1,
+        borderColor: '#D9D9D9',
+        padding: 10,
+    },
+    
+    clubErrorText: {
+        fontSize: 13,
+        color: 'red',
+    },
+    centeredView: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 22,
+    },
+    createClubLeaderInfoView:{
+        width:330,
+        borderWidth:1,
+        borderColor:'#D9D9D9',
+        borderRadius:15,
+        padding:10,
+        paddingBottom:20,
+        paddingHorizontal:20,
+        marginTop:10,
+    },
+    leaderinfoText:{
+        fontSize: 15,
+        fontWeight: 'bold',
+        marginTop: 10,
+        marginBottom: 5,
+        color:'#393D46',
+    },
+    leaderinfoTextView:{
+        width:'100%', 
+        padding:10, 
+        borderBottomWidth:1, 
+        borderColor:'#D9D9D9'
+    },
+    modalView: {
+        width: width*0.85,
+        margin: 20,
+        backgroundColor: 'white',
+        borderRadius: 10,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+    modalTopView:{
+        width: '100%',
+        height: '10%',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop: 15,
+    },
+    modalCloseView:{
+        width: '15%',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    modalCloseButton:{
+        width: 30,
+        height: 30,
+        borderRadius: 15,
+        backgroundColor: '#D9D9D9',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    modalSearchView:{
+        width: 230,
+        height: 40,
+        marginTop: 15,
+        marginBottom: 10,
         flexDirection: 'row',
         backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',
     },
-    dateSeparatorContainer: {
-        flexDirection: 'row',
+    totaluserinfoView:{
+        width: '85%',
+        height: 300,
         alignItems: 'center',
         width: '100%',
     },
