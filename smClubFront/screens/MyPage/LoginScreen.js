@@ -23,7 +23,7 @@ const LoginScreen = ({ navigation }) => {
     }
 
     return (
-        <View style={styles.login_container}>
+        <View style={styles.container}>
 
             {/* 아이디 텍스트 필드 */}
             <Text >ID</Text>

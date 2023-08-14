@@ -35,14 +35,14 @@ const MyPageScreen = ({ navigation }) => {
     const logout = async () => {
         try {
             AsyncStorage.clear();
-            navigation.navigate('LoginScreen'); 
+            navigation.navigate('LoginScreen');
         } catch (error) {
             console.log(error);
         }
     };
 
     return (
-        <View style={styles.login_container}>
+        <View style={styles.container}>
 
             {/* 내정보 */}
             <View style={MyPagestyles.myInfo} >
@@ -70,56 +70,75 @@ const MyPageScreen = ({ navigation }) => {
             {/* 약관 및 설정 */}
             <View style={{ flex: 2.5 }}>
 
-                <TouchableOpacity>
-                    <View style={MyPagestyles.setup}>
-                        <Text style={MyPagestyles.setupText} >MY 동아리</Text>
-                        <View style={MyPagestyles.separator} />
-                    </View>
+                <TouchableOpacity
+                    style={MyPagestyles.setup}
+                    onPress={() => {
+
+                    }}
+                >
+                    <Text style={MyPagestyles.setupText} >MY 동아리</Text>
+                    <View style={MyPagestyles.separator} />
+
                 </TouchableOpacity>
 
-                <TouchableOpacity>
-                    <View style={MyPagestyles.setup}>
-                        <Text style={MyPagestyles.setupText}>MY 동아리 활동 일지</Text>
-                        <View style={MyPagestyles.separator} />
-                    </View>
+                <TouchableOpacity
+                    style={MyPagestyles.setup}
+                    onPress={() => {
+
+                    }}
+                >
+                    <Text style={MyPagestyles.setupText}>MY 동아리 활동 일지</Text>
+                    <View style={MyPagestyles.separator} />
                 </TouchableOpacity>
 
-                <TouchableOpacity>
-                    <View style={MyPagestyles.setup}>
-                        <Text style={MyPagestyles.setupText}>동아리 가입 신청 내역</Text>
-                        <View style={MyPagestyles.separator} />
-                    </View>
+                <TouchableOpacity
+                    style={MyPagestyles.setup}
+                    onPress={() => {
+
+                    }}
+                >
+                    <Text style={MyPagestyles.setupText}>동아리 가입 신청 내역</Text>
+                    <View style={MyPagestyles.separator} />
                 </TouchableOpacity>
 
-                <TouchableOpacity>
-                    <View style={MyPagestyles.setup}>
-                        <Text style={MyPagestyles.setupText}>약관 및 정책</Text>
-                        <View style={MyPagestyles.separator} />
-                    </View>
+                <TouchableOpacity
+                    style={MyPagestyles.setup}
+                    onPress={() => {
+
+                    }}
+                >
+                    <Text style={MyPagestyles.setupText}>약관 및 정책</Text>
+                    <View style={MyPagestyles.separator} />
                 </TouchableOpacity>
 
-                <TouchableOpacity>
-                    <View style={MyPagestyles.setup}>
-                        <Text
-                            style={MyPagestyles.setupText}
-                            onPress={secessionButtonPress}
-                        >
-                            어플 탈퇴하기
-                        </Text>
-                        <View style={MyPagestyles.separator} />
-                    </View>
+                <TouchableOpacity
+                    style={MyPagestyles.setup}
+                    onPress={() => {
+
+                    }}
+                >
+                    <Text
+                        style={MyPagestyles.setupText}
+                        onPress={secessionButtonPress}
+                    >
+                        어플 탈퇴하기
+                    </Text>
+                    <View style={MyPagestyles.separator} />
                 </TouchableOpacity>
 
-                <TouchableOpacity>
-                    <View style={MyPagestyles.setup}>
-                        <Text
-                            style={MyPagestyles.setupText}
-                            onPress={logoutButtonPress}
-                        >
-                            로그아웃
-                        </Text>
-                        <View style={MyPagestyles.separator} />
-                    </View>
+                <TouchableOpacity
+                    style={MyPagestyles.setup}
+                    onPress={() => {
+
+                    }}
+                >
+                    <Text
+                        style={MyPagestyles.setupText}
+                        onPress={logoutButtonPress}
+                    >
+                        로그아웃
+                    </Text>
+                    <View style={MyPagestyles.separator} />
                 </TouchableOpacity>
             </View>
 
