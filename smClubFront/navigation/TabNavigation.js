@@ -5,11 +5,11 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 //stack import
-import { 
-    HomeStackNavigator, 
-    ClubStackNavigator, 
-    AlarmStackNavigator, 
-    MyPageStackNavigator 
+import {
+    HomeStackNavigator,
+    ClubStackNavigator,
+    AlarmStackNavigator,
+    MyPageStackNavigator
 } from './StackNavigation';
 
 const Tab = createBottomTabNavigator();
@@ -17,7 +17,7 @@ const Tab = createBottomTabNavigator();
 const TabNavigation = () => {
     return (
         <>
-            <NavigationContainer>
+            <NavigationContainer >
                 <Tab.Navigator screenOptions={{ headerShown: false }}>
                     <Tab.Screen name="Home" component={HomeStackNavigator} />
                     <Tab.Screen name="MyClub" component={ClubStackNavigator} />

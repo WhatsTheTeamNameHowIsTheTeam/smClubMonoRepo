@@ -1,0 +1,92 @@
+{"clubChallengerList":[{
+    "club":"먹방 동아리",
+    "studentId":"2017225002",
+    "userName":"신정환",
+    "major":"컴퓨터공학과",
+    "img":"https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbKJCzo%2FbtsheDoCMkI%2FJVerY5BdcvXWdIcKwFqRq0%2Fimg.jpg",
+    "phoneNumber":"01040510673",
+    "qNa":[
+            {
+                "qestionId":"CLUB20230808001",
+                "recruitment":"RCR20230808001",
+                "qestionNumber":"1",
+                "qestion":"테스트 질문1입니다.",
+                "answer":"질문 1에 대한 답변입니다."
+            },{
+                "qestionId":"CLUB20230808002",
+                "recruitment":"RCR20230808002",
+                "qestionNumber":"2",
+                "qestion":"테스트 질문2입니다.",
+                "answer":"질문 2에 대한 답변입니다."
+            }
+    ]
+},{
+    "club":"먹방 동아리",
+    "studentId":"2017225002",
+    "userName":"서한수",
+    "major":"한입만 먹어볼과",
+    "img":"https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbKJCzo%2FbtsheDoCMkI%2FJVerY5BdcvXWdIcKwFqRq0%2Fimg.jpg",
+    "phoneNumber":"01043211234",
+    "qNa":[
+            {
+                "qestionId":"CLUB20230808001",
+                "recruitment":"RCR20230808001",
+                "qestionNumber":"1",
+                "qestion":"테스트 질문1입니다.",
+                "answer":"질문 23231에 대한 답변입니다."
+            },{
+                "qestionId":"CLUB20230808002",
+                "recruitment":"RCR20230808002",
+                "qestionNumber":"2",
+                "qestion":"테스트 질문2입니다.",
+                "answer":"질문65462에 대한 답변입니다."
+            }
+    ]
+},{
+    "club":"먹방 동아리",
+    "studentId":"2017225002",
+    "userName":"양연지",
+    "major":"기계공학과",
+    "img":"https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbKJCzo%2FbtsheDoCMkI%2FJVerY5BdcvXWdIcKwFqRq0%2Fimg.jpg",
+    "phoneNumber":"01040510673",
+    "qNa":[
+            {
+                "qestionId":"CLUB20230808001",
+                "recruitment":"RCR20230808001",
+                "qestionNumber":"1",
+                "qestion":"테스트 질문1입니다.",
+                "answer":"질문 1에 대한 답변입니다."
+            },{
+                "qestionId":"CLUB20230808002",
+                "recruitment":"RCR20230808002",
+                "qestionNumber":"2",
+                "qestion":"테스트 질문2입니다.",
+                "answer":"질문 2에 대한 답변입니다."
+            }
+    ]
+
+},{
+    "club":"먹방 동아리",
+    "studentId":"2017225002",
+    "userName":"신정환",
+    "major":"컴퓨터공학과",
+    "img":"https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbKJCzo%2FbtsheDoCMkI%2FJVerY5BdcvXWdIcKwFqRq0%2Fimg.jpg",
+    "phoneNumber":"01040510673",
+    "qNa":[
+            {
+                "qestionId":"CLUB20230808001",
+                "recruitment":"RCR20230808001",
+                "qestionNumber":"1",
+                "qestion":"테스트 질문1입니다.",
+                "answer":"질문 1에 대한 답변입니다."
+            },{
+                "qestionId":"CLUB20230808002",
+                "recruitment":"RCR20230808002",
+                "qestionNumber":"2",
+                "qestion":"테스트 질문2입니다.",
+                "answer":"질문 2에 대한 답변입니다."
+            }
+    ]
+}
+]
+}

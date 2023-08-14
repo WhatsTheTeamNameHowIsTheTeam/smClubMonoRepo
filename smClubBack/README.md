@@ -1,2 +1,0 @@
-# smClubBack
-backEnd in smClubProject 
