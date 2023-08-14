@@ -48,7 +48,7 @@ const ClubComponent = (props) => {
                 onPress={() => {
                     console.log('동아리 컴포넌트 클릭')
                     navigation.navigate('MyClub', {
-                        screen: 'ClubInfomationScreen',
+                        screen: 'ClubMainScreen',
                         // clubData : clubData,
                     })
                 }}

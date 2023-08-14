@@ -4,6 +4,7 @@ import {
     View, Text, TouchableOpacity,
     Image,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 // styles
 import styles from './Style';
@@ -12,16 +13,9 @@ const RecruitmentAnnouncementComponents = (props) => {
     // 서버에서 받은 데이터 값
     const [announcementData, setAnnouncementData] = useState(props.announcementData); // 동아리 활동 일지 리스트
     const [isImage, setIsImage] = useState(props.announcementData.img); // 이미지 여부
-    //const image = props.data.image;// 이미지 데이터
-
-
-    // 이미지 여부에 따라 보이는 게 다름
-    // if (image) {
-    //     setIsImage(true);
-    // } else {
-    //     setIsImage(false);
-    // }
-
+ 
+    // navigation 사용
+    const navigation = useNavigation();
 
     // 글자가 길면 ...으로 표시
     const TruncatedText = ({ text, maxLength, size, weightBool }) => {
@@ -46,8 +40,12 @@ const RecruitmentAnnouncementComponents = (props) => {
             <TouchableOpacity
                 style={styles.notificationComponentView}
                 onPress={() => {
-                    console.log('모집공고 컴포넌트') // 모집공고 컴포넌트
                     // props를 통해서 값 보내주기 모든 데이터 전송
+                    navigation.navigate('MyClub', {
+                        screen: 'ClubMainScreen',
+                        // clubData : clubData,
+                    })
+                    
                 }}
             >
                 <View style={styles.notificationClubNameView}>

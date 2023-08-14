@@ -43,10 +43,7 @@ const ClubListScreenComponent = (props) => {
 
     // 사용자가 사용하는 filter
     const clubhandler = ( clubtype, isrecruitment, searchtext) => {
-        console.log('clubhandler() 실행')
-        console.log('clubtype', clubtype)
-        console.log('isrecruitment', isrecruitment)
-        console.log('searchtext', searchtext)
+
 
         // 찾는 분과와 동일한 것 찾기
         // 모집 중인 것 or 전체 찾기
@@ -163,7 +160,7 @@ const ClubListScreenComponent = (props) => {
                     clubData?.map((item, index) => {
                         if (item.category === clubType || clubType === '전체') {
                             return (
-                                <ClubComponent clubData={item} />
+                                <ClubComponent clubData={item} key={index}/>
                             )
                         }
                         else{
