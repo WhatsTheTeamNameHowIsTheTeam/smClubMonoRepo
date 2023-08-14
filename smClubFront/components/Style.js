@@ -841,5 +841,55 @@ const styles = StyleSheet.create({
     },
     
 
+
+
+
+    // -----------------myclublist component 
+    modalView: {
+        width: width*0.85,
+        margin: 20,
+        backgroundColor: 'white',
+        borderRadius: 10,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+    modalTopView:{
+        width: '100%',
+        height: '10%',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop: 15,
+    },
+    modalCloseView:{
+        width: '15%',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    modalCloseButton:{
+        width: 30,
+        height: 30,
+        borderRadius: 15,
+        backgroundColor: '#D9D9D9',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    modalSearchView:{
+        width: 230,
+        height: 40,
+        marginTop: 15,
+        marginBottom: 10,
+        flexDirection: 'row',
+        backgroundColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
 });
 export default styles;
