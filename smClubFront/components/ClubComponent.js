@@ -58,7 +58,7 @@ const ClubComponent = (props) => {
                 </View>
 
                 <View style={isrecruit ? styles.clubcontent : [styles.clubcontent, { width: '70%' }]}>
-                    <Text style={styles.clubTypeText}>{clubData.category}</Text>
+                    <Text style={styles.clubTypeTextCC}>{clubData.category}</Text>
                     <Text style={styles.clubName}>{clubData.clubName}</Text>
                     <TruncatedText text={clubData.introContent} maxLength={40} style={styles.activityLogContents} />
                 </View>
