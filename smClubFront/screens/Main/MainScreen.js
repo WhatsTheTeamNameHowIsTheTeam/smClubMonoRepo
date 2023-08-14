@@ -101,7 +101,7 @@ const MainScreen = (props) => {
 
     // //데이터 이동 테스트 코드
     useEffect(() => {
-        console.log('MainScreen');
+        
         //앱 실행하면 화면에 오면 서버에서 동아리 분과 리스트, 동아리 활동 일지 리스트 가져오기
         //reqestData();
     }, [])

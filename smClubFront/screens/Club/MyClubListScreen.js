@@ -49,7 +49,7 @@ const MyClubListScreen = (props) => {
                         setIsModalVisible(!isModalVisible);
                     }}>
                     <Pressable style={styles.centeredView} onPress={() => { Keyboard.dismiss() }}>
-                        <View style={styles.modalView}>
+                        <View style={styles.modalViewCC}>
                             {/* 닫기 */}
                             <View style={styles.modalTopView}>
                                 <View style={styles.modalCloseView}></View>

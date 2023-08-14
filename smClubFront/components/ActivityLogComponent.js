@@ -14,7 +14,7 @@ const ActivityLogComponent = ({ activity }) => {
 
     return (
         <View style={styles.ALcontainer}>
-            <Text style={styles.title}>{SJ}</Text>
+            <Text style={styles.titleALC}>{SJ}</Text>
             <Text style={styles.content}>내용: {CN}</Text>
 
             <Image

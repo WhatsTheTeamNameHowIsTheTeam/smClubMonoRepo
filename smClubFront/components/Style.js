@@ -15,12 +15,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#fff',
     },
-    containerView: {
-        width: width,
-        height: height,
-        alignItems: 'center',
-        backgroundColor: '#fff',
-    },
+
 
 
 
@@ -93,7 +88,6 @@ const styles = StyleSheet.create({
         width: '85%',
         marginTop: 5,
         marginBottom: 20,
-
     },
     myActivityLogTextView: {
         width: '85%',
@@ -314,7 +308,7 @@ const styles = StyleSheet.create({
         width: '55%',
         height: '80%',
     },
-    clubTypeText: {
+    clubTypeTextCC: {
         fontSize: 15,
         marginTop: 8,
         color: '#138CDB'
@@ -348,34 +342,8 @@ const styles = StyleSheet.create({
         marginTop: 100,
         alignItems: 'center',
     },
-    clubcontent: {
-        width: '55%',
-        height: '80%',
-    },
-    clubTypeText: {
-        fontSize: 15,
-        marginTop: 8,
-        color: '#138CDB'
-    },
-    clubName: {
-        fontSize: 25,
-        marginTop: 8,
-        fontWeight: 'bold',
-    },
-    clubisrecruit: {
-        width: '15%',
-        height: '30%',
-        backgroundColor: 'pink',
-        borderRadius: 15,
-        justifyContent: 'center',
-    },
-    isrecruitText: {
-        fontSize: 13,
-        fontWeight: 'bold',
-        color: 'white',
-        textAlign: 'center',
-        textAlignVertical: 'center',
-    },
+
+
 
     // -----------------ClubActivityLogScreenComponent
     // 동아리 메인-정보 페이지 컴포넌트
@@ -513,7 +481,7 @@ const styles = StyleSheet.create({
         borderBottomWidth:1, 
         borderColor:'#D9D9D9'
     },
-    modalView: {
+    modalViewCC: {
         width: width*0.85,
         margin: 20,
         backgroundColor: 'white',
@@ -564,98 +532,6 @@ const styles = StyleSheet.create({
         height: 300,
         alignItems: 'center',
         width: '100%',
-    },
-    dateSeparatorLine: {
-        flex: 1,
-        height: 0.5,
-        backgroundColor: 'lightgray',
-    },
-    dateSeparatorText: {
-        fontSize: 14,
-        paddingHorizontal: 10,
-    },
-    announcementContainer: {
-        flexDirection: 'row',
-        paddingHorizontal: 10,
-        paddingVertical: 20,
-    },
-    profileImage: {
-        width: 50,
-        height: 50,
-        borderRadius: 25,
-        resizeMode: 'cover',
-    },
-    announcementContentContainer: {
-        flex: 1,
-        marginLeft: 10,
-    },
-    authorText: {
-        fontWeight: 'bold',
-        marginBottom: 5,
-    },
-    contentText: {
-        marginBottom: 10,
-    },
-    attachmentImage: {
-        marginTop: 10,
-        width: '100%',
-        height: 200,
-        resizeMode: 'cover',
-        borderRadius: 5,
-    },
-    timeText: {
-        marginTop: 5,
-        fontSize: 12,
-        color: 'gray',
-        alignSelf: 'flex-end',
-    },
-    editTextContainer: {
-        position: 'absolute',
-        bottom: 0,
-        width: '100%',
-        height: 80,
-        backgroundColor: '#EAEAEA',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-        paddingHorizontal: 10,
-    },
-    editText: {
-        backgroundColor: '#4b6bff',
-        padding: 10,
-        borderRadius: 25,
-    },
-    ImageIcon: {
-        width: 50,
-        height: 50,
-        borderRadius: 15,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginRight: 5,
-    },
-    textInPutContainer: {
-        width: '60%',
-        height: '60%',
-        borderRadius: 10,
-        padding: 10,
-        marginRight: 5,
-        backgroundColor: 'white',
-        flexDirection: 'row',
-    },
-    textInPut: {
-        fontSize: 15,
-    },
-    inputButton: {
-        backgroundColor: '#4b6bff',
-        borderRadius: 10,
-        width: '15%',
-        height: '60%',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    inputButtonText: {
-        color: '#fff',
-        fontSize: 16,
     },
 
     
@@ -976,7 +852,7 @@ const styles = StyleSheet.create({
         shadowRadius: 2,
         elevation: 2,
     },
-    title: {
+    titleALC: {
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 16,
@@ -1118,64 +994,6 @@ const styles = StyleSheet.create({
         width: '80%',
     },
 
-
-    // ------------------MyClubListScreen
-    // 내 동아리목록
-    loadingView: {
-        width: '100%',
-        height: '100%',
-        marginTop: 100,
-        alignItems: 'center',
-    },
-
-
-    // -----------------myclublist component 
-    modalView: {
-        width: width * 0.85,
-        margin: 20,
-        backgroundColor: 'white',
-        borderRadius: 10,
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 5,
-    },
-    modalTopView: {
-        width: '100%',
-        height: '10%',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginTop: 15,
-    },
-    modalCloseView: {
-        width: '15%',
-        height: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    modalCloseButton: {
-        width: 30,
-        height: 30,
-        borderRadius: 15,
-        backgroundColor: '#D9D9D9',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    modalSearchView: {
-        width: 230,
-        height: 40,
-        marginTop: 15,
-        marginBottom: 10,
-        flexDirection: 'row',
-        backgroundColor: 'white',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
 
     // -----------------QuestionFormComponent
     // 동아리 메인-모집/질문 양식 컴포넌트
