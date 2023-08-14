@@ -9,7 +9,6 @@ import ClubListMainScreen from '../screens/Main/ClubListMainScreen';
 import UnionClubListScreen from '../screens/ClubCreation/UnionClubListScreen';
 import ClubMainScreen from '../screens/Club/ClubMainScreen';
 import MyClubListScreen from '../screens/Club/MyClubListScreen';
-import ClubMainScreen from '../screens/Club/ClubMainScreen';
 import ClubCreationScreen from '../screens/ClubCreation/ClubCreationScreen';
 import AlarmScreen from '../screens/Alarm/AlarmScreen';
 import JoinScreen from '../screens/MyPage/JoinScreen';

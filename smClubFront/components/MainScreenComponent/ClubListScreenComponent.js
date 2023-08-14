@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import {
     View, Text, TouchableOpacity,
     ScrollView, TextInput, Image,
-
+    LogBox
 } from 'react-native';
 // npm i react-native-modal-dropdown
 import ModalDropdown from 'react-native-modal-dropdown';
@@ -21,7 +21,6 @@ const ClubListScreenComponent = (props) => {
     const [clubData, setClubData] = useState(props.clubData); // 동아리 전체 데이터
     const [isRecruitement, setIsRecruitement] = useState(false); // 모집중인 것만 보기
     const [searchText, setSearchText] = useState(''); // 검색어
-
     const clubTypeList = [
         '전체',
         '봉사',
@@ -31,14 +30,14 @@ const ClubListScreenComponent = (props) => {
         '전공',
     ];
 
+    useEffect(() => {
+        LogBox.ignoreLogs(['initialScrollIndex "-1" is not valid (list has 6 items)'])
+    }, []);
+
+
     const toggleMajorSelection = (index, value) => {
         setClubType(value);
     };
-
-    useEffect(() => {
-        console.log('ClubListScreenComponent');
-        
-    }, []);
 
 
 
@@ -114,7 +113,7 @@ const ClubListScreenComponent = (props) => {
                         initialScrollIndex={0}
                         style={styles.clubListPicker}
                         options={clubTypeList}
-                        defaultValue={clubTypeList[0]}
+                        defaultValue={clubTypeList[clubTypeList.indexOf(clubType)]}
                         onSelect={toggleMajorSelection}
                         textStyle={styles.inputModalText}
                         dropdownTextStyle={styles.inputModalText}
@@ -162,10 +161,9 @@ const ClubListScreenComponent = (props) => {
 
                 {
                     clubData?.map((item, index) => {
-                        console.log('item.category', item.category)
                         if (item.category === clubType || clubType === '전체') {
                             return (
-                                <ClubComponent clubData={clubData} />
+                                <ClubComponent clubData={item} />
                             )
                         }
                         else{
