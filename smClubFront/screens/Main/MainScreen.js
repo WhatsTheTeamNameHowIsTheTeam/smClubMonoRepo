@@ -1,5 +1,4 @@
 // 메인페이지에서 동아리, 모집 공고 슬라이드 하는 페이지
-
 import React, { useEffect, useState } from 'react';
 import {
     View, Text, Button,
@@ -18,36 +17,6 @@ import AnnouncementListScreenComponent from '../../components/MainScreenComponen
 
 // ------------styles
 import styles from '../../components/Style';
-
-
-// 컴포넌트
-const CtAndAlComponent = () => (
-    <ClubTypeAndActivityLogScreenComponent />
-)
-const ALComponent = () => (
-    <AnnouncementListScreenComponent />
-)
-// 어떤 컴포넌트를 렌더링 할지
-const renderScene = SceneMap({
-    first: CtAndAlComponent,
-    second: ALComponent,
-});
-
-// tab bar style
-const renderTabBar = props => (
-    <TabBar
-        {...props}
-        indicatorStyle={{ backgroundColor: 'gray' }} // 탭바 밑줄 색깔
-        style={styles.tabbarstyle}
-        renderLabel={({ route, focused, color }) => ( // 탭바 글씨 텍스트 값, 색깔(activiColor)
-            <Text style={[styles.tabBarText, { color }]}>
-                {route.title}
-            </Text>
-        )}
-        activeColor={'black'} // 탭바 focus 글 색깔
-        labelStyle={{ color: 'gray' }} // 탭바 unfocus 글 색깔
-    />
-);
 
 const MainScreen = (props) => {
     const [] = useState([]); // 동아리 분과 리스트
@@ -98,20 +67,48 @@ const MainScreen = (props) => {
             });
     }
 
+    // 컴포넌트
+    const CtAndAlComponent = () => (
+        <ClubTypeAndActivityLogScreenComponent />
+    )
+    const ALComponent = () => (
+        <AnnouncementListScreenComponent />
+    )
+    // 어떤 컴포넌트를 렌더링 할지
+    const renderScene = SceneMap({
+        first: CtAndAlComponent,
+        second: ALComponent,
+    });
+
+    // tab bar style
+    const renderTabBar = props => (
+        <TabBar
+            {...props}
+            indicatorStyle={{ backgroundColor: 'gray' }} // 탭바 밑줄 색깔
+            style={styles.tabbarstyle}
+            renderLabel={({ route, focused, color }) => ( // 탭바 글씨 텍스트 값, 색깔(activiColor)
+                <Text style={[styles.tabBarText, { color }]}>
+                    {route.title}
+                </Text>
+            )}
+            activeColor={'black'} // 탭바 focus 글 색깔
+            labelStyle={{ color: 'gray' }} // 탭바 unfocus 글 색깔
+        />
+    );
+
 
 
 
     // //데이터 이동 테스트 코드
-    useEffect(()=> {
+    useEffect(() => {
         console.log('MainScreen');
         //앱 실행하면 화면에 오면 서버에서 동아리 분과 리스트, 동아리 활동 일지 리스트 가져오기
         //reqestData();
-    },[])
+    }, [])
 
     return (
         <View style={styles.container}>
             <TabView
-                scrollEnabled={true}
                 renderTabBar={renderTabBar}
                 navigationState={{ index, routes }}
                 renderScene={renderScene}
@@ -121,5 +118,4 @@ const MainScreen = (props) => {
         </View>
     );
 };
-
 export default MainScreen;

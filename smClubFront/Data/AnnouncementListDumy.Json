@@ -1,29 +1,30 @@
 {"Announcement":[{
     "clubName":"테스트동아리",
     "category":"체육",
-    "memberCnt":"33",
+    "memberCnt":"15",
     "img":["https://s.pstatic.net/static/www/mobile/edit/20230807_1095/upload_1691375937356PzBL4.png","https://s.pstatic.net/static/www/mobile/edit/20230807_1095/upload_1691375937356PzBL4.png","https://s.pstatic.net/static/www/mobile/edit/20230807_1095/upload_1691375937356PzBL4.png"],
     "subject":"먹방 동아리 멤버 모집합니다",
     "content":"잘먹겠습니다. 동아리에서 먹방 유튜버를 모집중입니다. 턱관절테스트 1분 100회, 햄버거 최대 5개 드실 수 있는분만 신청해주세요. 감사합니다.",
     "UPDT_DT":"2023-03-12",
     "submitCnt":"3",
-    "views":"302",
+    "views":"52",
     "pullupDate":"2023-05-19-12-42"
 },{
     "clubName":"알락꼬리꼬마도요",
     "category":"체육",
-    "memberCnt":"33",
+    "memberCnt":"20",
     "img":"https://s.pstatic.net/static/www/mobile/edit/20230807_1095/upload_1691375937356PzBL4.png",
     "subject":"새 분석 동아리 입니다,",
     "content":"새를 사랑하는 사랑하는 분들을 모집합니다. 치킨 드신분은 안받습니다.",
     "UPDT_DT":"2023-03-12",
     "views":"0",
     "submitCnt":"3",
+    "views":"202",
     "pullupDate":"2023-05-19-13-42"
 },{
     "clubName":"초전도체 개발 동아리",
     "category":"체육",
-    "memberCnt":"33",
+    "memberCnt":"9",
     "img":["https://s.pstatic.net/static/www/mobile/edit/20230807_1095/upload_1691375937356PzBL4.png","https://s.pstatic.net/static/www/mobile/edit/20230807_1095/upload_1691375937356PzBL4.png"],
     "subject":"초전도체 개발 동아리에서 인재를 모집합니다.",
     "content":"고려대 연구원분들과 영어로 협업하며 사람들과 초전도체 개발에 힘쓸 분을 찾습니다.",
@@ -35,13 +36,13 @@
 },{
     "clubName":"모니터부수기 동아리",
     "category":"체육",
-    "memberCnt":"33",
+    "memberCnt":"30",
     "img":"",
     "subject":"컴퓨터를 사람하는 사람들의 모임",
     "content":"코딩할 사람들을 모집합니다.",
     "UPDT_DT":"2023-03-15",
     "submitCnt":"3",
-    "views":"302",
+    "views":"185",
     "pullupDate":"2023-05-19-13-43"
 }
 ]
