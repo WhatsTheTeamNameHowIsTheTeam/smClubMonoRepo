@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height,
     },
