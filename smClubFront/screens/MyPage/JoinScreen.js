@@ -3,14 +3,9 @@
 import Checkbox from 'expo-checkbox';
 import React, { useState } from 'react';
 import {
-    SafeAreaView,
-    View,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    ScrollView,
-    Alert,
-    StyleSheet
+    TouchableWithoutFeedback, View, Text,
+    TextInput, TouchableOpacity,
+    ScrollView, Alert, StyleSheet, Dimensions
 } from 'react-native';
 import ModalDropdown from 'react-native-modal-dropdown';
 
@@ -64,92 +59,104 @@ const JoinScreen = ({ navigation }) => {
     };
 
     return (
-        // 회원정보 입력
-        <SafeAreaView style={styles.container}>
-            <ScrollView style={styles.scrollView}>
-                <View>
+        <TouchableWithoutFeedback onPress={() => { Keyboard.dismiss(); }}>
+            <View style={styles.container}>
+                <View style={styles.joinContainer}>
 
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={setIdTextInput}
-                        placeholder="아이디"
-                    />
 
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={setPwTextInput}
-                        placeholder="비밀번호"
-                        secureTextEntry
-                    />
+                </View>
 
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={setPwConfirmTextInput}
-                        placeholder="비밀번호 확인"
-                        secureTextEntry
-                    />
+            </View>
+            <SafeAreaView style={styles.container}>
+                <ScrollView style={styles.scrollView}>
+                    <View>
 
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={setNameTextInput}
-                        placeholder="이름"
-                    />
+                        <TextInput
+                            style={styles.input}
+                            onChangeText={setIdTextInput}
+                            placeholder="아이디"
+                        />
 
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={setStudentIdTextInput}
-                        placeholder="학번"
-                        keyboardType="numeric"
-                    />
+                        <TextInput
+                            style={styles.input}
+                            onChangeText={setPwTextInput}
+                            placeholder="비밀번호"
+                            secureTextEntry
+                        />
 
-                    <ModalDropdown
-                        initialScrollIndex={0}
-                        style={styles.input}
-                        options={majors}
-                        defaultValue={majors[0]}
-                        onSelect={toggleMajorSelection}
-                        textStyle={styles.inputText}
-                        dropdownTextStyle={styles.inputText}
-                    />
+                        <TextInput
+                            style={styles.input}
+                            onChangeText={setPwConfirmTextInput}
+                            placeholder="비밀번호 확인"
+                            secureTextEntry
+                        />
 
-                    <TextInput
-                        style={styles.input}
-                        onChangeText={setContactTextInput}
-                        placeholder="연락처"
-                        keyboardType="phone-pad"
-                    />
+                        <TextInput
+                            style={styles.input}
+                            onChangeText={setNameTextInput}
+                            placeholder="이름"
+                        />
 
-                    <View style={styles.input}>
-                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                            <Text>이용약관에 동의합니다.</Text>
-                            <Checkbox style={styles.checkbox}
-                                // disabled 
-                                value={termsAgreed}
-                                onValueChange={setTermsAgreed}
-                            />
+                        <TextInput
+                            style={styles.input}
+                            onChangeText={setStudentIdTextInput}
+                            placeholder="학번"
+                            keyboardType="numeric"
+                        />
+
+                        <ModalDropdown
+                            initialScrollIndex={0}
+                            style={styles.input}
+                            options={majors}
+                            defaultValue={majors[0]}
+                            onSelect={toggleMajorSelection}
+                            textStyle={styles.inputText}
+                            dropdownTextStyle={styles.inputText}
+                        />
+
+                        <TextInput
+                            style={styles.input}
+                            onChangeText={setContactTextInput}
+                            placeholder="연락처"
+                            keyboardType="phone-pad"
+                        />
+
+                        <View style={styles.input}>
+                            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                <Text>이용약관에 동의합니다.</Text>
+                                <Checkbox style={styles.checkbox}
+                                    // disabled 
+                                    value={termsAgreed}
+                                    onValueChange={setTermsAgreed}
+                                />
+                            </View>
                         </View>
-                    </View>
 
-                </View >
+                    </View >
 
-                <TouchableOpacity
-                    onPress={handleSubmit}
-                    style={styles.signUp}
-                >
-                    <Text style={{ color: 'white' }}>회원가입</Text>
-                </TouchableOpacity>
-            </ScrollView>
+                    <TouchableOpacity
+                        onPress={handleSubmit}
+                        style={styles.signUp}
+                    >
+                        <Text style={{ color: 'white' }}>회원가입</Text>
+                    </TouchableOpacity>
+                </ScrollView>
 
-        </SafeAreaView>
+            </SafeAreaView>
+        </TouchableWithoutFeedback>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'flex-start',
-        alignContent: 'center',
-        backgroundColor: 'white'
+        width:Dimensions.get('window').width,
+        height:Dimensions.get('window').height,
+        backgrouncColor: 'white',
+    },
+    joinContainer: {
+        width:'100%',
+        height:'100%',
+        alignItems:'center',
     },
     scrollView: {
         backgroundColor: '#D9D9D9',
