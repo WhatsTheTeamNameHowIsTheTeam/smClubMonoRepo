@@ -22,11 +22,11 @@ const JoinScreen = ({ navigation }) => {
     const [termsAgreed, setTermsAgreed] = useState(false); // 동의서
 
     //회원가입 버튼 활설화
+    const [okID, setOKID] = useState(false);
     const [okPw, setOkPw] = useState(false);
     const [okPwEq, setOkPwEq] = useState(false);
     const [okName, setOkName] = useState(false);
     const [okPhone, setOkPhone] = useState(false);
-    const [okMail, setOkMail] = useState(false);
     const [okMajor, setOkMajor] = useState(false);
 
     //정규식 메시지 check
@@ -42,17 +42,21 @@ const JoinScreen = ({ navigation }) => {
 
     // 버튼 활성화 Sign Up
     const regiButton = () => {
-        return false;
-        // if ( okMail & okPw & okPwEq & okName & okPhone & okMajor == true) {
-        //     return false;
-        // }
-        // return true;
+        if ( okID & okPw & okPwEq & okName & okPhone & okMajor == true) {
+            return false;
+        }
+        return true;
     }
 
+    // 아이디 정규식
+    const validateMail = mail => {
+        const regex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+        return regex.test(mail);
+    }
 
     //패스워드 정규식
     const validatePw = pw => {
-        const regex = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/;
+        const regex = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{6,16}$/;
         return regex.test(pw);
     }
 
@@ -74,11 +78,6 @@ const JoinScreen = ({ navigation }) => {
         return regex.test(phone);
     }
 
-    // 이메일 정규식
-    const validateMail = mail => {
-        const regex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
-        return regex.test(mail);
-    }
 
     // 자동 하이픈 생성
     const autoHyphen = (target) => {
@@ -274,11 +273,11 @@ const JoinScreen = ({ navigation }) => {
 
 
                         {/* ----회원가입 버튼---- */}
-                        <TouchableOpacity style={regiButton()?[styles.loginBtn,{opacity:0.8}]:styles.loginBtn}
+                        <TouchableOpacity style={regiButton() ? [styles.loginBtn, { opacity: 0.6 }] : styles.loginBtn}
                             onPress={handleSubmit}
                             disabled={regiButton()}
                         >
-                            <Text style={regiButton()?[styles.buttonText,{color:'gray'}]:styles.buttonText}>SignUp</Text>
+                            <Text style={regiButton() ? [styles.buttonText, { color: 'gray' }] : styles.buttonText}>SignUp</Text>
                         </TouchableOpacity>
                         {/* ----로그인 버튼---- */}
                         <TouchableOpacity style={styles.loginBtn}
