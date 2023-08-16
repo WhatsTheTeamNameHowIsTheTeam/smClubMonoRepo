@@ -5,7 +5,7 @@ import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native';
 
 // --------------Components
 import styles from '../Style';
-import ClubWriteInfomationComponent from '../ClubWriteInfomationComponent';
+import ClubWriteInformationComponent from '../ClubWriteInformationComponent';
 
 const ClubInfomationScreenComponent = () => {
     const [createActivity, setCreateActivity] = useState(null);
@@ -15,7 +15,7 @@ const ClubInfomationScreenComponent = () => {
         return (
             <View style={{ marginVertical: 15, height: '98%', }}>
                 {createActivity && (
-                    <ClubWriteInfomationComponent />
+                    <ClubWriteInformationComponent />
                 )}
                 <TouchableOpacity
                     style={styles.backbutton}
