@@ -4,11 +4,11 @@ import { View, Text, ScrollView, Image, TouchableOpacity } from 'react-native';
 
 
 
-const ClubInfomationScreenComponent = () => {
+const ClubInfomationComponent = () => {
     return (
         <>
         </>
     );
 };
 
-export default ClubInfomationScreenComponent;
+export default ClubInfomationComponent;
