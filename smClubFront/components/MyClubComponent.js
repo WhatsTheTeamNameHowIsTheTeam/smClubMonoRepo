@@ -56,7 +56,13 @@ const MyClubComponent = (props) => {
                 </View>
 
                 <View style={[styles.clubcontent,{width:'60%',}]}>
-                    <Text style={styles.clubTypeText}>{clubData.category}</Text>
+                    <View style={{flexDirection:'row', alignItems:'center'}}>
+                        <Text style={styles.clubTypeText}>{clubData.category}    </Text>
+                        <View style={styles.clubState}>
+                            <Text>신청중</Text>
+                        </View>
+                    </View>
+                    
                     <Text style={styles.clubName}>{clubData.clubName}</Text>
                     <TruncatedText text={clubData.introContent} maxLength={40} />
                 </View>

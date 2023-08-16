@@ -311,7 +311,7 @@ const styles = StyleSheet.create({
     },
     clubName:{
         fontSize:25,
-        marginTop:8,
+        marginTop:5,
         fontWeight:'bold',
     },
     clubisrecruit:{
@@ -328,6 +328,16 @@ const styles = StyleSheet.create({
         textAlign:'center',
         textAlignVertical:'center',
     },
+    clubState:{
+        width:50,
+        height:30,
+        backgroundColor:'lightgray',
+        borderRadius:15,
+        justifyContent:'center',
+        alignItems:'center',
+    },
+
+
 
     // -----------------ClubActivityLogScreenComponent
     // 동아리 메인-정보 페이지 컴포넌트
