@@ -13,11 +13,14 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 const CreateActivityComponent = ({ navigation }) => {
 
     const [activityName, setActivityName] = useState(""); // 활동 명
-    const [activityDate, setActivityDate] = useState(new Date().toISOString()); // 활동 일자
+    const [activityStartDate, setActivityStartDate] = useState(new Date().toISOString()); // 시작 일자
+    const [activityEndDate, setActivityEndDate] = useState(new Date().toISOString()); // 끝나는 일자
     const [activityPersonnel, setActivityPersonnel] = useState(""); // 활동 인원
     const [activityContent, setActivityContent] = useState(""); // 활동 내용
     const [activityPictures, setActivityPictures] = useState([]); // 활동 사진
-    const [showDatePicker, setShowDatePicker] = useState(false); // 캘린더 popover를 위한 state 추가
+    const [showStartDatePicker, setShowStartDatePicker] = useState(false); // 시작 일자 캘린더
+    const [showEndDatePicker, setShowEndDatePicker] = useState(false); // 끝날 일자 캘린더
+
 
     useEffect(() => {
         (async () => {
@@ -28,17 +31,31 @@ const CreateActivityComponent = ({ navigation }) => {
         })();
     }, []);
 
-    const handleActivityDateChange = (event, selectedDate) => { // date 변경 핸들러 함수 추가
-        const currentDate = selectedDate || activityDate;
-        setShowDatePicker(false);
+    // date 변경 핸들러 함수 추가
+    const handleActivityStartDateChange = (event, selectedDate) => {
+        const currentDate = selectedDate || activityStartDate;
+        setShowStartDatePicker(false);
 
         if (selectedDate) {
-            setActivityDate(currentDate);
+            setActivityStartDate(currentDate);
         }
     };
 
-    const handleDatePickerClick = () => {
-        setShowDatePicker(true);
+    const handleActivityEndDateChange = (event, selectedDate) => {
+        const currentDate = selectedDate || activityEndDate;
+        setShowEndDatePicker(false);
+        if (selectedDate) {
+            setActivityEndDate(currentDate);
+        }
+    };
+
+
+    const handleStartDatePickerClick = () => {
+        setShowStartDatePicker(true);
+    };
+
+    const handleEndDatePickerClick = () => {
+        setShowEndDatePicker(true);
     };
 
     const pickImage = async () => {
@@ -60,7 +77,7 @@ const CreateActivityComponent = ({ navigation }) => {
         setActivityPictures(newActivityPictures);
     };
 
-
+    // 저장버튼 함수
     const handleSubmit = async () => {
         // // 여기에 서버에 데이터를 전송하는 API 요청을 구현합니다.
         // const apiResponse = await fetch('https://your-api-url.com/submit', {
@@ -89,7 +106,7 @@ const CreateActivityComponent = ({ navigation }) => {
 
     return (
 
-        <View style={{ paddingBottom: 10 }}>
+        <View >
             <ScrollView style={styles.container}>
 
                 {/* 활동 명 */}
@@ -105,19 +122,37 @@ const CreateActivityComponent = ({ navigation }) => {
                 {/* 활동 일자 */}
                 <View style={styles.inputContainer} >
                     <Text style={styles.text}>활동 일자</Text>
-                    <TouchableOpacity onPress={handleDatePickerClick}>
-                        <Text style={styles.input}>
-                            {new Date(activityDate).toLocaleDateString()}
-                        </Text>
-                    </TouchableOpacity>
-                    {showDatePicker && (
-                        <DateTimePicker
-                            value={new Date(activityDate)} // 문자열 값을 Date 객체로 변환합니다.
-                            onChange={handleActivityDateChange}
-                            mode="date"
-                            display="default"
-                        />
-                    )}
+                    <View style={styles.calendarContainer}>
+                        {/* 시작 날짜 */}
+                        <TouchableOpacity onPress={handleStartDatePickerClick}>
+                            <Text style={styles.input}>
+                                {new Date(activityStartDate).toLocaleDateString()}
+                            </Text>
+                        </TouchableOpacity>
+                        {showStartDatePicker && (
+                            <DateTimePicker
+                                value={new Date(activityStartDate)}
+                                onChange={handleActivityStartDateChange}
+                                mode="date"
+                                display="default"
+                            />
+                        )}
+                        <Text>~</Text>
+                        {/* 끝나는 날짜 */}
+                        <TouchableOpacity onPress={handleEndDatePickerClick}>
+                            <Text style={styles.input}>
+                                {new Date(activityEndDate).toLocaleDateString()}
+                            </Text>
+                        </TouchableOpacity>
+                        {showEndDatePicker && (
+                            <DateTimePicker
+                                value={new Date(activityEndDate)}
+                                onChange={handleActivityEndDateChange}
+                                mode="date"
+                                display="default"
+                            />
+                        )}
+                    </View>
                 </View>
 
                 {/* 활동 인원 */}
@@ -166,22 +201,22 @@ const CreateActivityComponent = ({ navigation }) => {
                         : null}
                 </View>
 
-                {/* 완료 버튼 */}
-                <TouchableOpacity
-                    style={styles.doneButton}
-                    onPress={handleSubmit}
-                >
-                    <Text style={styles.doneButtonText}>저장</Text>
-                </TouchableOpacity>
-
             </ScrollView>
 
+            {/* 완료 버튼 */}
+            <TouchableOpacity
+                style={styles.doneButton}
+                onPress={handleSubmit}
+            >
+                <Text style={styles.doneButtonText}>저장</Text>
+            </TouchableOpacity>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
+        height:'90%',
         paddingHorizontal: 50,
         paddingBottom: 20,
     },
@@ -190,6 +225,9 @@ const styles = StyleSheet.create({
         borderBottomWidth: 0.5,
         paddingBottom: 10,
         marginBottom: 20,
+    },
+    calendarContainer: {
+        flexDirection: 'row',
     },
     inputContentContainer: {
         paddingBottom: 10,
@@ -265,15 +303,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginBottom: 25,
-        marginHorizontal: '5%',
-        backgroundColor: '#EFEFEF',
+        marginLeft: '56%',
+        backgroundColor: '#8BFF97',
         borderRadius: 100,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.1,
         shadowRadius: 2,
         elevation: 2,
-        width: '90%',
+        width: 150,
     },
     doneButtonText: {
         fontWeight: 'bold',
