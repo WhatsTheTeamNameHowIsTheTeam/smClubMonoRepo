@@ -16,6 +16,7 @@ import clubListDumy from '../Data/clubListDumy.json';
 
 
 const MyClubComponent = (props) => {
+    const [isadmin, setIsAdmin] = useState(props.isUnion); // 연합회 관리자인지 아닌지
     const [clubData, setClubData] = useState(props.clubData); // 동아리 전체 데이터
     // navigation 사용
     const navigation = useNavigation();
@@ -52,12 +53,21 @@ const MyClubComponent = (props) => {
                 }}
             >
                 <View style={styles.clubmark}>
-                    {/* <Image style={{ width: '50%', height: '50%', borderRadius:15 }} source={require(clubData.img)} resizeMode='contain' /> */}
+                    <Image style={{ width: '100%', height: '60%', borderRadius:5, marginRight:10 }} source={{uri:clubData.img}} resizeMode='cover'/>
                 </View>
 
-                <View style={[styles.clubcontent,{width:'60%',}]}>
+                <View style={[styles.clubcontent, {width:'58%',}]}>
                     <Text style={styles.clubTypeText}>{clubData.category}</Text>
-                    <Text style={styles.clubName}>{clubData.clubName}</Text>
+                    <View style={{flexDirection:'row', alignItems:'center'}}>
+                        <Text style={styles.clubName}>{clubData.clubName}</Text>
+                        {
+                            // clubData.베스트인지확인 함수?
+                            // <Image style={{width:50, height:50, marginTop:8}} source={require("../assets/BestClub.png")}></Image>
+                            // :
+                            // null
+                        }
+                        <Image style={{width:20, height:20, marginTop:8}} source={require("../assets/BestClub.png")}></Image>
+                    </View>
                     <TruncatedText text={clubData.introContent} maxLength={40} />
                 </View>
 
@@ -65,7 +75,11 @@ const MyClubComponent = (props) => {
                     style={{width:'10%',justifyContent:'center'}}
                     onPress={() => {
                         console.log('더보기 버튼 클릭')
-                        props.ismodal(true)
+                        if (isadmin){
+                            props.newFunc(true, clubData)
+                        }else{
+                            props.ismodal(true)
+                        }
                     }}
                 >
                     <Image style={{ width: 30, height: 30, }} source={require('../assets/ThreeDotsVertical.png')} resizeMode='contain' />
