@@ -16,6 +16,8 @@ import clubListDumy from '../Data/clubListDumy.json';
 
 
 const MyClubComponent = (props) => {
+    const [myclub, setMyclub] = useState(); // 내 동아리 목록
+    const [appliClub, setAppliClub] = useState(); // 신청한 동아리 목록
     const [clubData, setClubData] = useState(props.clubData); // 동아리 전체 데이터
     // navigation 사용
     const navigation = useNavigation();
@@ -52,23 +54,42 @@ const MyClubComponent = (props) => {
                 }}
             >
                 <View style={styles.clubmark}>
-                    {/* <Image style={{ width: '50%', height: '50%', borderRadius:15 }} source={require(clubData.img)} resizeMode='contain' /> */}
+                    <Image style={{ width: '50%', height: '50%', borderRadius:15 }} source={{uri:clubData.img}} resizeMode='contain' />
                 </View>
 
                 <View style={[styles.clubcontent,{width:'60%',}]}>
                     <View style={{flexDirection:'row', alignItems:'center'}}>
                         <Text style={styles.clubTypeText}>{clubData.category}    </Text>
                         <View style={styles.clubState}>
-                            <Text>신청중</Text>
+                            {
+                                // 내가 속한동아리?
+                                // <Text>회원</Text>
+                                // :
+                                // <Text>신청중</Text>
+                            }
+                            <Text>회원</Text>
                         </View>
                     </View>
                     
                     <Text style={styles.clubName}>{clubData.clubName}</Text>
                     <TruncatedText text={clubData.introContent} maxLength={40} />
                 </View>
-
-                <TouchableOpacity 
-                    style={{width:'10%',justifyContent:'center'}}
+                {
+                    // 내가 속한 동아리?
+                    //     <TouchableOpacity
+                    //         style={{ width: '10%', justifyContent: 'center' }}
+                    //         onPress={() => {
+                    //             console.log('더보기 버튼 클릭')
+                    //             props.ismodal(true)
+                    //         }}
+                    //     >
+                    //         <Image style={{ width: 30, height: 30, }} source={require('../assets/ThreeDotsVertical.png')} resizeMode='contain' />
+                    //     </TouchableOpacity>
+                    // :
+                    // null
+                }
+                <TouchableOpacity
+                    style={{ width: '10%', justifyContent: 'center' }}
                     onPress={() => {
                         console.log('더보기 버튼 클릭')
                         props.ismodal(true)
