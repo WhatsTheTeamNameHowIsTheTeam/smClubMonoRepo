@@ -54,7 +54,7 @@ const MyClubComponent = (props) => {
                 }}
             >
                 <View style={styles.clubmark}>
-                    <Image style={{ width: '50%', height: '50%', borderRadius:15 }} source={{uri:clubData.img}} resizeMode='contain' />
+                    <Image style={{ width: '100%', height: '60%', borderRadius:5, marginRight:10 }} source={{uri:clubData.img}} resizeMode='cover'/>
                 </View>
 
                 <View style={[styles.clubcontent,{width:'60%',}]}>
