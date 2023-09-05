@@ -6,7 +6,6 @@ import java.io.Serializable;
 
 @Data
 public class ApplicationEntityId implements Serializable {
-    private String clubId;
-    private String recruitmentBoardId;
-    private String questionId;
+    private String studentId;
+    private QuestionEntityId questionEntity;
 }

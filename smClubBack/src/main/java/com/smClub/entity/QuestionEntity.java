@@ -26,10 +26,10 @@ public class QuestionEntity {
 
     @Id
     @Column(name="QESTN_ID")
-    private int qestionId;
+    private int questionId;
 
     @Column(name="QESTN")
-    private String qestion;
+    private String question;
 
     @OneToMany(mappedBy = "questionEntity")
     private List<ApplicationEntity> applicationList;
