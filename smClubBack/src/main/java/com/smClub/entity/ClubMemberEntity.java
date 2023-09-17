@@ -23,7 +23,7 @@ public class ClubMemberEntity {
 
     @Id
     @ManyToOne
-    @JoinColumn(name = "STDNT_INNB")
+    @JoinColumn(name = "CLIENT_ID")
     private UserInfoEntity userInfoEntity;
 
 }

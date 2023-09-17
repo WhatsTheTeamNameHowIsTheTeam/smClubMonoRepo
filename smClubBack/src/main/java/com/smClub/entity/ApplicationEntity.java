@@ -16,8 +16,8 @@ import lombok.Setter;
 public class ApplicationEntity {
 
     @Id
-    @Column(name="STDNT_INNB")
-    private String studentId;
+    @Column(name="CLIENT_ID")
+    private String clientId;
 
     @Id
     @ManyToOne

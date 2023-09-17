@@ -1,6 +1,5 @@
 package com.smClub.controller.main;
 
-import com.smClub.dto.UserInfo;
 import com.smClub.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

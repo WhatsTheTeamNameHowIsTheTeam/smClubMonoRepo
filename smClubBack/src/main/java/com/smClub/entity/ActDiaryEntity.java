@@ -1,11 +1,9 @@
 
 package com.smClub.entity;
 
-import com.smClub.dto.UserInfo;
 import com.smClub.entity.Id.ActDiaryEntityId;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.ColumnDefault;
 
 @Getter
 @Builder
@@ -26,7 +24,7 @@ public class ActDiaryEntity {
     private String actDiaryId;
 
     @ManyToOne
-    @JoinColumn(name = "STDNT_INNB")
+    @JoinColumn(name = "CLIENT_ID")
     private UserInfoEntity userInfoEntity;
 
     @Column(name = "SJ", nullable = false)

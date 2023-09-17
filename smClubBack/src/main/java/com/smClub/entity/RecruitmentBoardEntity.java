@@ -24,7 +24,7 @@ public class RecruitmentBoardEntity {
     private String recruitmentBoardId;
 
     @ManyToOne
-    @JoinColumn(name = "STDNT_INNB")
+    @JoinColumn(name = "CLIENT_ID")
     private UserInfoEntity userInfoEntity;
 
     @Column(name = "SJ", nullable = false)

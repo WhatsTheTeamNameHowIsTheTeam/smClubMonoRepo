@@ -1,7 +1,6 @@
 
 package com.smClub.service.impl;
 
-import com.smClub.dto.UserInfo;
 import com.smClub.entity.UserInfoEntity;
 import com.smClub.repository.MainRepository;
 import com.smClub.service.MainService;

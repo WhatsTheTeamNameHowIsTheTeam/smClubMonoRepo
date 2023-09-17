@@ -12,33 +12,9 @@ public class UserRequestDto {
     // GET, DELETE는 인자로 전달해도 충분
 
     @Getter
-    @Setter
-    @Builder
-    @AllArgsConstructor
-    public static class Login { // 로그인
-        private String userId;        // 아이디
-        private String userPw;        // 비밀번호
-    }
-
-    @Getter
-    @AllArgsConstructor
-    @Builder
-    public static class SignUp{ // 회원가입
-        private String studentId;   // 학번
-        private String userName;    // 이름
-        private String userId;      // 아이디
-        private String userPw;      // 비밀번호
-        private String major;       // 전공
-        private String phoneNumber; // 연락처
-        private String email;       // 이메일
-    }
-
-    @Getter
     @AllArgsConstructor
     @Builder
     public static class Profile{ // 프로필 수정
-        private String userId;        // 아이디
-        private String userPw;        // 비밀번호
         private String img;           // 이미지
         private String phoneNumber;   // 연락처
         private String email;         // 이메일

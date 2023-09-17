@@ -24,7 +24,7 @@ public class NoticeEntity {
     private String noticeId;
 
     @ManyToOne
-    @JoinColumn(name = "STDNT_INNB")
+    @JoinColumn(name = "CLIENT_ID")
     private UserInfoEntity userInfoEntity;
 
     @Column(name = "CN")

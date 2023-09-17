@@ -1,11 +1,8 @@
 
 package com.smClub.entity;
 
-import com.smClub.dto.UserInfo;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.DialectOverride;
 
 @Getter
 @Entity
@@ -20,7 +17,7 @@ public class ClubEntity {
     private String clubId;
 
     @OneToOne
-    @JoinColumn(name = "STDBT_INNB")
+    @JoinColumn(name = "CLIENT_ID")
     private UserInfoEntity userInfoEntity;
 
     @Column(name="NM", nullable = false)
