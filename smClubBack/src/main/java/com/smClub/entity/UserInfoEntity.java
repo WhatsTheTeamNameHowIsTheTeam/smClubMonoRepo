@@ -9,6 +9,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
@@ -17,13 +18,14 @@ import java.time.LocalDateTime;
 @Table(name = "MBER_INFO")
 @Getter
 @Builder
+@DynamicInsert
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserInfoEntity {
 
     @Id
-    @Column(name="CLIENT_ID")
-    private String clientId; // 클라이언트아이디
+    @Column(name="CLIENT_USER_ID")
+    private String clientUserId; // 클라이언트아이디
 
     @Column(name="NM", nullable = false)
     private String userName; // 이름
@@ -35,7 +37,10 @@ public class UserInfoEntity {
     private String major; // 전공
 
     @Column(name = "STDNT_INNB")
-    private String studentId;
+    private String studentId; // 학번
+
+    @Column(name = "GRADE")
+    private int grade; // 학년
 
     @Column(name = "CTTPC")
     private String phoneNumber; // 휴대폰 번호
@@ -43,13 +48,13 @@ public class UserInfoEntity {
     @Column(name = "EMAIL", nullable = false)
     private String email; // 이메일
 
-    @Column(name = "SRVMNGH", nullable = false)
+    @Column(name = "SRVMNGH") // default "ROLE_USER"
     private String userAuthor; // 서비스관리권한
 
-    @Column(name = "NTCN_ESTBS", nullable = false)
+    @Column(name = "NTCN_ESTBS") // default 1
     private boolean notification; // 알림설정
 
-    @Column(name = "USE_STPLAT_AGRE_AT", nullable = false)
+    @Column(name = "USE_STPLAT_AGRE_AT") // default 1
     private boolean userAgree; // 이용약관동의여부
 
     @CreationTimestamp

@@ -31,7 +31,7 @@ public class PrincipalOAuth2UserService extends DefaultOAuth2UserService {
         UserInfoEntity userInfoEntity = null;
 
         try{
-            String provider = userRequest.getClientRegistration().getClientId(); // google
+            String provider = userRequest.getClientRegistration().getClientName(); // google
             String providerId = oauth2User.getAttribute("sub"); // google 클라이언트 아이디
             String email = oauth2User.getAttribute("email");
             String clientId = provider+"_"+providerId;

@@ -28,7 +28,7 @@ public class QuestionEntity {
     @Column(name="QESTN_ID")
     private int questionId;
 
-    @Column(name="QESTN")
+    @Column(name="QESTN", nullable = false)
     private String question;
 
     @OneToMany(mappedBy = "questionEntity")

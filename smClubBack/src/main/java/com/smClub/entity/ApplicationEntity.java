@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Getter
 @Table(name = "REQST_DTLS")
@@ -16,8 +18,9 @@ import lombok.Setter;
 public class ApplicationEntity {
 
     @Id
-    @Column(name="CLIENT_ID")
-    private String clientId;
+    @ManyToOne
+    @JoinColumn(name="CLIENT_USER_ID")
+    private UserInfoEntity userInfoEntity;
 
     @Id
     @ManyToOne
@@ -28,13 +31,15 @@ public class ApplicationEntity {
     })
     private QuestionEntity questionEntity;
 
-    @Column(name="ANSWER")
+    @Column(name="ANSWER", nullable = false)
     private String answer;
 
+    @CreationTimestamp
     @Column(name="CREATE_DT", nullable = false)
-    private String createDate;
+    private String createDate; // 생성일시
 
+    @UpdateTimestamp
     @Column(name="UPDT_DT")
-    private String updateDate;
+    private String updateDate; // 수정일시
 
 }
