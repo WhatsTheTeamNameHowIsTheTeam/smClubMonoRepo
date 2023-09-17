@@ -9,6 +9,9 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Getter
 @Table(name = "REQST_DTLS")
 @Entity
@@ -36,10 +39,10 @@ public class ApplicationEntity {
 
     @CreationTimestamp
     @Column(name="CREATE_DT", nullable = false)
-    private String createDate; // 생성일시
+    private LocalDateTime createDate; // 생성일시
 
     @UpdateTimestamp
     @Column(name="UPDT_DT")
-    private String updateDate; // 수정일시
+    private LocalDateTime updateDate; // 수정일시
 
 }

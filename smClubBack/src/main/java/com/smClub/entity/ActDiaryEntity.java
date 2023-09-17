@@ -8,6 +8,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Builder
 @Entity
@@ -47,17 +49,17 @@ public class ActDiaryEntity {
     private boolean open; // 공개여부
 
     @Column(name = "ACT_BEGIN_DT", nullable = false)
-    private String actBeginDate; // 시작일시
+    private LocalDateTime actBeginDate; // 시작일시
 
     @Column(name = "ACT_END_DT", nullable = false)
-    private String actEndDate; // 종료일시
+    private LocalDateTime actEndDate; // 종료일시
 
     @CreationTimestamp
     @Column(name = "CREATE_DT", nullable = false)
-    private String createDate; // 생성일시
+    private LocalDateTime createDate; // 생성일시
 
     @UpdateTimestamp
     @Column(name = "UPDT_DT")
-    private String updateDate; // 수정일시
+    private LocalDateTime updateDate; // 수정일시
 
 }
