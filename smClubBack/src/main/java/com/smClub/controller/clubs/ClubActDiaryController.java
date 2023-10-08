@@ -31,7 +31,7 @@ public class ClubActDiaryController {
     }
 
     // 동아리 활동일지 삭제
-    @DeleteMapping("/{actDiaryID")
+    @DeleteMapping("/{actDiaryId}")
     public void deleteClubActDiary(){
 
     }

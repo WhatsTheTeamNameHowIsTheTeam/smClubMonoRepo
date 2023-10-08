@@ -1,17 +1,21 @@
 
 package com.smClub.entity;
 
-import com.smClub.dto.UserInfo;
 import com.smClub.entity.Id.ActDiaryEntityId;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Builder
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@DynamicInsert
 @Table(name = "ACT_DIARY")
 @IdClass(ActDiaryEntityId.class)
 public class ActDiaryEntity {
@@ -26,7 +30,7 @@ public class ActDiaryEntity {
     private String actDiaryId;
 
     @ManyToOne
-    @JoinColumn(name = "STDNT_INNB")
+    @JoinColumn(name = "CLIENT_USER_ID")
     private UserInfoEntity userInfoEntity;
 
     @Column(name = "SJ", nullable = false)
@@ -38,22 +42,24 @@ public class ActDiaryEntity {
     @Column(name = "ATCH_PHOTO")
     private String img;
 
-    @Column(name = "NMPR", nullable = false)
-    private int memberCnt;
+    @Column(name = "NMPR")
+    private int memberCnt; // 인원수
 
-    @Column(name = "OTHBC_AT", nullable = false)
-    private boolean viewChk = true;
+    @Column(name = "OTHBC_AT") // default 1
+    private boolean open; // 공개여부
 
     @Column(name = "ACT_BEGIN_DT", nullable = false)
-    private String actBeginDate;
+    private LocalDateTime actBeginDate; // 시작일시
 
     @Column(name = "ACT_END_DT", nullable = false)
-    private String actEndDate;
+    private LocalDateTime actEndDate; // 종료일시
 
+    @CreationTimestamp
     @Column(name = "CREATE_DT", nullable = false)
-    private String createDate;
+    private LocalDateTime createDate; // 생성일시
 
-    @Column(name = "UPDT_DT", nullable = false)
-    private String updateDate;
+    @UpdateTimestamp
+    @Column(name = "UPDT_DT")
+    private LocalDateTime updateDate; // 수정일시
 
 }

@@ -290,13 +290,42 @@ const styles = StyleSheet.create({
 
     // ---------------clubComponent
     // 동아리 컴포넌트
-    ClubComponentView: {
-        width: '85%',
-        height: height * 0.15,
-        marginBottom: 10,
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: 'white',
+
+    ClubComponentView:{
+        width:'85%',
+        height:height*0.15,
+        marginBottom:10,
+        flexDirection:'row',
+        alignItems:'center',
+        backgroundColor:'white',
+    },
+    clubmark:{
+        width:'30%',
+        height:'100%',
+        justifyContent:'center',
+        alignItems:'center',
+    },
+    clubcontent:{
+        width:'55%',
+        height:'80%',
+    },  
+    clubTypeText:{
+        fontSize:15,
+        marginTop:8,
+        color:'#138CDB'
+    },
+    clubName:{
+        fontSize:25,
+        marginTop:5,
+        fontWeight:'bold',
+    },
+    clubisrecruit:{
+        width:'15%',
+        height:'30%',
+        backgroundColor:'pink',
+        borderRadius:15,
+        justifyContent:'center',
+
     },
     clubmark: {
         width: '30%',
@@ -318,6 +347,15 @@ const styles = StyleSheet.create({
         marginTop: 8,
         fontWeight: 'bold',
     },
+
+    clubState:{
+        width:50,
+        height:30,
+        backgroundColor:'lightgray',
+        borderRadius:15,
+        justifyContent:'center',
+        alignItems:'center',
+
     clubisrecruit: {
         width: '15%',
         height: '30%',
@@ -341,6 +379,7 @@ const styles = StyleSheet.create({
         height: '100%',
         marginTop: 100,
         alignItems: 'center',
+
     },
 
 
@@ -831,12 +870,22 @@ const styles = StyleSheet.create({
         color: '#999',
     },
     backbutton: {
-        width: '25%',
-        padding: 14,
-        backgroundColor: 'dodgerblue',
+        position:'absolute',
+        bottom:0,
+        padding: 16,
         alignItems: 'center',
-        alignSelf: 'flex-end',
-        borderRadius: 8,
+        justifyContent: 'center',
+        width: 10,
+        marginBottom: 25,
+        marginRight: '30%',
+        marginLeft:'5%',
+        backgroundColor: '#FFADAD',
+        borderRadius: 100,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
+        elevation: 2,
     },
 
     // -----------------ActivityLogComponent

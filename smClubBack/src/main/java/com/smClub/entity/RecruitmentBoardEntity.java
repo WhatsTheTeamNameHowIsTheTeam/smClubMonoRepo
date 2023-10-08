@@ -4,6 +4,11 @@ package com.smClub.entity;
 import com.smClub.entity.Id.RecruitmentBoardEntityId;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Entity
@@ -11,6 +16,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@DynamicInsert
 @IdClass(RecruitmentBoardEntityId.class)
 public class RecruitmentBoardEntity {
 
@@ -24,7 +30,7 @@ public class RecruitmentBoardEntity {
     private String recruitmentBoardId;
 
     @ManyToOne
-    @JoinColumn(name = "STDNT_INNB")
+    @JoinColumn(name = "CLIENT_USER_ID")
     private UserInfoEntity userInfoEntity;
 
     @Column(name = "SJ", nullable = false)
@@ -36,28 +42,31 @@ public class RecruitmentBoardEntity {
     @Column(name = "ATCH_PHOTO")
     private String img;
 
-    @Column(name = "NMPR", nullable = false)
-    private int memberCnt;
+    @Column(name = "NMPR") // default 1
+    private int memberCnt; // 인원수
 
-    @Column(name = "RDCNT", nullable = false)
-    private int views = 0;
+    @Column(name = "RDCNT") // default 0
+    private int views; // 조회수
 
-    @Column(name = "RCRIT_AT", nullable = false)
-    private boolean open = true;
+    @Column(name = "RCRIT_AT") // default 1
+    private boolean open; // 공개 여부
 
     @Column(name = "RCRIT_BEGIN_DT", nullable = false)
-    private String beginDate;
+    private LocalDateTime beginDate; // 시작 일시
 
     @Column(name = "RCRIT_END_DT", nullable = false)
-    private String endDate;
+    private LocalDateTime endDate; // 종료 일시
 
+    @CreationTimestamp
     @Column(name = "PULLUP_DT", nullable = false)
-    private String pullupDate;
+    private LocalDateTime pullupDate; // 끌어올리기
 
+    @CreationTimestamp
     @Column(name = "CREATE_DT", nullable = false)
-    private String createDate;
+    private LocalDateTime createDate; // 생성일시
 
+    @UpdateTimestamp
     @Column(name = "UPDT_DT")
-    private String updateDate;
+    private LocalDateTime updateDate; // 수정일시
 
 }

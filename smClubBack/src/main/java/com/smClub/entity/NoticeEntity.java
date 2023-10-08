@@ -4,6 +4,9 @@ package com.smClub.entity;
 import com.smClub.entity.Id.NoticeEntityId;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Entity
@@ -24,7 +27,7 @@ public class NoticeEntity {
     private String noticeId;
 
     @ManyToOne
-    @JoinColumn(name = "STDNT_INNB")
+    @JoinColumn(name = "CLIENT_ID")
     private UserInfoEntity userInfoEntity;
 
     @Column(name = "CN")
@@ -33,7 +36,8 @@ public class NoticeEntity {
     @Column(name = "ATCH_PHOTO")
     private String img;
 
+    @CreationTimestamp
     @Column(name = "CREATE_DT", nullable = false)
-    private String createDate;
+    private LocalDateTime createDate;
 
 }

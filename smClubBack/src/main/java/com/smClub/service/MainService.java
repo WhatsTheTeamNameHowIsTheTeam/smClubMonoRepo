@@ -1,10 +1,13 @@
 
 package com.smClub.service;
 
-import com.smClub.dto.UserInfo;
+import com.smClub.dto.res.MainResponseDto;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public interface MainService {
-    Object setNewUser(UserInfo studentObj);
+
+    List<MainResponseDto> getMain(String clientUserId);
 }
