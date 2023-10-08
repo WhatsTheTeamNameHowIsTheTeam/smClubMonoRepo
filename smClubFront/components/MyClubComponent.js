@@ -17,6 +17,7 @@ import clubListDumy from '../Data/clubListDumy.json';
 
 const MyClubComponent = (props) => {
     const [isadmin, setIsAdmin] = useState(props.isUnion); // 연합회 관리자인지 아닌지
+
     const [clubData, setClubData] = useState(props.clubData); // 동아리 전체 데이터
     // navigation 사용
     const navigation = useNavigation();
@@ -68,11 +69,25 @@ const MyClubComponent = (props) => {
                         }
                         <Image style={{width:20, height:20, marginTop:8}} source={require("../assets/BestClub.png")}></Image>
                     </View>
+
                     <TruncatedText text={clubData.introContent} maxLength={40} />
                 </View>
-
-                <TouchableOpacity 
-                    style={{width:'10%',justifyContent:'center'}}
+                {
+                    // 내가 속한 동아리?
+                    //     <TouchableOpacity
+                    //         style={{ width: '10%', justifyContent: 'center' }}
+                    //         onPress={() => {
+                    //             console.log('더보기 버튼 클릭')
+                    //             props.ismodal(true)
+                    //         }}
+                    //     >
+                    //         <Image style={{ width: 30, height: 30, }} source={require('../assets/ThreeDotsVertical.png')} resizeMode='contain' />
+                    //     </TouchableOpacity>
+                    // :
+                    // null
+                }
+                <TouchableOpacity
+                    style={{ width: '10%', justifyContent: 'center' }}
                     onPress={() => {
                         console.log('더보기 버튼 클릭')
                         if (isadmin){

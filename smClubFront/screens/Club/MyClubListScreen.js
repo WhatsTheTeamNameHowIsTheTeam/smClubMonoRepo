@@ -4,6 +4,7 @@ import {
     View, TextInput, Text,
     Image, TouchableOpacity,
     Modal, Pressable, Keyboard,
+    Alert,
 } from 'react-native';
 
 
@@ -36,6 +37,30 @@ const MyClubListScreen = (props) => {
     }, []);
 
 
+    const modalv = (func) =>{
+        if (func){
+            Alert.alert(
+                "더보기",
+                "원하는 옵션을 선택하세요.",
+                [
+                    {
+                        text: "동아리 탈퇴하기",
+                        onPress: () => setIsModalVisible(true),
+                    },
+                    {
+                        text: "취소",
+                        onPress: () => { },
+                        style: "cancel",
+                    },
+                ],
+            );
+            
+        }else {
+            setIsModalVisible(false)
+        }
+    }
+
+
     return (
         <View style={styles.containerView}>
 
@@ -49,11 +74,13 @@ const MyClubListScreen = (props) => {
                         setIsModalVisible(!isModalVisible);
                     }}>
                     <Pressable style={styles.centeredView} onPress={() => { Keyboard.dismiss() }}>
-                        <View style={styles.modalViewCC}>
+
+                        <View style={[styles.modalView, {backgroundColor:'#D9D9D9'}]}>
+
                             {/* 닫기 */}
-                            <View style={styles.modalTopView}>
+                            <View style={[styles.modalTopView, { }]}>
                                 <View style={styles.modalCloseView}></View>
-                                <Text style={{ fontSize: 20, fontWeight: 'bold' }} onPress={() => { setIsModalVisible(!isModalVisible); }}>동아리장 정보</Text>
+                                <Text style={{ fontSize: 20, fontWeight: 'bold' }} onPress={() => { setIsModalVisible(!isModalVisible); }}>동아리 탈퇴</Text>
                                 <View style={styles.modalCloseView}>
                                     <TouchableOpacity
                                         style={styles.modalCloseButton}
@@ -63,9 +90,34 @@ const MyClubListScreen = (props) => {
                                         <Text style={{ fontSize: 20 }}>X</Text>
                                     </TouchableOpacity>
                                 </View>
+                            </View>            
+                            {/* 동아리 탈퇴? */}
+                            <View style={{ alignItems:'center', marginTop:20 }}>
+                                <Text style={{ fontSize: 18,}}>해당 동아리를 탈퇴하려면 </Text>
+                                <Text style={{ fontSize: 18,}}>회원님의 비밀번호를 입력하세요.</Text>
+                                <Text>* 동아리 탈퇴 시 회원님의 정보는 모두 사라집니다.</Text>
+
+                                <TextInput
+                                    style={{ width:'80%', height:43, backgroundColor:'white', borderRadius:10, marginTop:20, paddingLeft:10, borderWidth:1, borderColor:'lightgray'}}
+                                    placeholder='비밀번호'
+                                    placeholderTextColor='gray'
+                                    secureTextEntry={true}
+                                />
+                            </View>
+                            <View style={{alignItems:'center'}}>
+                                <TouchableOpacity
+                                    style={{width:'40%', height:50, backgroundColor:'#898989', borderRadius:10, marginTop:20, justifyContent:'center', alignItems:'center'}}
+                                    onPress={() => {
+                                        console.log('탈퇴 버튼 클릭')
+                                        // 비밀번호가 동일하다면
+                                        if (true) {
+                                            setIsModalVisible(!isModalVisible);
+                                        }
+                                    }}>
+                                    <Text style={{ fontSize: 18, }}>탈퇴하기</Text>
+                                </TouchableOpacity>
                             </View>
 
-                            
                         </View>
                     </Pressable>
                 </Modal>
@@ -109,7 +161,7 @@ const MyClubListScreen = (props) => {
                             {
                                 clublist.map((item, index) => {
                                     return (
-                                        <MyClubComponent key={index} clubData={item} ismodal={setIsModalVisible} />
+                                        <MyClubComponent key={index} clubData={item} ismodal={modalv} />
                                     );
                                 })
                             }
