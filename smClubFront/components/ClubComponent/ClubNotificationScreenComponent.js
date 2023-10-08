@@ -3,11 +3,8 @@ import { useEffect, useState } from 'react';
 import {
     View, Text, ScrollView,
     TouchableOpacity, Image,
-    TextInput,
+    TextInput, StyleSheet
 } from 'react-native';
-
-// --------------Components
-import styles from '../Style';
 
 const ClubNotificationScreenComponent = () => {
     const dummyNotification = [
@@ -119,7 +116,8 @@ const ClubNotificationScreenComponent = () => {
 
     return (
         <View>
-            <ScrollView style={{ marginTop: 100, marginBottom: 70 }}>
+            <ScrollView style={{ marginBottom: 70 }}>
+                <View style={{ marginTop: 75 }}></View>
                 {renderAnnouncements(notificationList)}
             </ScrollView>
             {/* ----------검색---------- */}
@@ -140,7 +138,7 @@ const ClubNotificationScreenComponent = () => {
                     }}
                 >
                     <Image
-                        style={{ width: '50%', height: '50%' }}
+                        style={{ width: '75%', height: '75%', borderRadius: 100, }}
                         source={require('../../assets/icon.png')}
                         resizeMode="contain"
                     />
@@ -163,18 +161,19 @@ const ClubNotificationScreenComponent = () => {
                 </TouchableOpacity>
 
                 <View style={styles.textInPutContainer}>
-                <TextInput
-                    style={styles.textInPut}
-                    placeholder='공지를 입력하세요.'
-                    placeholderTextColor='gray'
-                    value={inputText}
-                    onChangeText={setInputText}
-                />
+                    <TextInput
+                        style={styles.textInPut}
+                        multiline
+                        placeholder='공지를 입력하세요.'
+                        placeholderTextColor='gray'
+                        value={inputText}
+                        onChangeText={setInputText}
+                    />
                 </View>
 
                 <TouchableOpacity
                     style={styles.inputButton}
-                    onPress={()=>{
+                    onPress={() => {
                         console.log('공지 전송')
                     }}
                 >
@@ -185,4 +184,135 @@ const ClubNotificationScreenComponent = () => {
     );
 };
 
+const styles = StyleSheet.create({
+    clubApplicantListContainer: {
+        width: '85%',
+        height: '100%',
+        alignItems: 'center',
+    },
+    clubSearchView: { // 검색창
+        position: 'absolute',
+        width: '85%',
+        height: 50,
+        marginTop: 15,
+        marginBottom: 25,
+        marginHorizontal: 30,
+        paddingLeft: 20,
+        paddingRight: 5,
+        borderRadius: 20,
+        flexDirection: 'row',
+        backgroundColor: '#D9D9D9',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    searchText: {
+        width: '80%',
+        height: '100%',
+        marginRight: 15,
+        fontSize: 15,
+    },
+    searchIcon: {
+        width: 50,
+        height: 50,
+        borderRadius: 15,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    dateSeparatorContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '100%',
+    },
+    dateSeparatorLine: {
+        flex: 1,
+        height: 0.5,
+        backgroundColor: 'lightgray',
+    },
+    dateSeparatorText: {
+        fontSize: 14,
+        paddingHorizontal: 10,
+    },
+    announcementContainer: {
+        flexDirection: 'row',
+        paddingHorizontal: 10,
+        paddingVertical: 20,
+    },
+    profileImage: {
+        width: 50,
+        height: 50,
+        borderRadius: 25,
+        resizeMode: 'cover',
+    },
+    announcementContentContainer: {
+        flex: 1,
+        marginLeft: 10,
+    },
+    authorText: {
+        fontWeight: 'bold',
+        marginBottom: 5,
+    },
+    contentText: {
+        marginBottom: 10,
+    },
+    attachmentImage: {
+        marginTop: 10,
+        width: '100%',
+        height: 200,
+        resizeMode: 'cover',
+        borderRadius: 5,
+    },
+    timeText: {
+        marginTop: 5,
+        fontSize: 12,
+        color: 'gray',
+        alignSelf: 'flex-end',
+    },
+    editTextContainer: {
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
+        backgroundColor: '#EAEAEA',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        paddingHorizontal: 10,
+        paddingVertical:10,
+    },
+    editText: {
+        backgroundColor: '#4b6bff',
+        padding: 10,
+        borderRadius: 25,
+    },
+    ImageIcon: {
+        width: 50,
+        height: 50,
+        borderRadius: 15,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginRight: 5,
+    },
+    textInPutContainer: {
+        width: '60%',
+        borderRadius: 10,
+        padding: 10,
+        marginRight: 5,
+        backgroundColor: 'white',
+        flexDirection: 'row',
+    },
+    textInPut: {
+        fontSize: 15,
+    },
+    inputButton: {
+        backgroundColor: '#4b6bff',
+        borderRadius: 10,
+        width: 70,
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    inputButtonText: {
+        color: '#fff',
+        fontSize: 16,
+    },
+});
 export default ClubNotificationScreenComponent;
