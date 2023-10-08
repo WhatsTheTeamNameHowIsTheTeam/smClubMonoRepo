@@ -40,7 +40,7 @@ public class UserInfoEntity {
     private String studentId; // 학번
 
     @Column(name = "GRADE")
-    private int grade; // 학년
+    private Integer grade; // 학년
 
     @Column(name = "CTTPC")
     private String phoneNumber; // 휴대폰 번호
@@ -62,7 +62,7 @@ public class UserInfoEntity {
     private LocalDateTime userAgreeDate; // 이용약관동의일시
 
     @CreationTimestamp
-    @Column(name = "CREAT_DT", nullable = false)
+    @Column(name = "CREATE_DT", nullable = false)
     private LocalDateTime createDate; // 생성일시
 
     @UpdateTimestamp

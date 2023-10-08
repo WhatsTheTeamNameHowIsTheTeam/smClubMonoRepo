@@ -26,7 +26,7 @@ public class ClubMemberEntity {
     @Id
     @ManyToOne
     @JoinColumn(name = "CLIENT_USER_ID")
-    private UserInfoEntity userInfoEntity; // 작성자
+    private UserInfoEntity userInfoEntity; // 회원
 
     @Column(name = "RSPOFC")
     private String position; // 직책

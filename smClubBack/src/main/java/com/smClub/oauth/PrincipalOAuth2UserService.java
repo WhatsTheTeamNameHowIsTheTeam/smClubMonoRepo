@@ -1,6 +1,5 @@
 package com.smClub.oauth;
 
-import com.nimbusds.openid.connect.sdk.claims.UserInfo;
 import com.smClub.entity.UserInfoEntity;
 import com.smClub.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -34,15 +33,15 @@ public class PrincipalOAuth2UserService extends DefaultOAuth2UserService {
             String provider = userRequest.getClientRegistration().getClientName(); // google
             String providerId = oauth2User.getAttribute("sub"); // google 클라이언트 아이디
             String email = oauth2User.getAttribute("email");
-            String clientId = provider+"_"+providerId;
-            userInfoEntity = userRepository.findByClientId(clientId);
+            String clientUserId = provider+"_"+providerId;
+            userInfoEntity = userRepository.findByClientUserId(clientUserId);
 
             if(userInfoEntity == null){
                 if(!email.contains("sunmoon.ac.kr")){
                     throw new BadCredentialsException("선문대 이메일이 아닙니다."); // 선문대 이메일이 아니면 에러
                 }
                 userInfoEntity = UserInfoEntity.builder()
-                        .clientId(clientId)
+                        .clientUserId(clientUserId)
                         .userName(oauth2User.getAttribute("name"))
                         .img(oauth2User.getAttribute("picture"))
                         .email(email)
