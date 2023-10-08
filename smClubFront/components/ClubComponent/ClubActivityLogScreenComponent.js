@@ -92,7 +92,7 @@ const ClubActivityLogScreenComponent = ({ navigation }) => {
 
     if (selectedActivity) { // 활동일지 상세 페이지
         return (
-            <View style={{ margin: 10 }}>
+            <View style={{ margin: 10, height: '98%', }}>
                 {selectedActivity && (
                     <ActiviatyLogComponent activity={selectedActivity} />
                 )}
@@ -100,7 +100,10 @@ const ClubActivityLogScreenComponent = ({ navigation }) => {
                     style={styles.backbutton}
                     onPress={() => setSelectedActivity(null)}
                 >
-                    <Text>뒤로 가기</Text>
+                    <Text style={{
+                        fontWeight: 'bold',
+                        fontSize: 16,
+                    }}>뒤로 가기</Text>
                 </TouchableOpacity>
             </View>
         );
@@ -114,7 +117,10 @@ const ClubActivityLogScreenComponent = ({ navigation }) => {
                     style={styles.backbutton}
                     onPress={() => setCreateActivity(null)}
                 >
-                    <Text>뒤로 가기</Text>
+                    <Text style={{
+                        fontWeight: 'bold',
+                        fontSize: 16,
+                    }}>뒤로 가기</Text>
                 </TouchableOpacity>
             </View>
         );
