@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import {
     View, Text, Image, TouchableOpacity,
-    ScrollView,
+    ScrollView, FlatList
 } from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';

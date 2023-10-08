@@ -16,9 +16,9 @@ import clubListDumy from '../Data/clubListDumy.json';
 
 
 const ClubComponent = (props) => {
-    const [isrecruit, setIsRecruitement] = useState(props.clubData.excellence); // 이미지가 있는지 없는지
+    const [isrecruit, setIsRecruitement] = useState(true); // 이미지가 있는지 없는지
+    const [isUnionAdmin, setIsUnionAdmin] = useState(props.isUnionAdmin); // 연합회 관리자인지 아닌지
     const [clubData, setClubData] = useState(props.clubData); // 동아리 전체 데이터
-
     // navigation 사용
     const navigation = useNavigation();
 
@@ -48,7 +48,7 @@ const ClubComponent = (props) => {
                 onPress={() => {
                     console.log('동아리 컴포넌트 클릭')
                     navigation.navigate('MyClub', {
-                        screen: 'ClubInfomationScreen',
+                        screen: 'ClubMainScreen',
                         // clubData : clubData,
                     })
                 }}
@@ -58,12 +58,13 @@ const ClubComponent = (props) => {
                 </View>
 
                 <View style={isrecruit ? styles.clubcontent : [styles.clubcontent, { width: '70%' }]}>
-                    <Text style={styles.clubTypeText}>{clubData.category}</Text>
+                    <Text style={styles.clubTypeTextCC}>{clubData.category}</Text>
                     <Text style={styles.clubName}>{clubData.clubName}</Text>
                     <TruncatedText text={clubData.introContent} maxLength={40} style={styles.activityLogContents} />
                 </View>
 
 
+    
                 {
                     // 모집중인 동아리일 경우
                     isrecruit ?
@@ -73,6 +74,7 @@ const ClubComponent = (props) => {
                         :
                         null
                 }
+            
 
 
             </TouchableOpacity>

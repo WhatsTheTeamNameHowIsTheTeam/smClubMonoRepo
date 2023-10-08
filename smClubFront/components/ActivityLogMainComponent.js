@@ -40,9 +40,8 @@ const ActivityLogMainComponent = (props) => {
         <TouchableOpacity
             style={styles.activityLogComponentView}
             onPress={() => {
-                console.log('나의 동아리의 활동 일지 컴포넌트') // 메인페이지에서 보이는 활동일지 컴포넌트
                 navigation.navigate('MyClub', {
-                    screen: 'ClubActivityLogScreen'
+                    screen: 'ClubMainScreen'
                 })
             }}
         >

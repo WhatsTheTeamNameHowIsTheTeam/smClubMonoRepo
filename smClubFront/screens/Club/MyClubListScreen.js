@@ -25,9 +25,7 @@ const MyClubListScreen = (props) => {
     const [isModalVisible, setIsModalVisible] = useState(false); // 모달
 
     useEffect(() => {
-        // console.log('myclublist', Myclublist.myClubList);
-        // 서버에서 값 받아오기
-        console.log(clublist)
+
         // 로딩 시작
         // 서버에서 값 받아오면 바뀌기
         setTimeout(() => {
@@ -76,7 +74,9 @@ const MyClubListScreen = (props) => {
                         setIsModalVisible(!isModalVisible);
                     }}>
                     <Pressable style={styles.centeredView} onPress={() => { Keyboard.dismiss() }}>
+
                         <View style={[styles.modalView, {backgroundColor:'#D9D9D9'}]}>
+
                             {/* 닫기 */}
                             <View style={[styles.modalTopView, { }]}>
                                 <View style={styles.modalCloseView}></View>
@@ -131,7 +131,7 @@ const MyClubListScreen = (props) => {
                         <Image style={styles.loadingImage} source={require('../../assets/loading.gif')} resizeMode='contain' />
                     </View>
                     :
-                    <View style={styles.clubApplicantListContainer}>
+                    <View style={styles.announcementListContainer}>
                         {/* ----------검색---------- */}
                         <View style={styles.searchView}>
                             <TextInput

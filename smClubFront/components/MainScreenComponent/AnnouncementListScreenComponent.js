@@ -23,8 +23,7 @@ const AnnouncementListScreenComponent = (props) => {
 
 
     useEffect(() => {
-        console.log('AnnouncementListScreenComponent');
-
+        
         // 날짜가 최신순으로 정렬
         setAnnouncementList(AnnouncementList.Announcement.sort(function (a, b) {
             var adate=a.pullupDate.replaceAll("-","")
