@@ -6,6 +6,6 @@ import java.io.Serializable;
 
 @Data
 public class RecruitmentBoardEntityId implements Serializable {
-    private String clubId;
+    private String clubEntity;
     private String recruitmentBoardId;
 }

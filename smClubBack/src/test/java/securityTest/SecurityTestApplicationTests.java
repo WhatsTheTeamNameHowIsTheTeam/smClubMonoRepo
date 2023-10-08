@@ -1,10 +1,10 @@
-package com.smClub.smClub;
+package securityTest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SmClubApplicationTests {
+class SecurityTestApplicationTests {
 
 	@Test
 	void contextLoads() {

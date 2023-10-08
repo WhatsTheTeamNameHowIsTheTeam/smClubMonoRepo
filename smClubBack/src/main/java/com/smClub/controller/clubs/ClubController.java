@@ -1,5 +1,6 @@
 package com.smClub.controller.clubs;
 
+import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
