@@ -90,6 +90,7 @@ const ClubInfomationScreenComponent = () => {
                         <Text>로딩 중...</Text>
                     </View>
                 )}
+
                 <View style={styles.editButtonContainer}>
                     <TouchableOpacity
                         style={styles.editButton}
@@ -100,7 +101,9 @@ const ClubInfomationScreenComponent = () => {
                 </View>
             </>
         )
+
     }
+
 };
 
 export default ClubInfomationScreenComponent;
