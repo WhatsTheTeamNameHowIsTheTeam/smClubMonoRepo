@@ -36,33 +36,33 @@ public class MainServiceImpl implements MainService {
     public List<MainResponseDto> getMain(String clientUserId){
         log.info("parameter_clientUserId = {}", clientUserId);
         List<MainResponseDto> mainResponseDtoList = new ArrayList<>();
-        if(clientUserId != null){
-            try{
-                UserInfoEntity userInfoEntity = userRepository.findByClientUserId(clientUserId);
-                List<ClubMemberEntity> clubMemberEntities = clubMemberRepository.findAllByUserInfoEntity(userInfoEntity);
 
-                List<ActDiaryEntity> actDiaryList = new ArrayList<>();
-                if(clubMemberEntities.size() >= 1){
-                    for(ClubMemberEntity clubMemberEntity : clubMemberEntities){
-                        actDiaryList.addAll(actDiaryRepository.findAllByClubEntity(clubMemberEntity.getClubEntity()));
-                    }
-                }
+        try{
+            UserInfoEntity userInfoEntity = userRepository.findByClientUserId(clientUserId);
+            List<ClubMemberEntity> clubMemberEntities = clubMemberRepository.findAllByUserInfoEntity(userInfoEntity);
 
-                if(actDiaryList != null){
-                    for(ActDiaryEntity actDiaryEntity : actDiaryList){
-                        MainResponseDto mainResponseDto = new MainResponseDto(
-                                actDiaryEntity.getClubEntity().getClubName(),
-                                actDiaryEntity.getImg(),
-                                actDiaryEntity.getSubject());
-                        mainResponseDtoList.add(mainResponseDto);
-                    }
-                } else {
-                    throw new NotClubException();
+            List<ActDiaryEntity> actDiaryList = new ArrayList<>();
+            if(clubMemberEntities.size() >= 1){
+                for(ClubMemberEntity clubMemberEntity : clubMemberEntities){
+                    actDiaryList.addAll(actDiaryRepository.findAllByClubEntity(clubMemberEntity.getClubEntity()));
                 }
-            } catch(NotClubException e) {
-                return null;
             }
+
+            if(actDiaryList != null){
+                for(ActDiaryEntity actDiaryEntity : actDiaryList){
+                    MainResponseDto mainResponseDto = new MainResponseDto(
+                            actDiaryEntity.getClubEntity().getClubName(),
+                            actDiaryEntity.getImg(),
+                            actDiaryEntity.getSubject());
+                    mainResponseDtoList.add(mainResponseDto);
+                }
+            } else {
+                throw new NotClubException();
+            }
+        } catch(NotClubException e) {
+            return null;
         }
+
 
         return mainResponseDtoList;
     }
