@@ -59,7 +59,7 @@ const MyPageStackNavigator = ({ navigation, route }) => {
         }
     }, [navigation, route]);
     return (
-        <Stack.Navigator initialRouteName='LoginScreen'>
+        <Stack.Navigator initialRouteName='MyPageScreen'>
             <Stack.Screen name="JoinScreen" component={JoinScreen} />
             <Stack.Screen name="LoginScreen" component={LoginScreen} />
             <Stack.Screen name="MyPageScreen" component={MyPageScreen} />

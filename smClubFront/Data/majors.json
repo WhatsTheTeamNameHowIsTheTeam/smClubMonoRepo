@@ -1,0 +1,10 @@
+{
+    "majors":[
+        { "label": "봉사", "value": "봉사" },
+        { "label": "체육", "value": "체육" },
+        { "label": "공연", "value": "공연" },
+        { "label": "교양", "value": "교양" },
+        { "label": "전공", "value": "전공" },
+        { "label": "기타", "value": "기타" }
+    ]
+}

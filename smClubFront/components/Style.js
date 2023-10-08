@@ -290,13 +290,42 @@ const styles = StyleSheet.create({
 
     // ---------------clubComponent
     // 동아리 컴포넌트
-    ClubComponentView: {
-        width: '85%',
-        height: height * 0.15,
-        marginBottom: 10,
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: 'white',
+
+    ClubComponentView:{
+        width:'85%',
+        height:height*0.15,
+        marginBottom:10,
+        flexDirection:'row',
+        alignItems:'center',
+        backgroundColor:'white',
+    },
+    clubmark:{
+        width:'30%',
+        height:'100%',
+        justifyContent:'center',
+        alignItems:'center',
+    },
+    clubcontent:{
+        width:'55%',
+        height:'80%',
+    },  
+    clubTypeText:{
+        fontSize:15,
+        marginTop:8,
+        color:'#138CDB'
+    },
+    clubName:{
+        fontSize:25,
+        marginTop:5,
+        fontWeight:'bold',
+    },
+    clubisrecruit:{
+        width:'15%',
+        height:'30%',
+        backgroundColor:'pink',
+        borderRadius:15,
+        justifyContent:'center',
+
     },
     clubmark: {
         width: '30%',
@@ -318,6 +347,15 @@ const styles = StyleSheet.create({
         marginTop: 8,
         fontWeight: 'bold',
     },
+
+    clubState:{
+        width:50,
+        height:30,
+        backgroundColor:'lightgray',
+        borderRadius:15,
+        justifyContent:'center',
+        alignItems:'center',
+
     clubisrecruit: {
         width: '15%',
         height: '30%',
@@ -341,6 +379,7 @@ const styles = StyleSheet.create({
         height: '100%',
         marginTop: 100,
         alignItems: 'center',
+
     },
 
 

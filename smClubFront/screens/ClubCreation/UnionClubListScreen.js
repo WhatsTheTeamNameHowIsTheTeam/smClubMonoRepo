@@ -53,7 +53,7 @@ const UnionClubListScreen = () => {
         <UnionClubListScreenComponent clubType={"봉사"} clubData={clubData} isadmin={isadmin}/>
     )
     const UnionCLSec = () => (
-        <UnionClubListScreenComponent clubType={"체육"} clubData={clubData} isadmin={isadmin}/>
+        <UnionClubListScreenComponent clubType={"체육"} clubData={clubData} isadmin={true}/>
     )
     const UnionCLThird = () => (
         <UnionClubListScreenComponent clubType={"공연"} clubData={clubData} isadmin={isadmin}/>
