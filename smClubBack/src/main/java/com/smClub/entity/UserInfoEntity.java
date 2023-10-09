@@ -4,10 +4,7 @@ package com.smClub.entity;
 
 import com.smClub.dto.req.UserRequestDto;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -17,6 +14,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "MBER_INFO")
 @Getter
+@Setter
 @Builder
 @DynamicInsert
 @AllArgsConstructor
@@ -52,10 +50,10 @@ public class UserInfoEntity {
     private String userAuthor; // 서비스관리권한
 
     @Column(name = "NTCN_ESTBS") // default 1
-    private boolean notification; // 알림설정
+    private Boolean notification; // 알림설정
 
     @Column(name = "USE_STPLAT_AGRE_AT") // default 1
-    private boolean userAgree; // 이용약관동의여부
+    private Boolean userAgree; // 이용약관동의여부
 
     @CreationTimestamp
     @Column(name = "USE_STPLAT_AGRE_DT", nullable = false)

@@ -3,13 +3,11 @@ package com.smClub.service.impl;
 
 import com.smClub.dto.res.MainResponseDto;
 import com.smClub.entity.ActDiaryEntity;
-import com.smClub.entity.ClubEntity;
 import com.smClub.entity.ClubMemberEntity;
 import com.smClub.entity.UserInfoEntity;
-import com.smClub.exception.NotClubException;
+import com.smClub.exception.ClubNotFoundException;
 import com.smClub.repository.ActDiaryRepository;
 import com.smClub.repository.ClubMemberRepository;
-import com.smClub.repository.ClubRepository;
 import com.smClub.repository.UserRepository;
 import com.smClub.service.MainService;
 import lombok.extern.slf4j.Slf4j;
@@ -57,9 +55,9 @@ public class MainServiceImpl implements MainService {
                     mainResponseDtoList.add(mainResponseDto);
                 }
             } else {
-                throw new NotClubException();
+                throw new ClubNotFoundException();
             }
-        } catch(NotClubException e) {
+        } catch(ClubNotFoundException e) {
             return null;
         }
 
