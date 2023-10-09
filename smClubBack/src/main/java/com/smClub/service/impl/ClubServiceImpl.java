@@ -29,10 +29,44 @@ public class ClubServiceImpl implements ClubService {
         return null;
     }
 
+
+    //키워드 검색=-=================================
     @Override
-    public List<ClubResponseDto.CategorySearch> getClubList(String category){
+    public List<ClubResponseDto.Search> searchByKeyword(String keyword){
+        System.out.println("ClubServiceImpl 접근 → searchByKeyword 접근 → 받은 키워드 : " + keyword);
+
+        List<ClubResponseDto.Search> clubResponseDtoList = new ArrayList<>();
+        try{
+            List<ClubEntity> clubEntityList = clubRepository.findByColumnNameContaining(keyword);
+            if(clubEntityList != null){
+                for(ClubEntity clubEntity : clubEntityList){
+                    // ClubResponseDto.CategorySearch에 생성자를 호출해 넣어주는것이기때문에 순서와 갯수가 맞아야한다.
+                    ClubResponseDto.Search clubResponseDto = new ClubResponseDto.Search(
+                            clubEntity.getCategory(),
+                            clubEntity.getClubId(),
+                            clubEntity.getClubName(),
+                            clubEntity.getImg(),
+                            clubEntity.getIntroContent());
+                    clubResponseDtoList.add(clubResponseDto); // 생성한 객체를 LIST에 추가
+                }
+                System.out.println(clubResponseDtoList.toString());
+            }else{
+                System.out.println("검색어가 없습니다.");
+            }
+
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
+        return clubResponseDtoList;
+    }
+
+
+    //카테고리 검색
+    @Override
+    public List<ClubResponseDto.Search> searchByCategory(String category){
         log.info("category getClubList in ClubServiceImpl : " + category);
-        List<ClubResponseDto.CategorySearch> clubResponseDtoList = new ArrayList<>();
+        List<ClubResponseDto.Search> clubResponseDtoList = new ArrayList<>();
 
         try{    //CTG000일때 전체불러오고 아니라면 category값을넘겨 jap 에서 자동으로 가져옴
             if(category.equals("CTG000") ) {
@@ -41,7 +75,7 @@ public class ClubServiceImpl implements ClubService {
                 if(clubEntityList != null){
                     for(ClubEntity clubEntity : clubEntityList){
                         // ClubResponseDto.CategorySearch에 생성자를 호출해 넣어주는것이기때문에 순서와 갯수가 맞아야한다.
-                        ClubResponseDto.CategorySearch clubResponseDto = new ClubResponseDto.CategorySearch(
+                        ClubResponseDto.Search clubResponseDto = new ClubResponseDto.Search(
                                 clubEntity.getCategory(),
                                 clubEntity.getClubId(),
                                 clubEntity.getClubName(),
@@ -61,7 +95,7 @@ public class ClubServiceImpl implements ClubService {
                     // 2. 필요한 데이터 get메서드 사용
                     // 3. DTO에 데이터들을 담아서 List에 add 한다
                     for(int i =0; i<clubEntityList.size(); i++){
-                        ClubResponseDto.CategorySearch clubResponseDto = new ClubResponseDto.CategorySearch(
+                        ClubResponseDto.Search clubResponseDto = new ClubResponseDto.Search(
                                 clubEntityList.get(i).getCategory(),
                                 clubEntityList.get(i).getClubId(),
                                 clubEntityList.get(i).getClubName(),

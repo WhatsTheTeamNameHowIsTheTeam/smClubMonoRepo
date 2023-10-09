@@ -45,8 +45,8 @@ public class ClubController {
     @GetMapping("/category/{category}")
     public Map<String, Object> getCategoryClubs(@PathVariable String category){
         log.info("들어온 category"+ category);// print보다 정보얻기 편함
-        List<ClubResponseDto.CategorySearch> clubResponseDtoList = null;
-        clubResponseDtoList = clubService.getClubList(category);
+        List<ClubResponseDto.Search> clubResponseDtoList = null;
+        clubResponseDtoList = clubService.searchByCategory(category);
 
         Map <String, Object> map = new HashMap<>();
         if(clubResponseDtoList !=null){
@@ -60,6 +60,7 @@ public class ClubController {
         return map;
     }
 
+
     // 모든 동아리 모집공고 목록, 모집여부별로 동아리 모집공고 목록
     @GetMapping("/recruitment-boards")
     public void getRecruitmentBoards(){
@@ -71,10 +72,28 @@ public class ClubController {
     public void getSearchedRecruitmentBoards(){
     }
 
-    //동아리 목록에서 검색
-    @GetMapping("/search/{search}")
-    public void getSearchedClubs(){
-        
+
+
+
+
+    //동아리 목록에서 검색==================================
+    @GetMapping("/search/{keyword}")
+    public Map<String, Object> getSearchedClubs(@PathVariable String keyword){
+        log.info(" search Controller 접근 " + keyword);
+        List<ClubResponseDto.Search> clubResponseDtoList = null;
+        clubResponseDtoList = clubService.searchByKeyword(keyword);
+
+        Map <String, Object> map = new HashMap<>();
+        if(clubResponseDtoList !=null){
+            map.put("clubData",clubResponseDtoList);
+
+        }else {
+            map.put("clubData",null);
+
+        }
+
+        return map;
+
     }
 
 }

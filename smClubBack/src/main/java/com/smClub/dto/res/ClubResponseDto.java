@@ -8,12 +8,13 @@ public class ClubResponseDto {
     @Getter
     @AllArgsConstructor
     @Builder
-    public static class CategorySearch{
+    public static class Search{
         private String category;
         private String clubId;
         private String clubName;
         private String img;
         private String introContent;
     }
+
 
 }
