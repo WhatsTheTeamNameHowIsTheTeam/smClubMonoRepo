@@ -17,11 +17,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-//    // 로그인
+//    // 로그인 OAuth대체
 //    @PostMapping("/login")
 //    public void login(){
 //
 //    }
+//
 
 //    // 회원가입
 //    @PostMapping("/sign-up")
@@ -34,7 +35,6 @@ public class UserController {
     public List<UserResponseDto.Info> getUsers(){
         return userService.getUsers();
     }
-
 
     // 마이페이지
     @GetMapping("/{clientUserId}")

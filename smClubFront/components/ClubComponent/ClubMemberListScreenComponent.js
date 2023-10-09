@@ -7,11 +7,14 @@ import {
     TextInput, StyleSheet, Alert,
     Modal, FlatList
 } from 'react-native';
+import { useIsFocused } from "@react-navigation/native";
+import axios from "axios";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // --------------Components
 import styles from '../Style';
 
-const ClubMemberListScreenComponent = () => {
+const ClubMemberListScreenComponent = ({route}) => {
     // 더미 데이터
     const dummyClubMember = [
         {
@@ -58,14 +61,60 @@ const ClubMemberListScreenComponent = () => {
         },
     ];
 
+    
+
+    const isFocused = useIsFocused();
     const [clubMemberList, setClubMemberList] = useState(dummyClubMember); // 동아리원 리스트
     const [searchText, setSearchText] = useState(''); // 검색어
     const [selectedMember, setSelectedMember] = useState(null); // 회원 선택
     const [roleModalVisible, setRoleModalVisible] = useState(false); // 모달 표시여부
+    const [clubId, setClubId] = useState(); //route로 clubId 받아오기
+
 
     useEffect(() => {
+        if(isFocused){
+            // getClubUserData();
 
-    }, []);
+        }
+    }, [isFocused]);
+
+    
+
+
+    // //userdata axsios // but nullUserData is start of default data
+    // const getClubUserData = async () => {
+    //     console.log(route.params)
+        
+    //     //Loading Zone
+    //     const clubId = await props.clubId;
+    //     if(clubId == null){
+    //         console.log(userId);
+    //         clubId = 'CLUB20230808001';
+    //     }
+    //     try{
+    //         await axios(
+    //             {
+    //             method:"get",
+    //             url:'http://192.168.0.41:3306/clubs?clubId='+clubId+'/members',
+    //             params:{
+    //                 clubId:clubId,
+    //             },
+    //         },
+    //         null
+    //         )
+    //         .then((res)=> {
+    //             setClubMemberList(res.data);
+    //             console.log("받아온 데이터는\n",res.data,"\n입니다");
+    //         })
+    //         .catch(function (error){
+    //             Alert.alert("❗error : bad response");
+    //         })
+    //     }catch(error){
+    //         console.log(error);
+    //     }
+
+
+    // }
 
     // 동아리원 컨테이너
     const renderItem = ({ item }) => (

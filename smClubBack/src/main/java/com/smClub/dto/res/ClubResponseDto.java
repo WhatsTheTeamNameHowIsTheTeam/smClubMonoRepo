@@ -1,5 +1,7 @@
 package com.smClub.dto.res;
 
+
+
 import lombok.*;
 
 public class ClubResponseDto {
@@ -34,5 +36,17 @@ public class ClubResponseDto {
         private String introContent;        // 동아리 소개 내용
         private boolean excellence;         // 동아리 최우수 여부
         private Integer excellenceCnt;      // 동아리 최우수 횟수
+    }
+  
+  
+    @Getter
+    @AllArgsConstructor
+    @Builder
+    public static class Search{
+        private String category;
+        private String clubId;
+        private String clubName;
+        private String img;
+        private String introContent;
     }
 }
