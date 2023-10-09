@@ -1,11 +1,24 @@
 package com.smClub.controller.clubs;
 
+import com.smClub.dto.res.ClubResponseDto;
+import com.smClub.service.ClubService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+@Slf4j
 @RestController
 @RequestMapping("/clubs")
 public class ClubController {
+    
+    //1.clubService 필드에 객체 생성
+    @Autowired
+    private ClubService clubService;
 
     // [연합회] 동아리 생성
     @PostMapping
@@ -30,7 +43,21 @@ public class ClubController {
 
     // 동아리 카테고리 별로 불러오기
     @GetMapping("/category/{category}")
-    public void getCategoryClubs(){
+    public Map<String, Object> getCategoryClubs(@PathVariable String category){
+        log.info("들어온 category"+ category);// print보다 정보얻기 편함
+        List<ClubResponseDto.CategorySearch> clubResponseDtoList = null;
+        clubResponseDtoList = clubService.getClubList(category);
+
+        Map <String, Object> map = new HashMap<>();
+        if(clubResponseDtoList !=null){
+            map.put("clubData",clubResponseDtoList);
+
+        }else {
+            map.put("clubData",null);
+
+        }
+
+        return map;
     }
 
     // 모든 동아리 모집공고 목록, 모집여부별로 동아리 모집공고 목록
@@ -42,13 +69,12 @@ public class ClubController {
     // 모집공고 목록에서 검색버튼
     @GetMapping("/recruitment-boards/search/{search}")
     public void getSearchedRecruitmentBoards(){
-
     }
 
     //동아리 목록에서 검색
     @GetMapping("/search/{search}")
     public void getSearchedClubs(){
-
+        
     }
 
 }

@@ -18,13 +18,14 @@ import MyClubComponent from '../../components/MyClubComponent';
 import Myclublist from '../../Data/myClubListDumy.json'
 
 
-const MyClubListScreen = (props) => {
+const MyClubListScreen = (route) => {
     const [loading, setLoading] = useState(true); // 로딩
     const [searchText, setSearchText] = useState(''); // 검색어
     const [clublist, setClublist] = useState(Myclublist.myClubList); // 동아리 목록
     const [isModalVisible, setIsModalVisible] = useState(false); // 모달
 
     useEffect(() => {
+        console.log(route.paramse)
 
         // 로딩 시작
         // 서버에서 값 받아오면 바뀌기

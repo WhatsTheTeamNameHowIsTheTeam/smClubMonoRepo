@@ -16,11 +16,14 @@ import clubListDumy from '../Data/clubListDumy.json';
 
 
 const ClubComponent = (props) => {
+
     const [isrecruit, setIsRecruitement] = useState(true); // 이미지가 있는지 없는지
     const [isUnionAdmin, setIsUnionAdmin] = useState(props.isUnionAdmin); // 연합회 관리자인지 아닌지
     const [clubData, setClubData] = useState(props.clubData); // 동아리 전체 데이터
     // navigation 사용
     const navigation = useNavigation();
+
+    
 
     // 글자가 길면 ...으로 표시
     const TruncatedText = ({ text, maxLength, size, weightBool }) => {
@@ -47,9 +50,10 @@ const ClubComponent = (props) => {
                 style={styles.ClubComponentView}
                 onPress={() => {
                     console.log('동아리 컴포넌트 클릭')
+                    console.log("클릭한 동아리 아이디 값", clubData.clubId)
                     navigation.navigate('MyClub', {
                         screen: 'ClubMainScreen',
-                        // clubData : clubData,
+                        clubData : clubData.clubId
                     })
                 }}
             >

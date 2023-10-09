@@ -36,8 +36,9 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/main").permitAll()
-                        .anyRequest().authenticated() // 모든 요청에 권한 설정
+//                        .requestMatchers("/main").permitAll()
+//                        .anyRequest().authenticated() // 모든 요청에 권한 설정
+                                .anyRequest().permitAll()
                 )
                 .httpBasic(Customizer.withDefaults())
                 .oauth2Login(oauth2 -> oauth2

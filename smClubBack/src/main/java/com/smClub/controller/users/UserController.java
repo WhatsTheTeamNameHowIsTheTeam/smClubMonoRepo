@@ -12,17 +12,17 @@ public class UserController {
 
     }
 
-    // 로그인
-    @PostMapping("/login")
-    public void login(){
-
-    }
-
-    // 회원가입
-    @PostMapping("/sign-up")
-    public void signUp(){
-
-    }
+//    // 로그인 OAuth대체
+//    @PostMapping("/login")
+//    public void login(){
+//
+//    }
+//
+//    // 회원가입
+//    @PostMapping("/sign-up")
+//    public void signUp(){
+//
+//    }
 
     // 마이페이지
     @GetMapping("/{userId}")
