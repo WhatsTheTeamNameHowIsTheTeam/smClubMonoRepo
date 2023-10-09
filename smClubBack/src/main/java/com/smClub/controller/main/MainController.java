@@ -26,7 +26,7 @@ public class MainController {
     //메인 페이지 이동
     @GetMapping
     public Map<String, Object> getMain(@RequestParam(required = false,value = "user") String clientUserId){
-        log.info("prameter_clientUserId = {}", clientUserId);
+        log.info("[getMain] : prameter_user = {}", clientUserId);
         List<MainResponseDto> mainResponseDtoList = null;
         if(clientUserId != null){
             mainResponseDtoList = mainService.getMain(clientUserId);
