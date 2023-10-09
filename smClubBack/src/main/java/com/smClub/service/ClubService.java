@@ -1,6 +1,7 @@
 
 package com.smClub.service;
 
+import com.smClub.dto.req.ClubRequestDto;
 import com.smClub.dto.res.ClubResponseDto;
 import com.smClub.dto.res.MainResponseDto;
 
@@ -15,4 +16,8 @@ public interface ClubService {
     
     //검색어를 받아 포함돼있는 데이터를 찾기위한 메서드
     List<ClubResponseDto.Search> searchByKeyword(String keyword);
+
+    ClubResponseDto.Info getClub(String clubId);
+    ClubResponseDto.Update updateClub(String clubId, ClubRequestDto.Update clubUpdateRequestDto);
+
 }

@@ -1,12 +1,17 @@
 package com.smClub.controller.clubs;
 
+
+import com.smClub.dto.req.ClubRequestDto;
 import com.smClub.dto.res.ClubResponseDto;
 import com.smClub.service.ClubService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,20 +25,40 @@ public class ClubController {
     @Autowired
     private ClubService clubService;
 
+    @Autowired
+    private ClubService clubService;
+
     // [연합회] 동아리 생성
     @PostMapping
-    public void setClub(){
+    public void setClub(@ModelAttribute ClubRequestDto.Create clubCreateRequestDto){
+        log.info("[setClub] : {}", clubCreateRequestDto);
 
     }
 
     // 동아리 메인(정보) 페이지 이동
     @GetMapping("/{clubId}")
-    public void getClub(@RequestParam String clubId){
+    public Map<String, Object> getClub(@PathVariable String clubId){
+        log.info("[getClub] : {}", clubId);
+        ClubResponseDto.Info clubInfoRequestDto = clubService.getClub(clubId);
+        Map<String, Object> map = new HashMap<>();
+
+        if(clubInfoRequestDto != null){
+            map.put("clubInfo", clubInfoRequestDto);
+        } else {
+            map.put("clubInfo", null);
+        }
+        return map;
     }
 
     // 동아리 수정, [연합회] 최우수 동아리 선정
     @PutMapping("/{clubId}")
-    public void updateClub(@RequestParam String clubId){
+    public ClubResponseDto.Update updateClub(
+            @PathVariable String clubId,
+            @RequestBody ClubRequestDto.Update clubUpdateRequestDto){
+
+        log.info("[updateClub] : clubId = {}, clubUpdateRequestDto.getClubName() = {}", clubId, clubUpdateRequestDto.getClubName());
+        ClubResponseDto.Update clubUpdateResponseDto = clubService.updateClub(clubId, clubUpdateRequestDto);
+        return clubUpdateResponseDto;
     }
 
     @DeleteMapping("/{clubId}")

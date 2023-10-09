@@ -11,10 +11,13 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -42,7 +45,7 @@ public class SecurityConfig {
                 )
                 .httpBasic(Customizer.withDefaults())
                 .oauth2Login(oauth2 -> oauth2
-                        .loginPage("/login")
+                        .loginPage("/login") // 권한인증이 안되어있을 때 권한인증하라고 리디렉션해주는 페이지
                         .failureHandler(new AuthenticationFailureHandler() {
                             @Override
                             public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
@@ -53,6 +56,14 @@ public class SecurityConfig {
                                 response.setStatus(HttpServletResponse.SC_UNAUTHORIZED); //  HTTP 응답 상태 코드를 401 Unauthorized 상태 코드로 설정하여 클라이언트에게 인증실패를 알림
                                 response.setContentType("application/json;charset=UTF-8");
                                 response.getWriter().write(objectMapper().writeValueAsString(failData));
+                            }
+                        })
+                        .successHandler(new AuthenticationSuccessHandler() {
+                            @Override
+                            public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+                                OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
+                                log.info("[authentication] : {}", oAuth2User.getAttributes());
+                                response.sendRedirect("/main?user=google_"+oAuth2User.getAttribute("sub"));
                             }
                         })
                 )

@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "CLUB")
 @AllArgsConstructor
